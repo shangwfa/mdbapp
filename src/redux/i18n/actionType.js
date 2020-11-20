@@ -1,0 +1,3 @@
+export default {
+  I18N_USER_SET_LANGUAGE: 'I18N_USER_SET_LANGUAGE',
+};
