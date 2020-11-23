@@ -5,7 +5,6 @@ import requestConfig from './request';
 import responseConfig from './response';
 import encrypt from './request/encrypt';
 import decrypt from './response/decrypt';
-
 const {
   G: {ENV},
 } = store.getState();

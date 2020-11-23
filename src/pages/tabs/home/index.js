@@ -8,6 +8,7 @@ import I18n from '../../../i18n';
 import Actions from '../../../redux/actions';
 import ActionTypes from '../../../redux/actionTypes';
 import HTTP from '../../../api';
+import apiPaths from '../../../api/path';
 import DeviceInfo from 'react-native-device-info';
 
 class HomePage extends BasePage {
@@ -34,7 +35,7 @@ class HomePage extends BasePage {
   };
   toReq = async () => {
     await HTTP.api({
-      url: '/login.do',
+      url: apiPaths.LOGIN,
       method: 'POST',
       data: {
         ActionMethod: 'login',
@@ -52,6 +53,7 @@ class HomePage extends BasePage {
       },
     });
   };
+
   renderContainer() {
     return (
       <View style={styles.container}>

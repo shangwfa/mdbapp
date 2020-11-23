@@ -5,7 +5,7 @@ import BasePage from '../BasePage';
 class SplashPage extends BasePage {
   didMount() {
     setTimeout(() => {
-      this.props.navigation.replace('Tabs');
+      this.navigation.replace('Tabs');
     }, 5000);
   }
 

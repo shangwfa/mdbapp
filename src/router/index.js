@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, StackRouter} from '@react-navigation/native';
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from '@react-navigation/stack';
 import routes from './routes';
+import {navigationRef, isReadyRef} from './rootNavigation';
 
 const Stack = createStackNavigator();
 
 function Router() {
   const routeNameRef = React.useRef();
-  const navigationRef = React.useRef();
 
   const onStateChange = () => {
     const previousRouteName = routeNameRef.current;
@@ -20,8 +20,17 @@ function Router() {
     console.log(`当前页面接收参数${JSON.stringify(params ? params : {})}`);
     routeNameRef.current = currentRouteName;
   };
-  const onReady = () =>
-    (routeNameRef.current = navigationRef.current.getCurrentRoute().name);
+  const onReady = () => {
+    isReadyRef.current = true;
+    routeNameRef.current = navigationRef.current.getCurrentRoute().name;
+  };
+
+  React.useEffect(() => {
+    return () => {
+      isReadyRef.current = false;
+    };
+  }, []);
+
   return (
     <NavigationContainer
       ref={navigationRef}
