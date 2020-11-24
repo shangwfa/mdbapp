@@ -36,6 +36,7 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
   async (response) => {
+    console.log('response', response);
     let res = await decrypt(response.data);
 
     console.log('HTTP响应:');

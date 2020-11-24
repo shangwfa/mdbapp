@@ -53,7 +53,19 @@ class HomePage extends BasePage {
       },
     });
   };
-
+  toGetInfo = async () => {
+    await HTTP.api({
+      url: apiPaths.SETTINGINFO,
+      method: 'POST',
+      data: {
+        ActionMethod: 'load',
+        deviceId: DeviceInfo.getUniqueId(),
+        loginId: 'TESTUSER01',
+        status: '0',
+        authKey: 'SCLFKDPXHF3QBQEI',
+      },
+    });
+  };
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -63,6 +75,7 @@ class HomePage extends BasePage {
         <Button title="Storage" onPress={this.toStorage} />
         <Button title="切换语言" onPress={this.toSwitch} />
         <Button title="HTTP" onPress={this.toReq} />
+        <Button title="SETTINGINFO" onPress={this.toGetInfo} />
       </View>
     );
   }
