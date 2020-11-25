@@ -5,6 +5,8 @@ import requestConfig from './request';
 import responseConfig from './response';
 import encrypt from './request/encrypt';
 import decrypt from './response/decrypt';
+import ActionTypes from '../redux/actionTypes';
+import Actions from '../redux/actions';
 const {
   G: {ENV},
 } = store.getState();
@@ -69,19 +71,21 @@ service.interceptors.response.use(
   },
 ];
 const api = async (request) => {
-  //显示loadding
+  store.dispatch(Actions[ActionTypes.G_IS_LOADING](true));
   try {
-    return await service.request({
+    let result = await service.request({
       url: request.url,
       method: request.method,
       params: request.params,
       data: request.data,
     });
+    store.dispatch(Actions[ActionTypes.G_IS_LOADING](false));
+    return result;
   } catch (error) {
-    console.log(error);
+    console.log('网络请求异常:', error);
+    store.dispatch(Actions[ActionTypes.G_IS_LOADING](false));
     return error;
   }
-  //取消loadding;
 };
 
 const getPreData = (res, predata) => {
@@ -95,7 +99,7 @@ const getPreData = (res, predata) => {
 };
 
 const apis = async (requests) => {
-  //显示loadding
+  store.dispatch(Actions(ActionTypes.G_IS_LOADING)(true));
   const result = {};
   try {
     for (let request of requests) {
@@ -106,12 +110,12 @@ const apis = async (requests) => {
         data: {...request.data, ...getPreData(request.preData)},
       });
     }
+    store.dispatch(Actions(ActionTypes.G_IS_LOADING)(false));
     return result;
-  } catch (e) {
-    return e;
+  } catch (error) {
+    console.log('网络请求异常:', error);
+    store.dispatch(Actions(ActionTypes.G_IS_LOADING)(false));
   }
-
-  //取消loadding
 };
 
 export default {api, apis};

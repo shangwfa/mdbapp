@@ -9,4 +9,12 @@ export default {
       },
     };
   },
+  [Types.G_IS_LOADING]: (isLoading) => {
+    return {
+      type: Types.G_IS_LOADING,
+      payload: {
+        isLoading,
+      },
+    };
+  },
 };
