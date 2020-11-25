@@ -17,6 +17,10 @@ target 'mdbAPP' do
 
   pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info'
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
+  pod 'react-native-orientation', :path => '../node_modules/react-native-orientation'
+
   target 'mdbAPPTests' do
     inherit! :complete
     # Pods for testing

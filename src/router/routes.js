@@ -1,6 +1,7 @@
 import SplashPage from '../pages/splash';
 import Tabs from '../pages/tabs';
 import LoginPage from '../pages/login';
+import RNCameraPage from '../pages/rnCamera';
 const routes = [
   {
     name: 'Splash',
@@ -13,6 +14,10 @@ const routes = [
   {
     name: 'Login',
     component: LoginPage,
+  },
+  {
+    name: 'RNCamera',
+    component: RNCameraPage,
   },
 ];
 

@@ -66,6 +66,9 @@ class HomePage extends BasePage {
       },
     });
   };
+  toRNCamera = () => {
+    this.navigation.navigate(routePaths.RNCamera);
+  };
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -76,6 +79,7 @@ class HomePage extends BasePage {
         <Button title="切换语言" onPress={this.toSwitch} />
         <Button title="HTTP" onPress={this.toReq} />
         <Button title="SETTINGINFO" onPress={this.toGetInfo} />
+        <Button title="RNCamera" onPress={this.toRNCamera} />
       </View>
     );
   }
