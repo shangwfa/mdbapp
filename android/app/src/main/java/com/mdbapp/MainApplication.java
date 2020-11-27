@@ -2,17 +2,14 @@ package com.mdbapp;
 
 import android.app.Application;
 import android.content.Context;
+
+import androidx.multidex.MultiDex;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.github.yamill.orientation.OrientationPackage;
-import org.reactnative.camera.RNCameraPackage;
-import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.facebook.react.modules.network.OkHttpClientFactory;
 import com.facebook.react.modules.network.OkHttpClientProvider;
 import com.facebook.react.modules.network.ReactCookieJarContainer;
-import com.zoontek.rnlocalize.RNLocalizePackage;
-import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -49,7 +46,7 @@ public class MainApplication extends Application implements ReactApplication {
           @SuppressWarnings("UnnecessaryLocalVariable")
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // packages.add(new MyReactNativePackage());
-            packages.add(new AesCryptoPackage());
+            packages.add(new MdbPackage());
           return packages;
         }
 
@@ -71,6 +68,11 @@ public class MainApplication extends Application implements ReactApplication {
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     initHTTPS();
   }
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(base);
+    }
 
   public void initHTTPS(){
       OkHttpClientProvider.setOkHttpClientFactory(new OkHttpClientFactory() {

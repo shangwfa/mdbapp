@@ -1,0 +1,146 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.megvii.livenesslib.takeImage.CameraActivity">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <com.megvii.livenesslib.takeImage.preview.CameraSurfaceView
+            android:id="@+id/camera_surfaceview"
+            android:layout_width="0dip"
+            android:layout_height="0dip" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:orientation="vertical">
+
+                <com.megvii.livenesslib.takeImage.ui.MaskView
+                    android:id="@+id/view_mask"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal|center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:alpha="0.72"
+                android:background="@drawable/gray"
+                android:orientation="vertical">
+<!--
+                <TextView
+                    android:id="@+id/text_titleTips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12sp"
+                    android:layout_marginBottom="12sp"
+                    android:height="36sp"
+                    android:gravity="center"
+                    android:text="拍攝身份證正面"
+                    android:textColor="@drawable/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_Tips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="請把證件置於方框内，保證清晰無反光"
+                    android:textColor="@drawable/white"
+                    android:textSize="14sp" />
+-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24sp">
+
+                    <Button
+                        android:id="@+id/btn_shutter1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:width="80sp"
+                        android:height="80sp"
+                        android:background="@drawable/button_circle_shape"
+                        android:gravity="center"
+                        android:text="拍照"
+                        android:textColor="@drawable/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+
+                    <ImageButton
+                        android:id="@+id/btn_shutter2"
+                        android:layout_width="84sp"
+                        android:layout_height="84sp"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="40sp"
+                        android:background="@drawable/btn_camera_ok"
+                        android:focusable="false"
+                        android:gravity="center"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/btn_shutter3"
+                        android:layout_width="80sp"
+                        android:layout_height="80sp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:width="80sp"
+                        android:height="80sp"
+                        android:background="@drawable/button_circle_shape2"
+                        android:gravity="center"
+                        android:text="重拍"
+                        android:textColor="@drawable/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="60sp"
+        android:layout_height="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="10dip"
+        android:background="#FFFFFFFF"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="取消"
+        android:textAlignment="center"
+        android:textColor="#093393"
+        android:visibility="visible" />
+    <ImageButton
+        android:id="@+id/btn_shutter"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dip"
+        android:background="@drawable/btn_shutter_background" />
+
+    
+    
+</RelativeLayout>

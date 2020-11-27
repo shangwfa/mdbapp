@@ -193,6 +193,10 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
     implementation files('libs/BASE64Encoder.jar')
     implementation project(':react-native-camera')
+    implementation project(path:':ocridcardlibrary')
+    implementation project(path:':livenessLib')
+    implementation 'com.github.tbruyelle:rxpermissions:0.12'
+    implementation 'com.yanzhenjie:permission:2.0.3'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
