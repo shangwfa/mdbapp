@@ -4,6 +4,7 @@ import SplashScreen from 'react-native-splash-screen';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Orientation from 'react-native-orientation';
 import {Provider} from 'react-redux';
+import ScaleView from './components/base/ScaleView';
 import Router from './router';
 import store from './redux';
 
@@ -17,7 +18,9 @@ export default class APP extends React.Component {
       <SafeAreaProvider>
         <ANTDProvider>
           <Provider store={store}>
-            <Router />
+            <ScaleView designWidth={750}>
+              <Router />
+            </ScaleView>
           </Provider>
         </ANTDProvider>
       </SafeAreaProvider>

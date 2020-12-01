@@ -15,6 +15,24 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* mdbAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mdbAPPTests.m */; };
+		792ABF6D2570A23600496A12 /* IDCardOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF512570A23600496A12 /* IDCardOverView.m */; };
+		792ABF6E2570A23600496A12 /* StartIDCardCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF532570A23600496A12 /* StartIDCardCameraViewController.m */; };
+		792ABF6F2570A23600496A12 /* MDBOcrStartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF552570A23600496A12 /* MDBOcrStartManager.m */; };
+		792ABF702570A23600496A12 /* IDCardCameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF582570A23600496A12 /* IDCardCameraViewController.mm */; };
+		792ABF712570A23600496A12 /* NativeImagePickerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF592570A23600496A12 /* NativeImagePickerUtil.m */; };
+		792ABF722570A23600496A12 /* OCRContans.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF5C2570A23600496A12 /* OCRContans.m */; };
+		792ABF732570A23600496A12 /* img_camera_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF5E2570A23600496A12 /* img_camera_bg@2x.png */; };
+		792ABF742570A23600496A12 /* flash_camera_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF5F2570A23600496A12 /* flash_camera_btn@2x.png */; };
+		792ABF752570A23600496A12 /* flash_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF602570A23600496A12 /* flash_camera_btn@3x.png */; };
+		792ABF762570A23600496A12 /* img_camera_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF612570A23600496A12 /* img_camera_bg@3x.png */; };
+		792ABF772570A23600496A12 /* btn_camera_ok@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF622570A23600496A12 /* btn_camera_ok@3x.png */; };
+		792ABF782570A23600496A12 /* btn_camera_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF632570A23600496A12 /* btn_camera_ok@2x.png */; };
+		792ABF792570A23600496A12 /* take_pic_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF642570A23600496A12 /* take_pic_btn@3x.png */; };
+		792ABF7A2570A23600496A12 /* back_camera_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF652570A23600496A12 /* back_camera_btn@2x.png */; };
+		792ABF7B2570A23600496A12 /* back_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF662570A23600496A12 /* back_camera_btn@3x.png */; };
+		792ABF7C2570A23600496A12 /* take_pic_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF672570A23600496A12 /* take_pic_btn@2x.png */; };
+		792ABF7D2570A23600496A12 /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF6A2570A23600496A12 /* TakePhotoViewController.xib */; };
+		792ABF7E2570A23600496A12 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF6B2570A23600496A12 /* TakePhotoViewController.m */; };
 		797B492B2567C9050027A278 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49242567C9050027A278 /* GTMBase64.m */; };
 		797B492C2567C9050027A278 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49252567C9050027A278 /* NSData+AES.m */; };
 		797B492D2567C9050027A278 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49262567C9050027A278 /* SecurityUtil.m */; };
@@ -66,6 +84,34 @@
 		2D02E47B1E0B4A5D006451C7 /* mdbAPP-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mdbAPP-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* mdbAPP-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mdbAPP-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5002C4CE16E346995536FF68 /* Pods-mdbAPP-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdbAPP-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-mdbAPP-tvOS/Pods-mdbAPP-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		792ABF482570A12400496A12 /* RCTAesCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTAesCrypto.h; sourceTree = "<group>"; };
+		792ABF492570A12700496A12 /* RCTAesCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTAesCrypto.h; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/RCTAesCrypto.h"; sourceTree = "<group>"; };
+		792ABF4A2570A13300496A12 /* RCTAesCrypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTAesCrypto.h; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/RCTAesCrypto.h"; sourceTree = "<group>"; };
+		792ABF512570A23600496A12 /* IDCardOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardOverView.m; sourceTree = "<group>"; };
+		792ABF522570A23600496A12 /* MDBOcrStartManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBOcrStartManager.h; sourceTree = "<group>"; };
+		792ABF532570A23600496A12 /* StartIDCardCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartIDCardCameraViewController.m; sourceTree = "<group>"; };
+		792ABF542570A23600496A12 /* IDCardCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardCameraViewController.h; sourceTree = "<group>"; };
+		792ABF552570A23600496A12 /* MDBOcrStartManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBOcrStartManager.m; sourceTree = "<group>"; };
+		792ABF562570A23600496A12 /* IDCardOverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardOverView.h; sourceTree = "<group>"; };
+		792ABF572570A23600496A12 /* StartIDCardCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartIDCardCameraViewController.h; sourceTree = "<group>"; };
+		792ABF582570A23600496A12 /* IDCardCameraViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = IDCardCameraViewController.mm; sourceTree = "<group>"; };
+		792ABF592570A23600496A12 /* NativeImagePickerUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeImagePickerUtil.m; sourceTree = "<group>"; };
+		792ABF5B2570A23600496A12 /* OCRContans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRContans.h; sourceTree = "<group>"; };
+		792ABF5C2570A23600496A12 /* OCRContans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRContans.m; sourceTree = "<group>"; };
+		792ABF5E2570A23600496A12 /* img_camera_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_camera_bg@2x.png"; sourceTree = "<group>"; };
+		792ABF5F2570A23600496A12 /* flash_camera_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash_camera_btn@2x.png"; sourceTree = "<group>"; };
+		792ABF602570A23600496A12 /* flash_camera_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash_camera_btn@3x.png"; sourceTree = "<group>"; };
+		792ABF612570A23600496A12 /* img_camera_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_camera_bg@3x.png"; sourceTree = "<group>"; };
+		792ABF622570A23600496A12 /* btn_camera_ok@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_camera_ok@3x.png"; sourceTree = "<group>"; };
+		792ABF632570A23600496A12 /* btn_camera_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_camera_ok@2x.png"; sourceTree = "<group>"; };
+		792ABF642570A23600496A12 /* take_pic_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take_pic_btn@3x.png"; sourceTree = "<group>"; };
+		792ABF652570A23600496A12 /* back_camera_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_camera_btn@2x.png"; sourceTree = "<group>"; };
+		792ABF662570A23600496A12 /* back_camera_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_camera_btn@3x.png"; sourceTree = "<group>"; };
+		792ABF672570A23600496A12 /* take_pic_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take_pic_btn@2x.png"; sourceTree = "<group>"; };
+		792ABF692570A23600496A12 /* TakePhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhotoViewController.h; sourceTree = "<group>"; };
+		792ABF6A2570A23600496A12 /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
+		792ABF6B2570A23600496A12 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
+		792ABF6C2570A23600496A12 /* NativeImagePickerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeImagePickerUtil.h; sourceTree = "<group>"; };
 		797B49242567C9050027A278 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMBase64.m; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/AesKit/GTMBase64.m"; sourceTree = "<group>"; };
 		797B49252567C9050027A278 /* NSData+AES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+AES.m"; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/AesKit/NSData+AES.m"; sourceTree = "<group>"; };
 		797B49262567C9050027A278 /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecurityUtil.m; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/AesKit/SecurityUtil.m"; sourceTree = "<group>"; };
@@ -147,6 +193,7 @@
 		13B07FAE1A68108700A75B9A /* mdbAPP */ = {
 			isa = PBXGroup;
 			children = (
+				792ABF4F2570A23600496A12 /* MDBOCRIdentity */,
 				797B49232567C7C30027A278 /* AesKit */,
 				797B49322567C91B0027A278 /* RCTAesCrypto.h */,
 				797B49332567C91B0027A278 /* RCTAesCrypto.m */,
@@ -189,6 +236,71 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		792ABF4F2570A23600496A12 /* MDBOCRIdentity */ = {
+			isa = PBXGroup;
+			children = (
+				792ABF502570A23600496A12 /* Camera */,
+				792ABF592570A23600496A12 /* NativeImagePickerUtil.m */,
+				792ABF5A2570A23600496A12 /* OCRContants */,
+				792ABF5D2570A23600496A12 /* CameraImage */,
+				792ABF682570A23600496A12 /* CameraImageTake */,
+				792ABF6C2570A23600496A12 /* NativeImagePickerUtil.h */,
+			);
+			name = MDBOCRIdentity;
+			path = ../../ios/MDB_APP_20190602_UITest/ios/MDBOCRIdentity;
+			sourceTree = "<group>";
+		};
+		792ABF502570A23600496A12 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				792ABF512570A23600496A12 /* IDCardOverView.m */,
+				792ABF522570A23600496A12 /* MDBOcrStartManager.h */,
+				792ABF532570A23600496A12 /* StartIDCardCameraViewController.m */,
+				792ABF542570A23600496A12 /* IDCardCameraViewController.h */,
+				792ABF552570A23600496A12 /* MDBOcrStartManager.m */,
+				792ABF562570A23600496A12 /* IDCardOverView.h */,
+				792ABF572570A23600496A12 /* StartIDCardCameraViewController.h */,
+				792ABF582570A23600496A12 /* IDCardCameraViewController.mm */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		792ABF5A2570A23600496A12 /* OCRContants */ = {
+			isa = PBXGroup;
+			children = (
+				792ABF5B2570A23600496A12 /* OCRContans.h */,
+				792ABF5C2570A23600496A12 /* OCRContans.m */,
+			);
+			path = OCRContants;
+			sourceTree = "<group>";
+		};
+		792ABF5D2570A23600496A12 /* CameraImage */ = {
+			isa = PBXGroup;
+			children = (
+				792ABF5E2570A23600496A12 /* img_camera_bg@2x.png */,
+				792ABF5F2570A23600496A12 /* flash_camera_btn@2x.png */,
+				792ABF602570A23600496A12 /* flash_camera_btn@3x.png */,
+				792ABF612570A23600496A12 /* img_camera_bg@3x.png */,
+				792ABF622570A23600496A12 /* btn_camera_ok@3x.png */,
+				792ABF632570A23600496A12 /* btn_camera_ok@2x.png */,
+				792ABF642570A23600496A12 /* take_pic_btn@3x.png */,
+				792ABF652570A23600496A12 /* back_camera_btn@2x.png */,
+				792ABF662570A23600496A12 /* back_camera_btn@3x.png */,
+				792ABF672570A23600496A12 /* take_pic_btn@2x.png */,
+			);
+			path = CameraImage;
+			sourceTree = "<group>";
+		};
+		792ABF682570A23600496A12 /* CameraImageTake */ = {
+			isa = PBXGroup;
+			children = (
+				792ABF692570A23600496A12 /* TakePhotoViewController.h */,
+				792ABF6A2570A23600496A12 /* TakePhotoViewController.xib */,
+				792ABF6B2570A23600496A12 /* TakePhotoViewController.m */,
+			);
+			path = CameraImageTake;
+			sourceTree = "<group>";
+		};
 		797B46F1256671C00027A278 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +320,9 @@
 		797B49232567C7C30027A278 /* AesKit */ = {
 			isa = PBXGroup;
 			children = (
+				792ABF482570A12400496A12 /* RCTAesCrypto.h */,
+				792ABF492570A12700496A12 /* RCTAesCrypto.h */,
+				792ABF4A2570A13300496A12 /* RCTAesCrypto.h */,
 				797B492A2567C9050027A278 /* GTMBase64.h */,
 				797B49242567C9050027A278 /* GTMBase64.m */,
 				797B49272567C9050027A278 /* GTMDefines.h */,
@@ -412,7 +527,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792ABF7D2570A23600496A12 /* TakePhotoViewController.xib in Resources */,
+				792ABF752570A23600496A12 /* flash_camera_btn@3x.png in Resources */,
+				792ABF732570A23600496A12 /* img_camera_bg@2x.png in Resources */,
+				792ABF742570A23600496A12 /* flash_camera_btn@2x.png in Resources */,
+				792ABF7C2570A23600496A12 /* take_pic_btn@2x.png in Resources */,
+				792ABF772570A23600496A12 /* btn_camera_ok@3x.png in Resources */,
+				792ABF762570A23600496A12 /* img_camera_bg@3x.png in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				792ABF7B2570A23600496A12 /* back_camera_btn@3x.png in Resources */,
+				792ABF792570A23600496A12 /* take_pic_btn@3x.png in Resources */,
+				792ABF7A2570A23600496A12 /* back_camera_btn@2x.png in Resources */,
+				792ABF782570A23600496A12 /* btn_camera_ok@2x.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,12 +766,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792ABF702570A23600496A12 /* IDCardCameraViewController.mm in Sources */,
+				792ABF722570A23600496A12 /* OCRContans.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				797B492B2567C9050027A278 /* GTMBase64.m in Sources */,
 				797B492C2567C9050027A278 /* NSData+AES.m in Sources */,
+				792ABF7E2570A23600496A12 /* TakePhotoViewController.m in Sources */,
+				792ABF6E2570A23600496A12 /* StartIDCardCameraViewController.m in Sources */,
 				797B492D2567C9050027A278 /* SecurityUtil.m in Sources */,
 				797B49342567C91B0027A278 /* RCTAesCrypto.m in Sources */,
+				792ABF712570A23600496A12 /* NativeImagePickerUtil.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				792ABF6D2570A23600496A12 /* IDCardOverView.m in Sources */,
+				792ABF6F2570A23600496A12 /* MDBOcrStartManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

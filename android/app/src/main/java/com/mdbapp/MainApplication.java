@@ -67,6 +67,7 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
     initHTTPS();
+
   }
     @Override
     protected void attachBaseContext(Context base) {
