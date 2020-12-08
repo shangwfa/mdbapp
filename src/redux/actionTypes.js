@@ -1,7 +1,7 @@
-import I18nActionType from './i18n/actionType';
-import G from './global/actionType';
+import I18nRedux from './i18n';
+import GRedux from './global';
 
 export default {
-  ...I18nActionType,
-  ...G,
+  ...I18nRedux.ActionType,
+  ...GRedux.ActionType,
 };

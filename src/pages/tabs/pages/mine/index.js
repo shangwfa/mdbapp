@@ -1,13 +1,6 @@
 import * as React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  NativeModules,
-  findNodeHandle,
-} from 'react-native';
-import BasePage from '../../BasePage';
+import {View, Text, StyleSheet, Button, NativeModules} from 'react-native';
+import BasePage from '../../../BasePage';
 import {DotIndicator} from 'react-native-indicators';
 
 class MinePage extends BasePage {

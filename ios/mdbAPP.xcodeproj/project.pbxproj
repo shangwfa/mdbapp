@@ -15,12 +15,6 @@
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* mdbAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mdbAPPTests.m */; };
-		792ABF6D2570A23600496A12 /* IDCardOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF512570A23600496A12 /* IDCardOverView.m */; };
-		792ABF6E2570A23600496A12 /* StartIDCardCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF532570A23600496A12 /* StartIDCardCameraViewController.m */; };
-		792ABF6F2570A23600496A12 /* MDBOcrStartManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF552570A23600496A12 /* MDBOcrStartManager.m */; };
-		792ABF702570A23600496A12 /* IDCardCameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF582570A23600496A12 /* IDCardCameraViewController.mm */; };
-		792ABF712570A23600496A12 /* NativeImagePickerUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF592570A23600496A12 /* NativeImagePickerUtil.m */; };
-		792ABF722570A23600496A12 /* OCRContans.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF5C2570A23600496A12 /* OCRContans.m */; };
 		792ABF732570A23600496A12 /* img_camera_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF5E2570A23600496A12 /* img_camera_bg@2x.png */; };
 		792ABF742570A23600496A12 /* flash_camera_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF5F2570A23600496A12 /* flash_camera_btn@2x.png */; };
 		792ABF752570A23600496A12 /* flash_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF602570A23600496A12 /* flash_camera_btn@3x.png */; };
@@ -32,11 +26,6 @@
 		792ABF7B2570A23600496A12 /* back_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF662570A23600496A12 /* back_camera_btn@3x.png */; };
 		792ABF7C2570A23600496A12 /* take_pic_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF672570A23600496A12 /* take_pic_btn@2x.png */; };
 		792ABF7D2570A23600496A12 /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF6A2570A23600496A12 /* TakePhotoViewController.xib */; };
-		792ABF7E2570A23600496A12 /* TakePhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 792ABF6B2570A23600496A12 /* TakePhotoViewController.m */; };
-		797B492B2567C9050027A278 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49242567C9050027A278 /* GTMBase64.m */; };
-		797B492C2567C9050027A278 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49252567C9050027A278 /* NSData+AES.m */; };
-		797B492D2567C9050027A278 /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49262567C9050027A278 /* SecurityUtil.m */; };
-		797B49342567C91B0027A278 /* RCTAesCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 797B49332567C91B0027A278 /* RCTAesCrypto.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85AE11594DA51D7E14E10707 /* libPods-mdbAPP-mdbAPPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F91401389D657C9CD4845AF9 /* libPods-mdbAPP-mdbAPPTests.a */; };
 		C6992DEA360282021D32F3D4 /* libPods-mdbAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EF05BEBD2B4F855B2D956A /* libPods-mdbAPP.a */; };
@@ -573,7 +562,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		09FD7044064BB76005A3F9A5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -766,19 +755,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				792ABF702570A23600496A12 /* IDCardCameraViewController.mm in Sources */,
-				792ABF722570A23600496A12 /* OCRContans.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				797B492B2567C9050027A278 /* GTMBase64.m in Sources */,
-				797B492C2567C9050027A278 /* NSData+AES.m in Sources */,
-				792ABF7E2570A23600496A12 /* TakePhotoViewController.m in Sources */,
-				792ABF6E2570A23600496A12 /* StartIDCardCameraViewController.m in Sources */,
-				797B492D2567C9050027A278 /* SecurityUtil.m in Sources */,
-				797B49342567C91B0027A278 /* RCTAesCrypto.m in Sources */,
-				792ABF712570A23600496A12 /* NativeImagePickerUtil.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				792ABF6D2570A23600496A12 /* IDCardOverView.m in Sources */,
-				792ABF6F2570A23600496A12 /* MDBOcrStartManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

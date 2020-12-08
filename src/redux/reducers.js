@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import i18n from './i18n/reducer';
-import G from './global/reducer';
+import I18nRedux from './i18n';
+import GRedux from './global';
 
-export default combineReducers({G, i18n});
+export default combineReducers({G: GRedux.Reducer, i18n: I18nRedux.Reducer});

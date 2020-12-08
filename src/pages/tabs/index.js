@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Platform, BackHandler, ToastAndroid} from 'react-native';
-import Home from './home';
-import Mine from './mine';
+import Home from './pages/home';
+import Mine from './pages/mine';
 const Tab = createBottomTabNavigator();
 
 class Tabs extends React.Component {

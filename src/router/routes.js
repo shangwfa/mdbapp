@@ -1,7 +1,7 @@
 import SplashPage from '../pages/splash';
 import Tabs from '../pages/tabs';
-import LoginPage from '../pages/login';
-import RNCameraPage from '../pages/rnCamera';
+import RNCameraPage from '../pages/test/rnCamera';
+import UserModule from '../pages/user';
 const routes = [
   {
     name: 'Splash',
@@ -12,13 +12,10 @@ const routes = [
     component: Tabs,
   },
   {
-    name: 'Login',
-    component: LoginPage,
-  },
-  {
     name: 'RNCamera',
     component: RNCameraPage,
   },
+  ...UserModule.routes,
 ];
 
 export const routePaths = {};

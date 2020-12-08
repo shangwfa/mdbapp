@@ -5,6 +5,7 @@
 #import <React/RCTRootView.h>
 #import "RNSplashScreen.h"
 #import "Orientation.h"
+#import "RCTAesCrypto.h"
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>

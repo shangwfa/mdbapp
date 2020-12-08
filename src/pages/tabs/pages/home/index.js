@@ -1,14 +1,13 @@
 import * as React from 'react';
 import {View, Text, StyleSheet, Button, DeviceEventEmitter} from 'react-native';
 import {connect} from 'react-redux';
-import BasePage from '../../BasePage';
-import {routePaths} from '../../../router/routes';
-import utils from '../../../utils';
-import I18n from '../../../i18n';
-import Actions from '../../../redux/actions';
-import ActionTypes from '../../../redux/actionTypes';
-import HTTP from '../../../api';
-import apiPaths from '../../../api/path';
+import BasePage from '../../../BasePage';
+import utils from '../../../../utils';
+import I18n from '../../../../i18n';
+import Actions from '../../../../redux/actions';
+import ActionTypes from '../../../../redux/actionTypes';
+import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 import DeviceInfo from 'react-native-device-info';
 
 class HomePage extends BasePage {
@@ -20,8 +19,8 @@ class HomePage extends BasePage {
   }
 
   toLogin = () => {
-    DeviceEventEmitter.emit(routePaths.Login, {name: '小牛', age: 18});
-    this.navigation.navigate(routePaths.Login);
+    DeviceEventEmitter.emit('LoginPage', {name: '小牛', age: 18});
+    this.navigation.navigate('LoginPage');
   };
   toStorage = () => {
     console.log(utils.STORAGEKEYS.TOKEN);
