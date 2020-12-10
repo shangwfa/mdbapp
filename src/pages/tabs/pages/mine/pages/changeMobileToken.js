@@ -1,7 +1,7 @@
 // 信任此设备 EToken
 import { ScrollView } from 'react-native'
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
+import HTTP from '../../../../../api';
+import apiPaths from '../../../../../api/path';
 
 const changeMoblieToken = props => {
   // 解除Token绑定
