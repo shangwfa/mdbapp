@@ -3,8 +3,8 @@ import { ScrollView } from 'react-native'
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 
-const logs = props => {
-  // 获取登录历史
+const loginLogs = props => {
+  // 查看登录历史
   const loadLoginLog = async () => {
     await HTTP.api({
       url: apiPaths.LOGINLOGURL,
@@ -21,4 +21,4 @@ const logs = props => {
   )
 }
 
-export default logs
+export default loginLogs
