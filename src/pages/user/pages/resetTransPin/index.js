@@ -1,71 +1,63 @@
 import React from 'react';
-import {Linking} from 'react-native';
-import {List} from '@ant-design/react-native';
+import {StyleSheet, TextInput} from 'react-native';
+import {View, Text} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
-const Item = List.Item;
+import CountDown from './CountDown';
 class AboutUS extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '修改交易密码',
+      title: '重置交易密碼',
     });
-    const {navigation} = this.props;
     this.state = {
-      itemArr: [
-        {
-          extra: 'www.mdb.com.mo',
-          onPress: () => {
-            navigation.navigate('WebViewContent');
-          },
-          title: '官方網站',
-        },
-        {
-          onPress: () => {
-            navigation.navigate('WebViewContent');
-          },
-          title: '服務條款',
-        },
-        {
-          onPress: () => {
-            navigation.navigate('WebViewContent');
-          },
-          title: '資料保護聲明',
-        },
-        {
-          onPress: () => {
-            navigation.navigate('WebViewContent');
-          },
-          title: '重要聲明',
-        },
-        {
-          onPress: () => {
-            navigation.navigate('WebViewContent');
-          },
-          title: '知識產權聲明',
-        },
-        {
-          extra: '+853 28337766',
-          onPress: () => {
-            Linking.openURL('tel:+853 28337766').catch((err) => {
-              console.log('call MDB Service Hotline failed ' + err);
-            });
-          },
-          title: '聯絡我們',
-        },
-      ],
+      viewDepth: 1,
+      showInput: false,
     };
   }
   renderContainer() {
-    const {itemArr} = this.state;
     return (
-      <List>
-        {itemArr.map((item) => (
-          <Item {...item} key={item.title}>
-            {item.title}
-          </Item>
-        ))}
-      </List>
+      <View style={styles.wrapper}>
+        <View style={styles.item}>
+          <Text style={styles.left}>電話號碼</Text>
+          <Text style={styles.right}>853****4197</Text>
+        </View>
+        <View style={styles.item}>
+          <Text style={styles.left}>短訊驗證碼</Text>
+          <TextInput style={styles.input} placeholder="請輸入" />
+          <CountDown
+            enable={true}
+            timerCount={60}
+            onClick={() => {
+              console.log(111);
+            }}
+          />
+        </View>
+      </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  wrapper: {
+    height: 150,
+    backgroundColor: '#fff',
+  },
+  item: {
+    flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
+    borderBottomColor: '#000',
+    borderBottomWidth: 1,
+  },
+  left: {
+    width: 100,
+  },
+  btn: {
+    flex: 1,
+    textAlign: 'right',
+    color: '#edc31e',
+  },
+  input: {
+    flex: 1,
+  },
+});
 export default AboutUS;
