@@ -33,7 +33,7 @@ var source =
     : {uri: 'file:///android_asset/webPage/ImportantStatementCN.html'};
 
 export default function AboutUS({route, navigation}) {
-  console.log(route.params);
+  console.log(121212, route, navigation);
   return (
     <ScrollView
       style={styles.scrollView}
@@ -41,19 +41,40 @@ export default function AboutUS({route, navigation}) {
       showsHorizontalScrollIndicator={false}
       showsVerticalScrollIndicator={false}>
       <List>
-        <Item extra="www.mdb.com.mo" arrow="horizontal" onPress={() => {}}>
+        <Item
+          extra="www.mdb.com.mo"
+          arrow="horizontal"
+          onPress={() => {
+            navigation.navigate('WebViewContent');
+          }}>
           官方網站
         </Item>
-        <Item arrow="horizontal" onPress={() => {}}>
+        <Item
+          arrow="horizontal"
+          onPress={() => {
+            navigation.navigate('WebViewContent');
+          }}>
           服務條款
         </Item>
-        <Item arrow="horizontal" onPress={() => {}}>
+        <Item
+          arrow="horizontal"
+          onPress={() => {
+            navigation.navigate('WebViewContent');
+          }}>
           資料保護聲明
         </Item>
-        <Item arrow="horizontal" onPress={() => {}}>
+        <Item
+          arrow="horizontal"
+          onPress={() => {
+            navigation.navigate('WebViewContent');
+          }}>
           重要聲明
         </Item>
-        <Item arrow="horizontal" onPress={() => {}}>
+        <Item
+          arrow="horizontal"
+          onPress={() => {
+            navigation.navigate('WebViewContent');
+          }}>
           知識產權聲明
         </Item>
         <Item
