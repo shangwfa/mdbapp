@@ -1,10 +1,8 @@
 // 客户分类
-import { ScrollView } from 'react-native'
+import {ScrollView} from 'react-native';
 
-const accountType = props => {
-  return (
-    <ScrollView></ScrollView>
-  )
-}
+const accountType = (props) => {
+  return <ScrollView></ScrollView>;
+};
 
-export default accountType
+export default accountType;

@@ -3,6 +3,12 @@ import {View, Text, StyleSheet} from 'react-native';
 import BasePage from '../BasePage';
 
 class SplashPage extends BasePage {
+  constructor(props) {
+    super(props);
+    this.initHeader({
+      title: '启动页',
+    });
+  }
   didMount() {
     setTimeout(() => {
       this.navigation.replace('Tabs');

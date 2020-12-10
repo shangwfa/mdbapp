@@ -17,7 +17,6 @@ class BasePage extends React.PureComponent {
   initStatusBar(statusBar) {
     this.statusBar = statusBar || {
       barStyle: 'dark-content',
-      backgroundColor: 'blue',
     };
   }
   initHeader(header) {
@@ -85,7 +84,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     flex: 1,
-    backgroundColor: 'blue',
   },
 });
 export default BasePage;
