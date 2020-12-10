@@ -52,6 +52,12 @@ class AboutUS extends BasePage {
           },
           title: '聯絡我們',
         },
+        {
+          onPress: () => {
+            navigation.navigate('ResetTransPin', {title: '重置交易密碼'});
+          },
+          title: '重置交易密碼',
+        },
       ],
     };
   }
