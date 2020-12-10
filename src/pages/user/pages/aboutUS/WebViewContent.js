@@ -1,9 +1,15 @@
 import React from 'react';
 import {Platform} from 'react-native';
 import {WebView} from 'react-native-webview';
-
-export default function WebViewContent({route, navigation, lang}) {
-  const loadFlie = () => {
+import BasePage from '../../../BasePage';
+class WebViewContent extends BasePage {
+  constructor(props) {
+    super(props);
+    this.initHeader({
+      title: 'WebViewContent',
+    });
+  }
+  loadFlie = () => {
     const fileName = 'ImportantStatementCN';
     const flie =
       Platform.OS === 'android'
@@ -11,5 +17,8 @@ export default function WebViewContent({route, navigation, lang}) {
         : {uri: `file:///android_asset/webPage/${fileName}.html`};
     return flie;
   };
-  return <WebView source={loadFlie('ImportantStatementCN')} />;
+  renderContainer() {
+    return <WebView source={this.loadFlie('ImportantStatementCN')} />;
+  }
 }
+export default WebViewContent;
