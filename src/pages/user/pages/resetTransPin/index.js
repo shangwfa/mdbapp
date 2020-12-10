@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import {StyleSheet, TextInput, Button, Keyboard} from 'react-native';
 import {View, Text} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 import CountDown from './CountDown';
@@ -15,6 +15,7 @@ class AboutUS extends BasePage {
       smsFlowNo: '',
       btnOtpDisabled: true,
       firstOnPress: true,
+      otp: '',
     };
   }
   onPressOTPSend = async () => {
@@ -59,7 +60,22 @@ class AboutUS extends BasePage {
       btnOtpDisabled: false,
     });
   };
+
+  onPressFirst = async () => {
+    let {smsFlowNo, otp} = this.state;
+    await HTTP.api({
+      url: 'json.do',
+      method: 'POST',
+      data: {
+        ActionMethod: 'checkOtp',
+        smsFlowNo: smsFlowNo,
+        otp: otp,
+      },
+    });
+  };
+
   renderContainer() {
+    const {btnOtpDisabled} = this.state;
     return (
       <View style={styles.wrapper}>
         <View style={styles.item}>
@@ -68,16 +84,27 @@ class AboutUS extends BasePage {
         </View>
         <View style={styles.item}>
           <Text style={styles.left}>短訊驗證碼</Text>
-          <TextInput style={styles.input} placeholder="請輸入" />
+          <TextInput
+            onChangeText={(text) => this.setState({otp: text})}
+            style={styles.input}
+            placeholder="請輸入"
+          />
           <CountDown
             enable={true}
             timerCount={60}
             onClick={() => {
-              console.log(111);
               this.onPressOTPSend();
             }}
           />
         </View>
+        <Button
+          onPress={() => {
+            Keyboard.dismiss();
+            this.onPressFirst();
+          }}
+          disabled={btnOtpDisabled}
+          title="完成"
+        />
       </View>
     );
   }
