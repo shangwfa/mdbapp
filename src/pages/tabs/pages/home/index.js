@@ -20,7 +20,7 @@ class HomePage extends BasePage {
 
   toLogin = () => {
     DeviceEventEmitter.emit('LoginPage', {name: '小牛', age: 18});
-    this.navigation.navigate('LoginPage');
+    this.navigation.navigate('Login');
   };
   toStorage = () => {
     console.log(utils.STORAGEKEYS.TOKEN);

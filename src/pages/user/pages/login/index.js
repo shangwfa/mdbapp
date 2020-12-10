@@ -1,13 +1,39 @@
-import * as React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import {connect} from 'react-redux';
+import * as actions from '../../redux/action';
+import BasePage from '../../../BasePage';
 
-function LoginPage({route, navigation}) {
-  console.log(route.params);
-  return (
-    <View style={styles.container}>
-      <Text>Login Page</Text>
-    </View>
-  );
+class LoginPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginFrom: {
+        username: '',
+        password: '',
+        phoneCode: '',
+      },
+    };
+  }
+  render() {
+    const {doLoginWithPhone, doLoginWithUsername} = this.props;
+    return (
+      <View style={styles.container}>
+        <Text>Login Page</Text>
+        <Button
+          title="手机号登陆"
+          onPress={() => {
+            doLoginWithPhone();
+          }}></Button>
+
+        <Button
+          title="用户名登陆"
+          onPress={() => {
+            doLoginWithUsername();
+          }}></Button>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -18,4 +44,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginPage;
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  doLoginWithPhone: (loginFrom) => dispatch(actions.LoginAction(loginFrom)),
+  doLoginWithUsername: (loginFrom) => dispatch(actions.LoginAction(loginFrom)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
