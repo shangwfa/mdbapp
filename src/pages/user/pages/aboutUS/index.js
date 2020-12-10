@@ -59,8 +59,10 @@ class AboutUS extends BasePage {
     const {itemArr} = this.state;
     return (
       <List>
-        {itemArr.map((item, index) => (
-          <Item {...item}>{item.title}</Item>
+        {itemArr.map((item) => (
+          <Item {...item} key={item.title}>
+            {item.title}
+          </Item>
         ))}
       </List>
     );
