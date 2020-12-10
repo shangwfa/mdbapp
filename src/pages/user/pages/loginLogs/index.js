@@ -1,7 +1,7 @@
 // 登录历史
 import { ScrollView } from 'react-native'
-import HTTP from '../../../../../api';
-import apiPaths from '../../../../../api/path';
+import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 
 const loginLogs = props => {
   // 查看登录历史

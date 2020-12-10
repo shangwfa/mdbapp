@@ -1,7 +1,7 @@
 // 退出登录
 import { ScrollView } from 'react-native'
-import HTTP from '../../../../../api';
-import apiPaths from '../../../../../api/path';
+import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 
 const logout = props => {
   // 退出登录接口

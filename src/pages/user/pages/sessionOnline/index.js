@@ -1,7 +1,7 @@
 // 退出时间设置
 import { ScrollView } from 'react-native'
-import HTTP from '../../../../../api';
-import apiPaths from '../../../../../api/path';
+import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 
 const sessionOnline = props => {
   // 设置退出时间
