@@ -6,7 +6,7 @@ class SplashPage extends BasePage {
   didMount() {
     setTimeout(() => {
       this.navigation.replace('Tabs');
-    }, 5000);
+    }, 500);
   }
 
   renderContainer() {
