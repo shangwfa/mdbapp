@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, ScrollView, Linking} from 'react-native';
+import {Linking} from 'react-native';
 import {List} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 const Item = List.Item;
@@ -55,33 +55,15 @@ class AboutUS extends BasePage {
       ],
     };
   }
-  render() {
+  renderContainer() {
     const {itemArr} = this.state;
     return (
-      <ScrollView
-        style={styles.scrollView}
-        automaticallyAdjustContentInsets={false}
-        showsHorizontalScrollIndicator={false}
-        showsVerticalScrollIndicator={false}>
-        <List>
-          {itemArr.map((item, index) => (
-            <Item extra={item.extra} arrow="horizontal" onPress={item.onPress}>
-              {item.title}
-            </Item>
-          ))}
-        </List>
-      </ScrollView>
+      <List>
+        {itemArr.map((item, index) => (
+          <Item {...item}>{item.title}</Item>
+        ))}
+      </List>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    flex: 1,
-    backgroundColor: '#f5f5f9',
-  },
-  brief: {
-    textAlign: 'right',
-  },
-});
 export default AboutUS;
