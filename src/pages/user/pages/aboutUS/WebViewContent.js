@@ -6,7 +6,7 @@ class WebViewContent extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: 'WebViewContent',
+      title: props.route.params.title || '',
     });
   }
   loadFlie = () => {

@@ -7,7 +7,7 @@ class AboutUS extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '关于我们',
+      title: '修改交易密码',
     });
     const {navigation} = this.props;
     this.state = {
@@ -15,31 +15,31 @@ class AboutUS extends BasePage {
         {
           extra: 'www.mdb.com.mo',
           onPress: () => {
-            navigation.navigate('WebViewContent', {title: '官方網站'});
+            navigation.navigate('WebViewContent');
           },
           title: '官方網站',
         },
         {
           onPress: () => {
-            navigation.navigate('WebViewContent', {title: '服務條款'});
+            navigation.navigate('WebViewContent');
           },
           title: '服務條款',
         },
         {
           onPress: () => {
-            navigation.navigate('WebViewContent', {title: '資料保護聲明'});
+            navigation.navigate('WebViewContent');
           },
           title: '資料保護聲明',
         },
         {
           onPress: () => {
-            navigation.navigate('WebViewContent', {title: '重要聲明'});
+            navigation.navigate('WebViewContent');
           },
           title: '重要聲明',
         },
         {
           onPress: () => {
-            navigation.navigate('WebViewContent', {title: '知識產權聲明'});
+            navigation.navigate('WebViewContent');
           },
           title: '知識產權聲明',
         },
