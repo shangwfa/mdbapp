@@ -1,7 +1,10 @@
 import * as React from 'react';
-import {View, Text, StyleSheet, Button, NativeModules} from 'react-native';
+import {View, Text, StyleSheet, Button, NativeModules, AsyncStorage} from 'react-native';
 import BasePage from '../../../BasePage';
 import {DotIndicator} from 'react-native-indicators';
+
+// 清空緩存
+// AsyncStorage.clear()
 
 class MinePage extends BasePage {
   constructor(props) {
