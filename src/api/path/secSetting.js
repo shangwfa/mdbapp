@@ -1,3 +1,4 @@
 export default {
-  LOGINLOGURL: '/login.do'
+  LOGINLOGURL: '/login.do',
+  MOBILETOKENINFO: '/tokenAction.do'
 }
