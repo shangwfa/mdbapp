@@ -9,6 +9,7 @@ import ActionTypes from '../../../../redux/actionTypes';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 import DeviceInfo from 'react-native-device-info';
+import {routePaths} from '../../../../router/routes';
 
 class HomePage extends BasePage {
   constructor(props) {

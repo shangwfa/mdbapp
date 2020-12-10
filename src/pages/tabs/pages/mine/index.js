@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {View, Text, StyleSheet, Button, NativeModules} from 'react-native';
+import {View, StyleSheet, Button, NativeModules} from 'react-native';
 import BasePage from '../../../BasePage';
 import {DotIndicator} from 'react-native-indicators';
 
@@ -9,6 +9,9 @@ class MinePage extends BasePage {
     this.state = {
       animating: false,
     };
+    this.initHeader({
+      title: '我的',
+    });
   }
 
   toToggle = () => {
@@ -59,7 +62,6 @@ class MinePage extends BasePage {
   renderContainer() {
     return (
       <View style={styles.container}>
-        <Text>Mine Page</Text>
         <Button title="动画" onPress={this.toToggle} />
         <Button title="OCR" onPress={this.toTakeImagePicker} />
         <Button title="活体" onPress={this.toPressFaceLiveness} />
@@ -76,6 +78,7 @@ class MinePage extends BasePage {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
