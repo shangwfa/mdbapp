@@ -2,10 +2,14 @@
 import { ScrollView } from 'react-native'
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
+import React from 'react'
+import BasePage from '../../../BasePage'
 
-const sessionOnline = props => {
+class SessionOnline extends BasePage {
+  didMount(){
+  }
   // 设置退出时间
-  const loadLoginLog = async () => {
+  loadLoginLog = async () => {
     await HTTP.api({
       url: apiPaths.SETTINGINFO,
       method: 'POST',
@@ -27,9 +31,12 @@ const sessionOnline = props => {
       }
     })
   }
-  return (
-    <ScrollView></ScrollView>
-  )
+
+  renderContainer() {
+    return (
+      <ScrollView></ScrollView>
+    )
+  }
 }
 
-export default sessionOnline
+export default SessionOnline

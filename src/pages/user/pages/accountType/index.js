@@ -4,8 +4,10 @@ import React from 'react'
 import BasePage from '../../../BasePage'
 
 class AccountType extends BasePage {
+  didMount(){
+  }
 
-  render() {
+  renderContainer() {
     return (
       <ScrollView></ScrollView>
     )
