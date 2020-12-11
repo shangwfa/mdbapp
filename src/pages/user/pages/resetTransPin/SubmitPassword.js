@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, TextInput, Button, Keyboard} from 'react-native';
-import {View, Text, Toast} from '@ant-design/react-native';
+import {StyleSheet, TextInput, Button, Keyboard, View} from 'react-native';
+import {Text, Toast} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 class SubmitPassword extends React.Component {
   constructor(props) {

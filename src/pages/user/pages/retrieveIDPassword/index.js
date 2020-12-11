@@ -9,8 +9,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
-  Toast,
 } from 'react-native';
+import {Toast} from '@ant-design/react-native';
 export const {width} = Dimensions.get('window');
 import BasePage from '../../../BasePage';
 class RetrieveIDPassword extends BasePage {
