@@ -67,6 +67,10 @@ class SubmitPassword extends React.Component {
     return (
       <View style={styles.wrapper}>
         <View style={styles.item}>
+          <Text style={styles.left}>登入ID</Text>
+          <Text style={styles.right}>XUWENMING</Text>
+        </View>
+        <View style={styles.item}>
           <Text style={styles.left}>新密碼</Text>
           <TextInput
             onChangeText={(text) => this.setState({pin2: text})}

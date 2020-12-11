@@ -10,6 +10,10 @@ class ResetTransPin extends BasePage {
   }
   setStep = () => {
     console.log('下一步');
+    const {navigation} = this.props;
+    navigation.navigate('RetrieveVerifyCodeAndPassword', {
+      title: '找回登錄ID及密碼',
+    });
   };
 
   renderContainer() {
