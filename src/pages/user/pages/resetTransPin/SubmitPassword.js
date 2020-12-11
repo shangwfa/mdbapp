@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, TextInput, Button, Keyboard, View} from 'react-native';
-import {Text, Toast} from '@ant-design/react-native';
+import {StyleSheet, Button, Keyboard, View} from 'react-native';
+import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 class SubmitPassword extends React.Component {
   constructor(props) {
@@ -65,31 +65,57 @@ class SubmitPassword extends React.Component {
 
   render() {
     return (
-      <View style={styles.wrapper}>
-        <View style={styles.item}>
-          <Text style={styles.left}>新密碼</Text>
-          <TextInput
-            onChangeText={(text) => this.setState({pin2: text})}
-            style={styles.input}
-            placeholder="請輸入密碼"
+      <>
+        <List>
+          <InputItem
+            type="password"
+            value={this.state.pin2}
+            onChange={(value) => {
+              this.setState({
+                pin2: value,
+              });
+            }}
+            placeholder="请输入新密碼">
+            新密碼
+          </InputItem>
+          <InputItem
+            type="password"
+            value={this.state.pin2Confirm}
+            onChange={(value) => {
+              this.setState({
+                pin2Confirm: value,
+              });
+            }}
+            placeholder="请重複密碼">
+            重複密碼
+          </InputItem>
+        </List>
+        <View style={styles.wrapper}>
+          {/* <View style={styles.item}>
+            <Text style={styles.left}>新密碼</Text>
+            <TextInput
+              onChangeText={(text) => this.setState({pin2: text})}
+              style={styles.input}
+              placeholder="請輸入密碼"
+            />
+          </View>
+          <View style={styles.item}>
+            <Text style={styles.left}>重複密碼</Text>
+            <TextInput
+              onChangeText={(text) => this.setState({pin2Confirm: text})}
+              style={styles.input}
+              placeholder="請輸入密碼"
+            />
+          </View> */}
+          <Button
+            onPress={() => {
+              Keyboard.dismiss();
+              this.validateInput();
+            }}
+            title="完成"
           />
         </View>
-        <View style={styles.item}>
-          <Text style={styles.left}>重複密碼</Text>
-          <TextInput
-            onChangeText={(text) => this.setState({pin2Confirm: text})}
-            style={styles.input}
-            placeholder="請輸入密碼"
-          />
-        </View>
-        <Button
-          onPress={() => {
-            Keyboard.dismiss();
-            this.validateInput();
-          }}
-          title="完成"
-        />
-      </View>
+      </>
     );
   }
 }

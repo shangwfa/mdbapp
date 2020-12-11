@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, TextInput, Button, Keyboard} from 'react-native';
-import {View, Text} from '@ant-design/react-native';
+import {StyleSheet, Button, Keyboard} from 'react-native';
+import {View, List, InputItem} from '@ant-design/react-native';
 import CountDown from '../base/CountDown';
 import HTTP from '../../api';
 class VerificationCode extends React.Component {
@@ -74,35 +74,59 @@ class VerificationCode extends React.Component {
   render() {
     const {btnOtpDisabled} = this.state;
     return (
-      <View style={styles.wrapper}>
-        <View style={styles.item}>
-          <Text style={styles.left}>電話號碼</Text>
-          <Text style={styles.right}>853****4197</Text>
-        </View>
-        <View style={styles.item}>
-          <Text style={styles.left}>短訊驗證碼</Text>
-          <TextInput
-            onChangeText={(text) => this.setState({otp: text})}
-            style={styles.input}
-            placeholder="請輸入"
-          />
-          <CountDown
-            enable={true}
-            timerCount={60}
-            onClick={() => {
-              this.onPressOTPSend();
+      <>
+        <List>
+          <InputItem value={'853****4197'}>電話號碼</InputItem>
+          <InputItem
+            value={this.state.otp}
+            onChange={(value) => {
+              this.setState({
+                otp: value,
+              });
             }}
+            extra={
+              <CountDown
+                enable={true}
+                timerCount={60}
+                onClick={() => {
+                  this.onPressOTPSend();
+                }}
+              />
+            }
+            placeholder="请输入短訊驗證碼">
+            短訊驗證碼
+          </InputItem>
+        </List>
+        <View style={styles.wrapper}>
+          {/* <View style={styles.item}>
+            <Text style={styles.left}>電話號碼</Text>
+            <Text style={styles.right}>853****4197</Text>
+          </View>
+          <View style={styles.item}>
+            <Text style={styles.left}>短訊驗證碼</Text>
+            <TextInput
+              onChangeText={(text) => this.setState({otp: text})}
+              style={styles.input}
+              placeholder="請輸入"
+            />
+            <CountDown
+              enable={true}
+              timerCount={60}
+              onClick={() => {
+                this.onPressOTPSend();
+              }}
+            />
+          </View> */}
+          <Button
+            onPress={() => {
+              Keyboard.dismiss();
+              this.submitVerifyCode();
+            }}
+            disabled={btnOtpDisabled}
+            title="完成"
           />
         </View>
-        <Button
-          onPress={() => {
-            Keyboard.dismiss();
-            this.submitVerifyCode();
-          }}
-          disabled={btnOtpDisabled}
-          title="完成"
-        />
-      </View>
+      </>
     );
   }
 }
