@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput, Button, Keyboard} from 'react-native';
-import {View, Text} from '@ant-design/react-native';
+import {View, Text, Toast} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 class SubmitPassword extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class SubmitPassword extends React.Component {
       pin2Confirm: '',
     };
   }
-  submitPassword = async () => {
+  submit = async () => {
     await HTTP.api({
       url: 'setPin2',
       method: 'POST',
@@ -25,6 +25,15 @@ class SubmitPassword extends React.Component {
   };
   validateInput() {
     const {pin2, pin2Confirm} = this.state;
+    if (pin2 !== pin2Confirm) {
+      Toast.info('密碼和確認密碼不一致');
+      return;
+    }
+    if (pin2.length !== 6) {
+      Toast.info('密碼為6位數字');
+      return;
+    }
+    this.submit();
     // if (!validateRequired(form.pin2, form.pin2IsDisabled)) {
     //   JsonAjaxService.getErrMsgByLang('ERM2851');
     //   return false;
@@ -51,7 +60,7 @@ class SubmitPassword extends React.Component {
     //   JsonAjaxService.getErrMsgByLang('ERM2852');
     //   return false;
     // }
-    return pin2 === pin2Confirm;
+    // return pin2 === pin2Confirm;
   }
 
   render() {
@@ -76,9 +85,8 @@ class SubmitPassword extends React.Component {
         <Button
           onPress={() => {
             Keyboard.dismiss();
-            this.submitPassword();
+            this.validateInput();
           }}
-          disabled={!this.validateInput()}
           title="完成"
         />
       </View>
