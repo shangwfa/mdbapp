@@ -2,6 +2,7 @@ import React from 'react';
 import {Platform} from 'react-native';
 import {WebView} from 'react-native-webview';
 import BasePage from '../../../BasePage';
+
 class WebViewContent extends BasePage {
   constructor(props) {
     super(props);
@@ -11,15 +12,15 @@ class WebViewContent extends BasePage {
   }
   loadFlie = () => {
     const fileName = 'ImportantStatementCN';
+    const xx = `./webPage/${fileName}.html`;
     const flie =
-      Platform.OS === 'android'
-        ? require(`./webPage/${fileName}.html`)
+      Platform.OS === 'ios'
+        ? require(xx)
         : {uri: `file:///android_asset/webPage/${fileName}.html`};
     return flie;
   };
   renderContainer() {
-    const myHtmlFile = require('./webPage/ImportantStatementCN.html');
-    return <WebView source={myHtmlFile} />;
+    return <WebView source={this.loadFlie()} />;
   }
 }
 export default WebViewContent;
