@@ -2,9 +2,11 @@
 import {ScrollView} from 'react-native';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
-const changeMoblieToken = (props) => {
-  // 解除Token绑定
-  const closeMobileTokenInfo = async () => {
+import BasePage from '../../../BasePage';
+
+class ChangeMobileToken extends BasePage {
+  didMount() {}
+  closeMobileTokenInfo = async () => {
     await HTTP.api({
       url: apiPaths.MOBILETOKENINFO,
       method: 'POST',
@@ -13,7 +15,10 @@ const changeMoblieToken = (props) => {
       },
     });
   };
-  return <ScrollView></ScrollView>;
-};
 
-export default changeMoblieToken;
+  renderContainer() {
+    return <ScrollView></ScrollView>;
+  }
+}
+
+export default ChangeMobileToken;

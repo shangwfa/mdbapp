@@ -2,10 +2,14 @@
 import { ScrollView } from 'react-native'
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
+import React from 'react'
+import BasePage from '../../../BasePage'
 
-const loginLogs = props => {
+class LoginLogs extends BasePage {
+  didMount(){
+  }
   // 查看登录历史
-  const loadLoginLog = async () => {
+  loadLoginLog = async () => {
     await HTTP.api({
       url: apiPaths.LOGINLOGURL,
       method: 'POST',
@@ -16,9 +20,12 @@ const loginLogs = props => {
       }
     })
   }
-  return (
-    <ScrollView></ScrollView>
-  )
+
+  renderContainer(){
+    return (
+      <ScrollView></ScrollView>
+    )
+  }
 }
 
-export default loginLogs
+export default LoginLogs

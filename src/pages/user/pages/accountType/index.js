@@ -1,8 +1,14 @@
 // 客户分类
 import {ScrollView} from 'react-native';
+import React from 'react';
+import BasePage from '../../../BasePage';
 
-const accountType = (props) => {
-  return <ScrollView></ScrollView>;
-};
+class AccountType extends BasePage {
+  didMount() {}
 
-export default accountType;
+  renderContainer() {
+    return <ScrollView></ScrollView>;
+  }
+}
+
+export default AccountType;
