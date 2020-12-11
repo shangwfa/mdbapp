@@ -11,6 +11,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {Toast} from '@ant-design/react-native';
+import HTTP from '../../../../api';
 export const {width} = Dimensions.get('window');
 import BasePage from '../../../BasePage';
 class RetrieveIDPassword extends BasePage {
@@ -21,17 +22,9 @@ class RetrieveIDPassword extends BasePage {
     });
     this.state = {
       selectPathFront: null,
+      imageFontBase64: null,
     };
   }
-  setStep = () => {
-    if (this.state.selectPathFront === null) {
-      return Toast.info('请拍攝身份證正面照片');
-    }
-    const {navigation} = this.props;
-    navigation.navigate('RetrieveVerifyCodeAndPassword', {
-      title: '找回登錄ID及密碼',
-    });
-  };
 
   takePhotoPage = async () => {
     const optionsTemp = {
@@ -49,10 +42,13 @@ class RetrieveIDPassword extends BasePage {
       );
       let source = {uri: 'data:image/jpeg;base64,' + result.data};
       if (Platform.OS === 'android') {
-        this.setState({selectPathFront: source});
+        this.setState({selectPathFront: source, imageFontBase64: result.data});
       } else {
         if (result.didCancel !== true) {
-          this.setState({selectPathFront: source});
+          this.setState({
+            selectPathFront: source,
+            imageFontBase64: result.data,
+          });
         }
       }
     } catch (error) {
@@ -61,7 +57,39 @@ class RetrieveIDPassword extends BasePage {
       );
     }
   };
-
+  onConfirmNextPage = async () => {
+    if (this.state.selectPathFront === null) {
+      return Toast.info('请拍攝身份證正面照片');
+    }
+    const {navigation} = this.props;
+    try {
+      const res = await HTTP.api({
+        url: 'forgetPassWord.do',
+        method: 'POST',
+        data: {
+          langCode: 'CN', //CN、US、PT
+          forgetStatus: '1', // <IDCardVerifyStart forgetStatus={checkedAfter ? '1':'0'}/>，原項目代碼中forgetStatus的值只會取1
+          imageFontBase64: this.state.imageFontBase64,
+        },
+      });
+      if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
+        navigation.navigate('RetrieveVerifyCodeAndPassword', {
+          title: '找回登錄ID及密碼',
+          ...res,
+        });
+      } else {
+        // Toast.info(
+        //   '抱歉！您的證件證件非澳門身份證或內地身份證，請重新人臉識別或親臨本行營業網點辦理',
+        // );
+        navigation.navigate('RetrieveVerifyCodeAndPassword', {
+          title: '找回登錄ID及密碼',
+          ...res,
+        });
+      }
+    } catch (error) {
+      console.log('error');
+    }
+  };
   renderContainer() {
     const {selectPathFront} = this.state;
     return (
@@ -92,7 +120,7 @@ class RetrieveIDPassword extends BasePage {
           </TouchableOpacity>
         )}
 
-        <Button onPress={this.setStep} title="下一步" />
+        <Button onPress={this.onConfirmNextPage} title="下一步" />
       </View>
     );
   }
