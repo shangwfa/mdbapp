@@ -1,6 +1,6 @@
 import React from 'react';
 import BasePage from '../../../BasePage';
-import VerifyCode from './VerifyCode';
+import VerifyCode from '../../../../components/business/VerifyCode';
 import SubmitPassword from './SubmitPassword';
 class ResetTransPin extends BasePage {
   constructor(props) {

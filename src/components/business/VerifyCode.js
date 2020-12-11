@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, TextInput, Button, Keyboard} from 'react-native';
 import {View, Text} from '@ant-design/react-native';
-import CountDown from './CountDown';
-import HTTP from '../../../../api';
+import CountDown from '../base/CountDown';
+import HTTP from '../../api';
 class VerificationCode extends React.Component {
   constructor(props) {
     super(props);
