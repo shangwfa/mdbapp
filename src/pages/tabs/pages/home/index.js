@@ -9,7 +9,6 @@ import ActionTypes from '../../../../redux/actionTypes';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 import DeviceInfo from 'react-native-device-info';
-import {routePaths} from '../../../../router/routes';
 
 class HomePage extends BasePage {
   constructor(props) {
@@ -67,7 +66,7 @@ class HomePage extends BasePage {
     });
   };
   toRNCamera = () => {
-    this.navigation.navigate(routePaths.RNCamera);
+    this.navigation.navigate('RNCamera');
   };
   aboutUS = () => {
     this.navigation.navigate('AboutUS');

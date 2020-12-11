@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, ScrollView, Text} from 'react-native';
+import {StyleSheet, ScrollView} from 'react-native';
 import BasePage from '../../../BasePage';
 import {List} from '@ant-design/react-native';
 
@@ -19,73 +19,63 @@ class MinePage extends BasePage {
       {
         name: '安全設置',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '個人設置',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '交易限額',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '電子結單/通知書',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '借記卡',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '語言',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '登入方式',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '信任設備',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '客戶分類',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '風險問卷',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '清空緩存',
         onPress: () => {},
-        disabled: true,
         arrow: 'horizontal',
       },
       {
         name: '關於我們',
-        onPress: () => {},
-        disabled: true,
+        onPress: () => {
+          this.navigation.navigate('AboutUS');
+        },
         arrow: 'horizontal',
       },
       {

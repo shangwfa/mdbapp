@@ -18,7 +18,8 @@ class WebViewContent extends BasePage {
     return flie;
   };
   renderContainer() {
-    return <WebView source={this.loadFlie('ImportantStatementCN')} />;
+    const myHtmlFile = require('./webPage/ImportantStatementCN.html');
+    return <WebView source={myHtmlFile} />;
   }
 }
 export default WebViewContent;
