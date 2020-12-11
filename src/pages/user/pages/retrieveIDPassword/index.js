@@ -9,119 +9,90 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Toast,
 } from 'react-native';
 export const {width} = Dimensions.get('window');
 import BasePage from '../../../BasePage';
-class ResetTransPin extends BasePage {
+class RetrieveIDPassword extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
       title: '拍攝身份證正面',
     });
+    this.state = {
+      selectPathFront: null,
+    };
   }
   setStep = () => {
-    console.log('下一步');
+    if (this.state.selectPathFront === null) {
+      return Toast.info('请拍攝身份證正面照片');
+    }
     const {navigation} = this.props;
     navigation.navigate('RetrieveVerifyCodeAndPassword', {
       title: '找回登錄ID及密碼',
     });
   };
 
-  takePhotoPage(takePhotoType) {
-    let optionsTemp;
-    // let language = this.props.language;
-    if (takePhotoType === 'Positive') {
-      optionsTemp = {
-        titleTips1: ' language.forgetPwd.fg_label_title_tips1',
-        titleTips2: ' language.forgetPwd.fg_label_title_tips2',
-        title: ' language.forgetPwd.fg_label_title',
-        cancelButtonTitle: ' language.forgetPwd.fg_label_titleButtonCancel',
-        takePhotoButtonTitle:
-          ' language.forgetPwd.fg_label_takePhotoButtonTitle',
-        chooseFromLibraryButtonTitle:
-          'language.forgetPwd.fg_label_chooseFromLibraryButtonTitle',
-        reTakePhotoButtonTitle:
-          ' language.forgetPwd.fg_label_titleButtonRetake',
-      };
+  takePhotoPage = async () => {
+    const optionsTemp = {
+      titleTips1: '拍攝身份證正面', //Shoot the front of ID card
+      titleTips2: '請把證件置於方框内，保證清晰無反光', //Please put your ID card in the box, ensure the photo is clear and non-reflective
+      title: '请选择图片来源', //Please select the source of picture
+      cancelButtonTitle: '取消', //Cancel
+      takePhotoButtonTitle: '拍照', //Photo
+      chooseFromLibraryButtonTitle: '相册图片', //photos
+      reTakePhotoButtonTitle: '重拍', //Remake
+    };
+    try {
+      const result = await NativeModules.ETImagePickerModule.takeImagePicker(
+        optionsTemp,
+      );
+      let source = {uri: 'data:image/jpeg;base64,' + result.data};
+      if (Platform.OS === 'android') {
+        this.setState({selectPathFront: source});
+      } else {
+        if (result.didCancel !== true) {
+          this.setState({selectPathFront: source});
+        }
+      }
+    } catch (error) {
+      console.log(
+        'There has been a problem with your fetch operation: ' + error.message,
+      );
     }
-
-    if (Platform.OS === 'android') {
-      NativeModules.ETImagePickerModule.takeImagePicker(optionsTemp)
-        .then((result) => {
-          console.log(
-            '------------------takeImagePicker-----------------------',
-          );
-          console.log(result);
-          let source = {uri: 'data:image/jpeg;base64,' + result.data}; //console.log(source);
-          if (takePhotoType === 'Positive') {
-            this.setState({selectPathFront: source});
-            this.setState({imageFontBase64: result.data});
-          } else {
-            this.setState({selectPathBack: source});
-            this.setState({imageBackBase64: result.data});
-          }
-          console.log(
-            '------------------takeImagePicker-----------------------',
-          );
-        })
-        .catch(function (error) {
-          console.log(
-            'There has been a problem with your fetch operation: ' +
-              error.message,
-          );
-        });
-    } else {
-      //IOS
-      NativeModules.ETImagePickerModule.takeImagePicker(optionsTemp)
-        .then((result) => {
-          console.log(
-            '------------------takeImagePicker IOS-----------------------',
-          );
-          console.log(result);
-          let source = {uri: 'data:image/jpeg;base64,' + result.data}; //console.log(source);
-          if (result.didCancel !== true) {
-            if (takePhotoType === 'Positive') {
-              this.setState({selectPathFront: source});
-              this.setState({imageFontBase64: result.data});
-            } else {
-              this.setState({selectPathBack: source});
-              this.setState({imageBackBase64: result.data});
-            }
-          }
-          console.log(
-            '------------------takeImagePicker IOS-----------------------',
-          );
-        })
-        .catch(function (error) {
-          console.log(
-            'There has been a problem with your fetch operation: ' +
-              error.message,
-          );
-        });
-    }
-  }
+  };
 
   renderContainer() {
+    const {selectPathFront} = this.state;
     return (
       <View style={styles.wrapper}>
-        <ImageBackground
-          style={styles.ETOLIDCardImageBackground}
-          source={require('../../../../assets/img_IdCardFornt_Bg1.png')}
-          resizeMode="stretch">
-          <TouchableOpacity
-            style={styles.ETOLIDCardCircleBox}
-            onPress={() => {
-              this.takePhotoPage('Positive');
-            }}
-            activeOpacity={1}>
+        {selectPathFront === null ? (
+          <ImageBackground
+            style={styles.ETOLIDCardImageBackground}
+            source={require('../../../../assets/img_IdCardFornt_Bg1.png')}
+            resizeMode="stretch">
+            <TouchableOpacity
+              style={styles.ETOLIDCardCircleBox}
+              onPress={this.takePhotoPage}
+              activeOpacity={1}>
+              <Image
+                style={styles.ETOLIDCardFrontImage}
+                source={require('../../../../assets/img_IdCard_camera.png')}
+                resizeMode="stretch"
+              />
+            </TouchableOpacity>
+          </ImageBackground>
+        ) : (
+          <TouchableOpacity onPress={this.takePhotoPage} activeOpacity={1}>
             <Image
-              style={styles.ETOLIDCardFrontImage}
-              source={require('../../../../assets/img_IdCard_camera.png')}
-              resizeMode="stretch"
+              style={styles.ETOLIDCardImageBackground}
+              source={selectPathFront}
+              resizeMode={'contain'}
             />
           </TouchableOpacity>
-        </ImageBackground>
-        <Button onPress={this.takePhotoPage} title="下一步" />
+        )}
+
+        <Button onPress={this.setStep} title="下一步" />
       </View>
     );
   }
@@ -152,4 +123,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-export default ResetTransPin;
+export default RetrieveIDPassword;
