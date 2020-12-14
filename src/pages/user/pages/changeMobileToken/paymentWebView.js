@@ -14,12 +14,12 @@ class PaymentWebView extends BasePage {
   }
 
   getRememberPwdStatusImgUrl = (isChecked, userTheme) => {
-
+    // 切换是否选中图标
   }
 
   submitHandle = isChecked => {
     if(isChecked) {
-      
+      // 同意协议内容
     }
   }
   
