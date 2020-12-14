@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Button, Keyboard, View} from 'react-native';
+import {View, StyleSheet, Button, Keyboard} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 class SubmitPassword extends React.Component {
@@ -67,6 +67,7 @@ class SubmitPassword extends React.Component {
     return (
       <>
         <List>
+          <InputItem value={'XUWENMING'}>登入ID</InputItem>
           <InputItem
             type="password"
             value={this.state.pin2}
@@ -92,6 +93,10 @@ class SubmitPassword extends React.Component {
         </List>
         <View style={styles.wrapper}>
           {/* <View style={styles.item}>
+            <Text style={styles.left}>登入ID</Text>
+            <Text style={styles.right}>XUWENMING</Text>
+          </View>
+          <View style={styles.item}>
             <Text style={styles.left}>新密碼</Text>
             <TextInput
               onChangeText={(text) => this.setState({pin2: text})}
