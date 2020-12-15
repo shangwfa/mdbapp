@@ -54,7 +54,6 @@ class AboutUS extends BasePage {
         },
         {
           onPress: () => {
-            console.log('获取重置交易密碼验证码111');
             navigation.navigate('TransPinVerifyCode', {
               title: '获取重置交易密碼验证码',
             });

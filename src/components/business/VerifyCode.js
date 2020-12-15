@@ -15,10 +15,8 @@ class VerificationCode extends React.Component {
     };
   }
   onPressOTPSend = async () => {
-    console.log('onPressOTPSend11');
     //點擊發送或者重發
     if (this.state.firstOnPress) {
-      console.log('onPressOTPSend-首次发送');
       const res = await HTTP.api({
         url: 'json.do',
         method: 'POST',
@@ -35,7 +33,6 @@ class VerificationCode extends React.Component {
         firstOnPress: false,
       });
     } else {
-      console.log('onPressOTPSend-重新发送');
       this.resendOtp();
     }
   };
@@ -57,7 +54,6 @@ class VerificationCode extends React.Component {
 
   submitVerifyCode = async () => {
     let {smsFlowNo, otp} = this.state;
-    this.props.submitVerifyCode(smsFlowNo);
     await HTTP.api({
       url: 'json.do',
       method: 'POST',
@@ -67,6 +63,7 @@ class VerificationCode extends React.Component {
         otp: otp,
       },
     });
+    this.props.submitVerifyCode(smsFlowNo);
   };
 
   render() {
