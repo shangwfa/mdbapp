@@ -23,14 +23,14 @@ export const LoginAction = (loginFrom) => {
     if (result.firstLogin === 'Y' || result.resetPwdLogin === 'Y') {
       dispatch(firstLogin(true));
     }
-    dispatch(setIsLoggedIn(true));
+    dispatch(setIsLoggedIn(true, result));
     dispatch(writeLoginLog());
     // dispatch(rememberStatus(username));
   };
 };
 
-function setIsLoggedIn(isLogin) {
-  return {type: types.USER_IS_LOGIN, isLogin: isLogin};
+function setIsLoggedIn(isLogin, data) {
+  return {type: types.USER_LOGIN, isLogin: isLogin, data: data};
 }
 
 /*
