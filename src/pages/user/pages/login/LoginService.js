@@ -43,7 +43,7 @@ export default class LoginService {
           let authKey = result.jsonData.authKey ? result.jsonData.authKey : '';
           utils.saveStorage(utils.STORAGEKEYS.BIOMETRICS_AUTH_KEY, authKey);
         }
-        resolve(res);
+        resolve(JSON.parse(res));
       });
     });
   }

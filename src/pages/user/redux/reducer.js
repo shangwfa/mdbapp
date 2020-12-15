@@ -4,14 +4,16 @@ const initState = {
   isLogin: false,
   isFirstLogin: false,
   lastUserName: '', //记住用户名
+  userLoginInfo: {},
 };
 
 const onAction = (state = initState, action) => {
-  switch (type) {
+  switch (action.type) {
     case Types.USER_LOGIN:
       return {
         ...state,
         isLogin: action.isLogin,
+        userLoginInfo: action.data,
       };
     case Types.USER_LOGOUT:
       return initState;
