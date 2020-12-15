@@ -2,9 +2,6 @@ import LoginPage from '../pages/login';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
-import AboutUSRoutes from '../pages/aboutUS/routes';
-import ResetTransPinRoutes from '../pages/resetTransPin/routes';
-import RetrieveIDPassword from '../pages/retrieveIDPassword/routes';
 import FingerDemo from '../pages/fingerDemo/Application.container';
 
 import AboutUSPage from '../pages/aboutUS';
@@ -36,9 +33,6 @@ export default [
     name: 'fingerDemo',
     component: FingerDemo,
   },
-  ...AboutUSRoutes,
-  ...ResetTransPinRoutes,
-  ...RetrieveIDPassword,
   {
     name: 'AboutUS',
     component: AboutUSPage,
