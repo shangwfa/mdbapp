@@ -19,32 +19,29 @@ class VerificationCode extends React.Component {
     //點擊發送或者重發
     if (this.state.firstOnPress) {
       console.log('onPressOTPSend-首次发送');
+      const res = await HTTP.api({
+        url: 'json.do',
+        method: 'POST',
+        params: {
+          ActionMethod: 'sendOtp',
+          PageLanguage: 'zh_CN',
+          funcName: 'app.mb.core.resetTxnPwd',
+        },
+      });
+      console.log('首次发送验证码11', res);
       this.setState({
-        smsFlowNo: '123454321',
+        smsFlowNo: res.smsFlowNo,
         btnOtpDisabled: false,
         firstOnPress: false,
       });
-      // const res = await HTTP.api({
-      //   url: 'json.do',
-      //   method: 'POST',
-      //   data: {
-      //     ActionMethod: 'sendOtp',
-      //     funcName: 'app.mb.core.resetTxnPwd',
-      //   },
-      // });
-      // this.setState({
-      //   smsFlowNo: res.smsFlowNo,
-      //   btnOtpDisabled: false,
-      //   firstOnPress: false,
-      // });
     } else {
       console.log('onPressOTPSend-重新发送');
-      // this.resendOtp();
+      this.resendOtp();
     }
   };
   resendOtp = async () => {
     let smsFlowNo = this.state.smsFlowNo;
-    await HTTP.api({
+    const res = await HTTP.api({
       url: 'json.do',
       method: 'POST',
       data: {
@@ -52,23 +49,24 @@ class VerificationCode extends React.Component {
         smsFlowNo: smsFlowNo,
       },
     });
+    console.log('重新发送验证码11', res);
     this.setState({
       btnOtpDisabled: false,
     });
   };
 
   submitVerifyCode = async () => {
-    // let {smsFlowNo, otp} = this.state;
-    this.props.submitVerifyCode(1234);
-    // await HTTP.api({
-    //   url: 'json.do',
-    //   method: 'POST',
-    //   data: {
-    //     ActionMethod: 'checkOtp',
-    //     smsFlowNo: smsFlowNo,
-    //     otp: otp,
-    //   },
-    // });
+    let {smsFlowNo, otp} = this.state;
+    this.props.submitVerifyCode(smsFlowNo);
+    await HTTP.api({
+      url: 'json.do',
+      method: 'POST',
+      data: {
+        ActionMethod: 'checkOtp',
+        smsFlowNo: smsFlowNo,
+        otp: otp,
+      },
+    });
   };
 
   render() {
