@@ -3,8 +3,8 @@ import {View, Text, StyleSheet, Button} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from '../../redux/action';
 import BasePage from '../../../BasePage';
-
-class LoginPage extends React.Component {
+import {List, WhiteSpace} from '@ant-design/react-native';
+class LoginPage extends BasePage {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,6 +12,8 @@ class LoginPage extends React.Component {
         username: '',
         password: '',
         phoneCode: '',
+        loginMethod: '1',
+        rememberStatus: false,
       },
     };
   }
@@ -22,15 +24,49 @@ class LoginPage extends React.Component {
         <Text>Login Page</Text>
         <Button
           title="手机号登陆"
+          style={styles.buttons}
           onPress={() => {
-            doLoginWithPhone();
+            doLoginWithPhone(this.state.loginFrom);
           }}
         />
-
+        <WhiteSpace size="sm" />
         <Button
           title="用户名登陆"
+          style={styles.buttons}
           onPress={() => {
-            doLoginWithUsername();
+            doLoginWithUsername(this.state.loginFrom);
+          }}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          title="fingerDemo"
+          style={styles.buttons}
+          onPress={() => {
+            this.navigation.navigate('fingerDemo');
+          }}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          title="指纹登陆"
+          style={styles.buttons}
+          onPress={() => {
+            this.navigation.navigate('fingerLogin');
+          }}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          title="faceID登陆"
+          style={styles.buttons}
+          onPress={() => {
+            this.navigation.navigate('faceIDLogin');
+          }}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          title="用户信息"
+          style={styles.buttons}
+          onPress={() => {
+            this.navigation.navigate('userProfile');
           }}
         />
       </View>
@@ -44,13 +80,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttons: {
+    marginTop: 10,
+    marginBottom: 20,
+  },
 });
 
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  doLoginWithPhone: (loginFrom) => dispatch(actions.LoginAction(loginFrom)),
-  doLoginWithUsername: (loginFrom) => dispatch(actions.LoginAction(loginFrom)),
+  doLoginWithPhone: (loginFrom) => {
+    loginFrom['passwordType'] = 'phoneNum';
+    loginFrom['loginMethod'] = '1';
+    dispatch(actions.LoginAction(loginFrom));
+  },
+  doLoginWithUsername: (loginFrom) => {
+    loginFrom['passwordType'] = 'loginId';
+    loginFrom['loginMethod'] = '1';
+    dispatch(actions.LoginAction(loginFrom));
+  },
+  doLogout: () => dispatch(actions.LogoutAction()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

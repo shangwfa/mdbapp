@@ -14,7 +14,7 @@ import {Toast} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 export const {width} = Dimensions.get('window');
 import BasePage from '../../../BasePage';
-class RetrieveIDPassword extends BasePage {
+class ShootIDCard extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
@@ -73,7 +73,7 @@ class RetrieveIDPassword extends BasePage {
         },
       });
       if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
-        navigation.navigate('RetrieveVerifyCodeAndPassword', {
+        navigation.navigate('IDVerifyCode', {
           title: '找回登錄ID及密碼',
           ...res,
         });
@@ -81,7 +81,7 @@ class RetrieveIDPassword extends BasePage {
         // Toast.info(
         //   '抱歉！您的證件證件非澳門身份證或內地身份證，請重新人臉識別或親臨本行營業網點辦理',
         // );
-        navigation.navigate('RetrieveVerifyCodeAndPassword', {
+        navigation.navigate('IDVerifyCode', {
           title: '找回登錄ID及密碼',
           ...res,
         });
@@ -151,4 +151,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
-export default RetrieveIDPassword;
+export default ShootIDCard;
