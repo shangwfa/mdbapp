@@ -38,7 +38,7 @@ export const LoginAction = (loginFrom) => {
   };
 };
 
-function setIsLoggedIn(isLogin) {
+export function setIsLoggedIn(isLogin) {
   return {type: 'USER_LOGIN', isLogin: isLogin};
 }
 
