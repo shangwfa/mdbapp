@@ -8,11 +8,13 @@ const initState = {
 
 const onAction = (state = initState, action) => {
   switch (type) {
-    case Types.USER_IS_LOGIN:
+    case Types.USER_LOGIN:
       return {
         ...state,
         isLogin: action.isLogin,
       };
+    case Types.USER_LOGOUT:
+      return initState;
     case Types.LOGIN_REMEMBER_STATUS:
       return {
         ...state,

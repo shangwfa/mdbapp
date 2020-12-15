@@ -1,14 +1,5 @@
-import Types from './actionType';
+import types from './actionType';
 import LoginService from '../pages/login/LoginService';
-
-export const userSetLanguage = (langType) => {
-  return {
-    type: Types.USER_SET_LANGUAGE,
-    payload: {
-      langType,
-    },
-  };
-};
 
 function LoginFactory(loginMethod, user) {
   switch (loginMethod) {
@@ -29,17 +20,17 @@ export const LoginAction = (loginFrom) => {
   return async (dispatch) => {
     let loginService = new LoginService();
     let result = await loginService.login(loginFrom);
-    if (result.firstLogin === 'Y' || resetPwdLogin === 'Y') {
+    if (result.firstLogin === 'Y' || result.resetPwdLogin === 'Y') {
       dispatch(firstLogin(true));
     }
     dispatch(setIsLoggedIn(true));
     dispatch(writeLoginLog());
-    dispatch(rememberStatus(username));
+    // dispatch(rememberStatus(username));
   };
 };
 
 function setIsLoggedIn(isLogin) {
-  return {type: 'USER_LOGIN', isLogin: isLogin};
+  return {type: types.USER_IS_LOGIN, isLogin: isLogin};
 }
 
 /*
@@ -47,7 +38,7 @@ function setIsLoggedIn(isLogin) {
  */
 export const rememberStatus = (userId) => {
   return {
-    type: 'rememberStatus',
+    type: types.LOGIN_REMEMBER_STATUS,
     userId: userId,
   };
 };
@@ -67,6 +58,6 @@ export const firstLogin = (isFirstLogin) => {
  */
 export const LogoutAction = () => {
   return (dispatch) => {
-    dispatch(setLogin(false));
+    dispatch(setIsLoggedIn(false));
   };
 };

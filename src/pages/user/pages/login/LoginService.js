@@ -6,7 +6,7 @@
 import HTTP from '../../../../api';
 import DeviceInfo from 'react-native-device-info';
 import apiPaths from '../../paths';
-
+import utils from '../../../../utils';
 export default class LoginService {
   constructor() {}
 
@@ -30,6 +30,19 @@ export default class LoginService {
           checkForm: JSON.stringify({Version: '1.0.2', Flag: 'Y'}),
         },
       }).then((res) => {
+        //记住密码
+        // if (loginFrom.rememberStatus) {
+        //   utils.saveStorage(
+        //     utils.STORAGEKEYS.REMEMBER_USERNAME,
+        //     loginFrom.username,
+        //   );
+        // }
+        // 指纹登陆授权;
+        const PASSWORD_LOGIN = 1;
+        if (PASSWORD_LOGIN === loginFrom.loginMethod) {
+          let authKey = result.jsonData.authKey ? result.jsonData.authKey : '';
+          utils.saveStorage(utils.STORAGEKEYS.BIOMETRICS_AUTH_KEY, authKey);
+        }
         resolve(res);
       });
     });

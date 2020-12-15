@@ -9,7 +9,7 @@ import ActionTypes from '../../../../redux/actionTypes';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 import DeviceInfo from 'react-native-device-info';
-
+import {WhiteSpace} from '@ant-design/react-native';
 class HomePage extends BasePage {
   constructor(props) {
     super(props);
@@ -73,12 +73,21 @@ class HomePage extends BasePage {
       <View style={styles.container}>
         <Text>Home Page</Text>
         <Text>{I18n.t('signIn.title')}</Text>
-        <Button title="跳转" onPress={this.toLogin} />
-        <Button title="Storage" onPress={this.toStorage} />
-        <Button title="切换语言" onPress={this.toSwitch} />
-        <Button title="HTTP" onPress={this.toReq} />
-        <Button title="SETTINGINFO" onPress={this.toGetInfo} />
-        <Button title="RNCamera" onPress={this.toRNCamera} />
+        <Button style={styles.btn} title="登陆" onPress={this.toLogin} />
+        <WhiteSpace size="sm" />
+        <Button style={styles.btn} title="Storage" onPress={this.toStorage} />
+        <WhiteSpace size="sm" />
+        <Button style={styles.btn} title="切换语言" onPress={this.toSwitch} />
+        <WhiteSpace size="sm" />
+        <Button style={styles.btn} title="HTTP" onPress={this.toReq} />
+        <WhiteSpace size="sm" />
+        <Button
+          style={styles.btn}
+          title="SETTINGINFO"
+          onPress={this.toGetInfo}
+        />
+        <WhiteSpace size="sm" />
+        <Button style={styles.btn} title="RNCamera" onPress={this.toRNCamera} />
       </View>
     );
   }
@@ -89,6 +98,9 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  btn: {
+    marginBottom: 10,
   },
 });
 
