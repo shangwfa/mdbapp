@@ -58,17 +58,17 @@ class VerificationCode extends React.Component {
   };
 
   submitVerifyCode = async () => {
-    let {smsFlowNo, otp} = this.state;
-    this.props.setStep(2);
-    await HTTP.api({
-      url: 'json.do',
-      method: 'POST',
-      data: {
-        ActionMethod: 'checkOtp',
-        smsFlowNo: smsFlowNo,
-        otp: otp,
-      },
-    });
+    // let {smsFlowNo, otp} = this.state;
+    this.props.submitVerifyCode(1234);
+    // await HTTP.api({
+    //   url: 'json.do',
+    //   method: 'POST',
+    //   data: {
+    //     ActionMethod: 'checkOtp',
+    //     smsFlowNo: smsFlowNo,
+    //     otp: otp,
+    //   },
+    // });
   };
 
   render() {

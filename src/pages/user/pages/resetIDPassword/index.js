@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Button, Keyboard} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
-class SubmitPassword extends React.Component {
+class ResetIDPassword extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +33,8 @@ class SubmitPassword extends React.Component {
       Toast.info('密碼為6位數字');
       return;
     }
-    this.submit();
+    // this.submit();
+    this.props.navigation.navigate('ResetTransPinResult');
     // if (!validateRequired(form.pin2, form.pin2IsDisabled)) {
     //   JsonAjaxService.getErrMsgByLang('ERM2851');
     //   return false;
@@ -148,4 +149,4 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-export default SubmitPassword;
+export default ResetIDPassword;
