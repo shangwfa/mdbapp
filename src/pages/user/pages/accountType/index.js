@@ -1,18 +1,14 @@
 // 客户分类
-import { ScrollView } from 'react-native'
-import React from 'react'
-import BasePage from '../../../BasePage'
+import {ScrollView} from 'react-native';
+import React from 'react';
+import BasePage from '../../../BasePage';
 
 class AccountType extends BasePage {
-  didMount(){
-  }
+  didMount() {}
 
   renderContainer() {
-    return (
-      <ScrollView></ScrollView>
-    )
+    return <ScrollView></ScrollView>;
   }
 }
 
-
-export default AccountType
+export default AccountType;

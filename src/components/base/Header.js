@@ -14,6 +14,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 45,
     justifyContent: 'center',
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
   },
 });
 

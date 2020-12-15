@@ -2,8 +2,7 @@
 import { ScrollView, Switch, View, Text } from 'react-native'
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
-import React from 'react'
-import BasePage from '../../../BasePage'
+import BasePage from '../../../BasePage';
 
 class ChangeMobileToken extends BasePage {
   constructor(props) {
@@ -20,10 +19,10 @@ class ChangeMobileToken extends BasePage {
       url: apiPaths.MOBILETOKENINFO,
       method: 'POST',
       data: {
-        ActionMethod: 'unbind'
-      }
-    })
-  }
+        ActionMethod: 'unbind',
+      },
+    });
+  };
 
   pickerSelectChanged = () => {
     const res =  !this.state.isOpenToken
@@ -46,5 +45,4 @@ class ChangeMobileToken extends BasePage {
   }
 }
 
-
-export default ChangeMobileToken
+export default ChangeMobileToken;

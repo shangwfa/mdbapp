@@ -26,6 +26,8 @@ class Index extends React.PureComponent {
       designWidth: props.designWidth,
       /** 缩放比例 */
       scale: 1,
+      /**是否开启适配功能 */
+      enable: false,
     };
   }
 
@@ -49,20 +51,24 @@ class Index extends React.PureComponent {
 
     return (
       <View style={{flex: 1}} onLayout={this.handleLayout}>
-        <View
-          style={{
-            width: screenWidth,
-            height: screenHeight,
-            transform: [
-              {translateX: -screenWidth * 0.5},
-              {translateY: -screenHeight * 0.5},
-              {scale},
-              {translateX: screenWidth * 0.5},
-              {translateY: screenHeight * 0.5},
-            ],
-          }}>
-          {this.props.children}
-        </View>
+        {this.state.enable ? (
+          <View
+            style={{
+              width: screenWidth,
+              height: screenHeight,
+              transform: [
+                {translateX: -screenWidth * 0.5},
+                {translateY: -screenHeight * 0.5},
+                {scale},
+                {translateX: screenWidth * 0.5},
+                {translateY: screenHeight * 0.5},
+              ],
+            }}>
+            {this.props.children}
+          </View>
+        ) : (
+          this.props.children
+        )}
       </View>
     );
   }

@@ -58,6 +58,14 @@ class AboutUS extends BasePage {
           },
           title: '重置交易密碼',
         },
+        {
+          onPress: () => {
+            navigation.navigate('RetrieveIDPassword', {
+              title: '找回登錄ID及密碼',
+            });
+          },
+          title: '找回登錄ID及密碼',
+        },
       ],
     };
   }

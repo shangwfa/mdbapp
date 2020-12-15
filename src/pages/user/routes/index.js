@@ -1,22 +1,13 @@
 import LoginPage from '../pages/login';
-import AboutUS from '../pages/aboutUS';
-import WebViewContent from '../pages/aboutUS/WebViewContent';
-import ResetTransPin from '../pages/resetTransPin';
+import AboutUSRoutes from '../pages/aboutUS/routes';
+import ResetTransPinRoutes from '../pages/resetTransPin/routes';
+import RetrieveIDPassword from '../pages/retrieveIDPassword/routes';
 export default [
   {
     name: 'Login',
     component: LoginPage,
   },
-  {
-    name: 'AboutUS',
-    component: AboutUS,
-  },
-  {
-    name: 'WebViewContent',
-    component: WebViewContent,
-  },
-  {
-    name: 'ResetTransPin',
-    component: ResetTransPin,
-  },
+  ...AboutUSRoutes,
+  ...ResetTransPinRoutes,
+  ...RetrieveIDPassword,
 ];

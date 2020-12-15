@@ -24,13 +24,15 @@ class LoginPage extends React.Component {
           title="手机号登陆"
           onPress={() => {
             doLoginWithPhone();
-          }}></Button>
+          }}
+        />
 
         <Button
           title="用户名登陆"
           onPress={() => {
             doLoginWithUsername();
-          }}></Button>
+          }}
+        />
       </View>
     );
   }
