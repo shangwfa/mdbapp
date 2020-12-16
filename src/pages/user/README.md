@@ -18,3 +18,4 @@
 10. 找回登入 ID 及密码拍摄身份证页面-shootIDCard
 11. 获取登入 ID 及密码验证码页面-IDVerifyCode
 12. 重置登入 ID 及密码页面-resetIDPassword
+13. 安全設置頁面-securitySettings
