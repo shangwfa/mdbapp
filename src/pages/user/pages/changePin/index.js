@@ -2,7 +2,7 @@ import React from 'react';
 import BasePage from '../../../BasePage';
 import {View, StyleSheet, Button, Keyboard,Text} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
-// import CountDown from '../base/CountDown';
+import CountDown from '../../../../components/base/CountDown';
 class ChangePin extends BasePage {
   constructor(props) {
     super(props);
@@ -71,15 +71,15 @@ class ChangePin extends BasePage {
                 otp: value,
               });
             }}
-            // extra={
-            //   <CountDown
-            //     enable={true}
-            //     timerCount={60}
-            //     onClick={() => {
-            //       this.onPressOTPSend();
-            //     }}
-            //   />
-            // }
+            extra={
+              <CountDown
+                enable={true}
+                timerCount={60}
+                onClick={() => {
+                  this.onPressOTPSend();
+                }}
+              />
+            }
             placeholder="请输入短訊驗證碼">
             短訊驗證碼
           </InputItem>
