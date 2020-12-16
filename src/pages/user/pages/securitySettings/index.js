@@ -14,11 +14,19 @@ class AboutUS extends BasePage {
       itemArr: [
         {
           extra: 'www.mdb.com.mo',
-          onPress: () => {},
+          onPress: () => {
+            navigation.navigate('ChangePin', {
+              title: '修改登入密碼',
+            });
+          },
           title: '修改登入密碼',
         },
         {
-          onPress: () => {},
+          onPress: () => {
+            navigation.navigate('ChangeTransPin', {
+              title: '修改交易密碼',
+            });
+          },
           title: '修改交易密碼',
         },
         {

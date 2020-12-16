@@ -13,6 +13,8 @@ import ShootIDCardPage from '../pages/shootIDCard';
 import IDVerifyCodePage from '../pages/IDVerifyCode';
 import ResetIDPasswordPage from '../pages/resetIDPassword';
 import SecuritySettingsPage from '../pages/securitySettings';
+import ChangePinPage from '../pages/changePin';
+import ChangeTransPinPage from '../pages/changeTransPin';
 export default [
   {
     name: 'Login',
@@ -70,4 +72,12 @@ export default [
     name: 'SecuritySettings',
     component: SecuritySettingsPage,
   },
+  {
+    name:"ChangePin",
+    component: ChangePinPage,
+  },
+  {
+    name:"ChangeTransPin",
+    component: ChangeTransPinPage,
+  }
 ];
