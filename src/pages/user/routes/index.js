@@ -1,4 +1,4 @@
-import LoginPage from '../pages/login';
+import LoginPage from '../pages/login/index';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
@@ -12,6 +12,8 @@ import ResetTransPinResultPage from '../pages/resetTransPinResult';
 import ShootIDCardPage from '../pages/shootIDCard';
 import IDVerifyCodePage from '../pages/IDVerifyCode';
 import ResetIDPasswordPage from '../pages/resetIDPassword';
+import SecuritySettingsPage from '../pages/securitySettings';
+import FaceRecognitionPage from '../pages/faceRecognition';
 export default [
   {
     name: 'Login',
@@ -64,5 +66,13 @@ export default [
   {
     name: 'ResetIDPassword',
     component: ResetIDPasswordPage,
+  },
+  {
+    name: 'SecuritySettings',
+    component: SecuritySettingsPage,
+  },
+  {
+    name: 'FaceRecognition',
+    component: FaceRecognitionPage,
   },
 ];

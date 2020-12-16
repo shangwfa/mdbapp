@@ -80,7 +80,7 @@ const api = async (request) => {
       data: request.data,
     });
     store.dispatch(Actions[ActionTypes.G_IS_LOADING](false));
-    return result;
+    return JSON.parse(result);
   } catch (error) {
     console.log('网络请求异常:', error);
     store.dispatch(Actions[ActionTypes.G_IS_LOADING](false));
@@ -111,7 +111,7 @@ const apis = async (requests) => {
       });
     }
     store.dispatch(Actions(ActionTypes.G_IS_LOADING)(false));
-    return result;
+    return JSON.parse(result);
   } catch (error) {
     console.log('网络请求异常:', error);
     store.dispatch(Actions(ActionTypes.G_IS_LOADING)(false));

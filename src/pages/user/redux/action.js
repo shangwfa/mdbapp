@@ -1,25 +1,11 @@
 import types from './actionType';
-import LoginService from '../pages/login/LoginService';
-
-function LoginFactory(loginMethod, user) {
-  switch (loginMethod) {
-    case 'PASSWORD_LOGIN':
-      break;
-    case 'FINGERPRINT_LOGIN':
-      break;
-    default:
-      break;
-  }
-}
 
 function writeLoginLog() {
   return (dispatch) => {};
 }
 
-export const LoginAction = (loginFrom) => {
+export const loginSuccess = (result) => {
   return async (dispatch) => {
-    let loginService = new LoginService();
-    let result = await loginService.login(loginFrom);
     if (result.firstLogin === 'Y' || result.resetPwdLogin === 'Y') {
       dispatch(firstLogin(true));
     }

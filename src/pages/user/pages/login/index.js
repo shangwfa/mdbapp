@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from '../../redux/action';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 import {List, WhiteSpace} from '@ant-design/react-native';
+import LoginService from './LoginService';
 class LoginPage extends BasePage {
   constructor(props) {
     super(props);
@@ -16,9 +17,10 @@ class LoginPage extends BasePage {
         rememberStatus: false,
       },
     };
+
+    this.loginService = new LoginService();
   }
   render() {
-    const {doLoginWithPhone, doLoginWithUsername} = this.props;
     return (
       <View style={styles.container}>
         <Text>Login Page</Text>
@@ -26,7 +28,8 @@ class LoginPage extends BasePage {
           title="手机号登陆"
           style={styles.buttons}
           onPress={() => {
-            doLoginWithPhone(this.state.loginFrom);
+            let res = this.loginService.loginWithPhone(this.state.loginFrom);
+            this.props.onLoginSuccess(res);
           }}
         />
         <WhiteSpace size="sm" />
@@ -34,7 +37,16 @@ class LoginPage extends BasePage {
           title="用户名登陆"
           style={styles.buttons}
           onPress={() => {
-            doLoginWithUsername(this.state.loginFrom);
+            let res = this.loginService.loginWithUsername(this.state.loginFrom);
+            this.props.onLoginSuccess(res);
+          }}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          title="退出登陆"
+          style={styles.buttons}
+          onPress={() => {
+            this.props.doLogout();
           }}
         />
         <WhiteSpace size="sm" />
@@ -45,6 +57,7 @@ class LoginPage extends BasePage {
             this.navigation.navigate('fingerDemo');
           }}
         />
+
         <WhiteSpace size="sm" />
         <Button
           title="指纹登陆"
@@ -89,16 +102,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => ({});
 
 const mapDispatchToProps = (dispatch) => ({
-  doLoginWithPhone: (loginFrom) => {
-    loginFrom['passwordType'] = 'phoneNum';
-    loginFrom['loginMethod'] = '1';
-    dispatch(actions.LoginAction(loginFrom));
-  },
-  doLoginWithUsername: (loginFrom) => {
-    loginFrom['passwordType'] = 'loginId';
-    loginFrom['loginMethod'] = '1';
-    dispatch(actions.LoginAction(loginFrom));
-  },
+  onLoginSuccess: (res) => dispatch(actions.loginSuccess(res)),
   doLogout: () => dispatch(actions.LogoutAction()),
 });
 

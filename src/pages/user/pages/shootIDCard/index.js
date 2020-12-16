@@ -27,19 +27,16 @@ class ShootIDCard extends BasePage {
   }
 
   takePhotoPage = async () => {
-    const optionsTemp = {
-      titleTips1: '拍攝身份證正面', //Shoot the front of ID card
-      titleTips2: '請把證件置於方框内，保證清晰無反光', //Please put your ID card in the box, ensure the photo is clear and non-reflective
-      title: '请选择图片来源', //Please select the source of picture
-      cancelButtonTitle: '取消', //Cancel
-      takePhotoButtonTitle: '拍照', //Photo
-      chooseFromLibraryButtonTitle: '相册图片', //photos
-      reTakePhotoButtonTitle: '重拍', //Remake
-    };
     try {
-      const result = await NativeModules.ETImagePickerModule.takeImagePicker(
-        optionsTemp,
-      );
+      const result = await NativeModules.ETImagePickerModule.takeImagePicker({
+        titleTips1: '拍攝身份證正面', //Shoot the front of ID card
+        titleTips2: '請把證件置於方框内，保證清晰無反光', //Please put your ID card in the box, ensure the photo is clear and non-reflective
+        title: '请选择图片来源', //Please select the source of picture
+        cancelButtonTitle: '取消', //Cancel
+        takePhotoButtonTitle: '拍照', //Photo
+        chooseFromLibraryButtonTitle: '相册图片', //photos
+        reTakePhotoButtonTitle: '重拍', //Remake
+      });
       let source = {uri: 'data:image/jpeg;base64,' + result.data};
       if (Platform.OS === 'android') {
         this.setState({selectPathFront: source, imageFontBase64: result.data});
@@ -67,24 +64,28 @@ class ShootIDCard extends BasePage {
         url: 'forgetPassWord.do',
         method: 'POST',
         data: {
-          langCode: 'CN', //CN、US、PT
+          ActionMethod: 'getIDCardInfo',
+          PageLanguage: 'zh_CN',
           forgetStatus: '1', // <IDCardVerifyStart forgetStatus={checkedAfter ? '1':'0'}/>，原項目代碼中forgetStatus的值只會取1
+          langCode: 'CN', //CN、US、PT
           imageFontBase64: this.state.imageFontBase64,
         },
       });
+      if (res.ERR_DESC) {
+        return Toast.info(res.ERR_DESC);
+      }
       if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
         navigation.navigate('IDVerifyCode', {
-          title: '找回登錄ID及密碼',
-          ...res,
+          log_id: res.log_id,
+          imageFontBase64: res.imageFontBase64,
+          localName: res.localName,
+          idCard_number: res.idCard_number,
+          idCard_type: res.idCard_type,
         });
       } else {
-        // Toast.info(
-        //   '抱歉！您的證件證件非澳門身份證或內地身份證，請重新人臉識別或親臨本行營業網點辦理',
-        // );
-        navigation.navigate('IDVerifyCode', {
-          title: '找回登錄ID及密碼',
-          ...res,
-        });
+        Toast.info(
+          '抱歉！您的證件證件非澳門身份證或內地身份證，請重新人臉識別或親臨本行營業網點辦理',
+        );
       }
     } catch (error) {
       console.log('error');
