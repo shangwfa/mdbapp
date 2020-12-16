@@ -3,10 +3,10 @@
  * @Date: 2020-12-09 15:27:11
  * @Description: file content
  */
-import HTTP from '../../../../api';
+import HTTP from '#/api';
+import utils from '#/utils';
 import DeviceInfo from 'react-native-device-info';
 import apiPaths from '../../paths';
-import utils from '../../../../utils';
 export default class LoginService {
   isFirstLogin(result) {
     return result.firstLogin === 'Y' || result.resetPwdLogin === 'Y';

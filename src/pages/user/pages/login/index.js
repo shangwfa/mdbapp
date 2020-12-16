@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 import {connect} from 'react-redux';
 import * as actions from '../../redux/action';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 import {List, WhiteSpace} from '@ant-design/react-native';
 import LoginService from './LoginService';
 class LoginPage extends BasePage {
