@@ -1,4 +1,4 @@
-import LoginPage from '../pages/login';
+import LoginPage from '../pages/login/LoginPage';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
