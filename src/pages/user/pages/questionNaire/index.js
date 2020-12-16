@@ -1,9 +1,9 @@
 // 风险问卷
 import { ScrollView } from 'react-native'
 import React from 'react'
-import BasePage from '../../../BasePage'
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
+import BasePage from '#/pages/BasePage'
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
 import { WebView } from 'react-native-webview'
 
 class QuestionNaire extends BasePage {
