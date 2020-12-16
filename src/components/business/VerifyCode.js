@@ -7,11 +7,10 @@ class VerificationCode extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewDepth: 1,
       smsFlowNo: '',
+      otp: '',
       btnOtpDisabled: true,
       firstOnPress: true,
-      otp: '',
     };
   }
   onPressOTPSend = async () => {
@@ -26,7 +25,6 @@ class VerificationCode extends React.Component {
           funcName: 'app.mb.core.resetTxnPwd',
         },
       });
-      console.log('首次发送验证码11', res);
       this.setState({
         smsFlowNo: res.smsFlowNo,
         btnOtpDisabled: false,
@@ -37,8 +35,8 @@ class VerificationCode extends React.Component {
     }
   };
   resendOtp = async () => {
-    let smsFlowNo = this.state.smsFlowNo;
-    const res = await HTTP.api({
+    const {smsFlowNo} = this.state;
+    await HTTP.api({
       url: 'json.do',
       method: 'POST',
       data: {
@@ -46,7 +44,6 @@ class VerificationCode extends React.Component {
         smsFlowNo: smsFlowNo,
       },
     });
-    console.log('重新发送验证码11', res);
     this.setState({
       btnOtpDisabled: false,
     });
@@ -63,7 +60,7 @@ class VerificationCode extends React.Component {
         otp: otp,
       },
     });
-    this.props.submitVerifyCode(smsFlowNo);
+    this.props.submitVerifyCode({smsFlowNo, otp});
   };
 
   render() {

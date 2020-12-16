@@ -11,9 +11,8 @@ class TransPinVerifyCode extends BasePage {
       code: 1,
     };
   }
-  submitVerifyCode = (code) => {
-    console.log('code', code);
-    this.props.navigation.navigate('ResetTransPin');
+  submitVerifyCode = (smsFlowNo) => {
+    this.props.navigation.navigate('ResetTransPin', smsFlowNo);
   };
 
   renderContainer() {
