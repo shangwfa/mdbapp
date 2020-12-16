@@ -248,6 +248,8 @@ PODS:
     - React-Core
   - react-native-cameraroll (4.0.1):
     - React
+  - react-native-fingerprint-scanner (6.0.0):
+    - React
   - react-native-orientation (3.1.3):
     - React
   - react-native-safe-area-context (3.1.9):
@@ -338,6 +340,8 @@ PODS:
     - React
   - RNScreens (2.13.0):
     - React-Core
+  - TouchID (4.4.1):
+    - React
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -382,6 +386,7 @@ DEPENDENCIES:
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - "react-native-cameraroll (from `../node_modules/@react-native-community/cameraroll`)"
+  - react-native-fingerprint-scanner (from `../node_modules/react-native-fingerprint-scanner`)
   - react-native-orientation (from `../node_modules/react-native-orientation`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - "react-native-segmented-control (from `../node_modules/@react-native-community/segmented-control`)"
@@ -407,6 +412,7 @@ DEPENDENCIES:
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - TouchID (from `../node_modules/react-native-touch-id`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -461,6 +467,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-camera"
   react-native-cameraroll:
     :path: "../node_modules/@react-native-community/cameraroll"
+  react-native-fingerprint-scanner:
+    :path: "../node_modules/react-native-fingerprint-scanner"
   react-native-orientation:
     :path: "../node_modules/react-native-orientation"
   react-native-safe-area-context:
@@ -511,6 +519,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  TouchID:
+    :path: "../node_modules/react-native-touch-id"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -544,6 +554,7 @@ SPEC CHECKSUMS:
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-camera: 5c1fbfecf63b802b8ca4a71c60d30a71550fb348
   react-native-cameraroll: 9d2b7c1707204d2040d2812f960c6cebdbd9f670
+  react-native-fingerprint-scanner: c68136ca57e3704d7bdf5faa554ea535ce15b1d0
   react-native-orientation: d4a97266b06ec8d45d74e626656a730ebbebbb6f
   react-native-safe-area-context: 86612d2c9a9e94e288319262d10b5f93f0b395f5
   react-native-segmented-control: ab0ecd7d279c62dd2bbd19ad7caaa8eaeaebaeea
@@ -569,9 +580,10 @@ SPEC CHECKSUMS:
   RNLocalize: dc432c370fe76ad48cb380386232ca68d534a52a
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 13f23e5498fb4aa749d19a5eda7f8792fbb9d01f
+  TouchID: ba4c656d849cceabc2e4eef722dea5e55959ecf4
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: f01c9ecedc87b4ef5700a54a216eb594ee24e63b
+PODFILE CHECKSUM: ef523621a65a9019cf1ae2898816d942408afba2
 
 COCOAPODS: 1.9.3
