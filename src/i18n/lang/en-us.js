@@ -1,5 +1,4 @@
+import Lang from '../../pages/user/lang';
 export default {
-  signIn: {
-    title: 'Welcome',
-  },
+  ...Lang.EN,
 };
