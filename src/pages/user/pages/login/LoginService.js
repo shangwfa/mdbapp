@@ -45,12 +45,12 @@ export default class LoginService {
         },
       }).then((res) => {
         //记住密码
-        // if (loginFrom.rememberStatus) {
-        //   utils.saveStorage(
-        //     utils.STORAGEKEYS.REMEMBER_USERNAME,
-        //     loginFrom.username,
-        //   );
-        // }
+        if (loginFrom.rememberStatus) {
+          utils.saveStorage(
+            utils.STORAGEKEYS.REMEMBER_USERNAME,
+            loginFrom.username,
+          );
+        }
         // 指纹登陆授权凭证;
         const PASSWORD_LOGIN = 1;
         if (PASSWORD_LOGIN === loginFrom.loginMethod) {
