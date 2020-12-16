@@ -27,6 +27,7 @@ target 'mdbAPP' do
 
   pod 'react-native-fingerprint-scanner', :path => '../node_modules/react-native-fingerprint-scanner'
 
+
   target 'mdbAPPTests' do
     inherit! :complete
     # Pods for testing
