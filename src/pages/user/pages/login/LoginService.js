@@ -8,7 +8,21 @@ import DeviceInfo from 'react-native-device-info';
 import apiPaths from '../../paths';
 import utils from '../../../../utils';
 export default class LoginService {
-  constructor() {}
+  isFirstLogin(result) {
+    return result.firstLogin === 'Y' || result.resetPwdLogin === 'Y';
+  }
+
+  loginWithPhone(loginFrom) {
+    loginFrom['passwordType'] = 'phoneNum';
+    loginFrom['loginMethod'] = '1';
+    return this.login(loginFrom);
+  }
+
+  loginWithUsername(loginFrom) {
+    loginFrom['passwordType'] = 'loginId';
+    loginFrom['loginMethod'] = '1';
+    return this.login(loginFrom);
+  }
 
   login(loginFrom) {
     return new Promise((resolve, reject) => {
@@ -37,7 +51,7 @@ export default class LoginService {
         //     loginFrom.username,
         //   );
         // }
-        // 指纹登陆授权;
+        // 指纹登陆授权凭证;
         const PASSWORD_LOGIN = 1;
         if (PASSWORD_LOGIN === loginFrom.loginMethod) {
           let authKey = result.jsonData.authKey ? result.jsonData.authKey : '';
