@@ -1,9 +1,9 @@
 // 登录历史
 import { ScrollView } from 'react-native'
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
 import React from 'react'
-import BasePage from '../../../BasePage'
+import BasePage from '#/pages/BasePage'
 
 class LoginLogs extends BasePage {
   didMount(){

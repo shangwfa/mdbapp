@@ -1,7 +1,7 @@
 // 信任此設備服務條款細則
 import { ScrollView, View, TouchableOpacity, Image, Text } from 'react-native'
 import React from 'react'
-import BasePage from '../../../BasePage'
+import BasePage from '#/pages/BasePage'
 
 class PaymentWebView extends BasePage {
   constructor(prop) {
