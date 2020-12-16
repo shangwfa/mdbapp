@@ -19,3 +19,4 @@
 11. 获取登入 ID 及密码验证码页面-IDVerifyCode
 12. 重置登入 ID 及密码页面-resetIDPassword
 13. 安全設置頁面-securitySettings
+14. 重置交易密码人脸识别-faceRecognition

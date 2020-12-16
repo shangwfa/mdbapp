@@ -13,6 +13,7 @@ import ShootIDCardPage from '../pages/shootIDCard';
 import IDVerifyCodePage from '../pages/IDVerifyCode';
 import ResetIDPasswordPage from '../pages/resetIDPassword';
 import SecuritySettingsPage from '../pages/securitySettings';
+import FaceRecognitionPage from '../pages/faceRecognition';
 export default [
   {
     name: 'Login',
@@ -69,5 +70,9 @@ export default [
   {
     name: 'SecuritySettings',
     component: SecuritySettingsPage,
+  },
+  {
+    name: 'FaceRecognition',
+    component: FaceRecognitionPage,
   },
 ];

@@ -34,7 +34,7 @@ class IDVerifyCode extends BasePage {
       },
     });
     console.log('forgetPassWord.do res', res); // {"cif": "", "idNum": "440902199008083694", "idNumType": "CD", "isValidCustomer": "N", "localName": "吴超亮", "userId": ""}
-    this.props.navigation.navigate('ResetIDPassword', res);
+    this.props.navigation.navigate('FaceRecognition', {...res, ...this.state});
   };
 
   renderContainer() {
