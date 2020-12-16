@@ -19,17 +19,18 @@ class IDVerifyCode extends BasePage {
     };
   }
   checkOpenByIdNo = async () => {
+    const {idCard_number, localName, log_id} = this.state;
     const res = await HTTP.api({
       url: 'forgetPassWord.do',
       method: 'POST',
       params: {
         ActionMethod: 'checkOpenByIdNo',
         PageLanguage: 'zh_CN',
-        idCard: 'CD',
-        idNum: '440902199008083694',
         langCode: 'CN',
-        localName: '吴超亮',
-        log_id: 'a4c714ac835740b4a4bc11dcea66af94',
+        idCard: idCard_number,
+        idNum: idCard_number,
+        localName: localName,
+        log_id: log_id,
       },
     });
     console.log('forgetPassWord.do res', res); // {"cif": "", "idNum": "440902199008083694", "idNumType": "CD", "isValidCustomer": "N", "localName": "吴超亮", "userId": ""}
@@ -51,8 +52,24 @@ class IDVerifyCode extends BasePage {
             localName
           </InputItem>
           <InputItem value={log_id}>log_id</InputItem>
-          <InputItem value={idCard_number}>idCard_number</InputItem>
-          <InputItem value={idCard_type}>idCard_type</InputItem>
+          <InputItem
+            value={idCard_number}
+            onChange={(value) => {
+              this.setState({
+                idCard_number: value,
+              });
+            }}>
+            idCard_number
+          </InputItem>
+          <InputItem
+            value={idCard_type}
+            onChange={(value) => {
+              this.setState({
+                idCard_type: value,
+              });
+            }}>
+            idCard_type
+          </InputItem>
         </List>
         <Button
           onPress={() => {
