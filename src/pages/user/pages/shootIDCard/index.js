@@ -71,19 +71,21 @@ class ShootIDCard extends BasePage {
           imageFontBase64: this.state.imageFontBase64,
         },
       });
+      if (res.ERR_DESC) {
+        return Toast.info(res.ERR_DESC);
+      }
       if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
         navigation.navigate('IDVerifyCode', {
-          title: '找回登錄ID及密碼',
-          ...res,
+          log_id: res.log_id,
+          imageFontBase64: res.imageFontBase64,
+          localName: res.localName,
+          idCard_number: res.idCard_number,
+          idCard_type: res.idCard_type,
         });
       } else {
-        // Toast.info(
-        //   '抱歉！您的證件證件非澳門身份證或內地身份證，請重新人臉識別或親臨本行營業網點辦理',
-        // );
-        navigation.navigate('IDVerifyCode', {
-          title: '找回登錄ID及密碼',
-          ...res,
-        });
+        Toast.info(
+          '抱歉！您的證件證件非澳門身份證或內地身份證，請重新人臉識別或親臨本行營業網點辦理',
+        );
       }
     } catch (error) {
       console.log('error');
