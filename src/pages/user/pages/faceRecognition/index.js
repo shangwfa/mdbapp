@@ -18,6 +18,7 @@ class FaceRecognition extends BasePage {
       log_id: this.params.log_id,
       imageFontBase64: this.params.imageFontBase64,
       userId: this.params.userId,
+      cif: this.params.cif,
     };
   }
   checkCustomerFaceInfo = async () => {
@@ -42,21 +43,44 @@ class FaceRecognition extends BasePage {
         },
       });
       console.log('checkCustomerFaceInfo res成功', res);
+      this.getMobileNumberByCif();
     } catch (error) {
       console.log('checkCustomerFaceInfo res失败', error);
     }
-    // this.props.navigation.navigate('ResetIDPassword', {...res, ...this.state});
+  };
+  getMobileNumberByCif = async () => {
+    console.log('人脸识别成功后发起的请求');
+    const {idCard_number, idCard_type, cif, log_id, userId} = this.state;
+    try {
+      const res = await HTTP.api({
+        url: 'forgetPassWord.do',
+        method: 'POST',
+        params: {
+          ActionMethod: 'getMobileNumberByCif',
+          PageLanguage: 'zh_CN',
+          cif: cif,
+          idNum: idCard_number,
+          idNumType: idCard_type,
+          langCode: 'CN',
+          log_id: log_id,
+          userId: userId,
+        },
+      });
+      console.log('checkCustomerFaceInfo res成功', res);
+      // this.props.navigation.navigate('ResetIDPassword', {...res, ...this.state});
+    } catch (error) {
+      console.log('checkCustomerFaceInfo res失败', error);
+    }
   };
 
   renderContainer() {
     return (
       <>
         <Text>人脸识别</Text>
+        <Button onPress={this.checkCustomerFaceInfo} title="发起人脸识别请求" />
         <Button
-          onPress={() => {
-            this.checkCustomerFaceInfo();
-          }}
-          title="发起人脸识别请求"
+          onPress={this.getMobileNumberByCif}
+          title="人脸识别成功后发起的请求"
         />
         <Button
           onPress={() => {
