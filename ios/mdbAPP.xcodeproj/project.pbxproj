@@ -11,10 +11,12 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2109F403ACE645B59B940E34 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB6C5FFDAF7E4288AA9B3A0B /* antoutline.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* mdbAPPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* mdbAPPTests.m */; };
+		702F026DB6F3412E891E82EB /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9A9F1203A462DB9219A2F /* antfill.ttf */; };
 		7901A9CA257F6F8C0011BCAB /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C4257F6F8C0011BCAB /* SecurityUtil.m */; };
 		7901A9CB257F6F8C0011BCAB /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C5257F6F8C0011BCAB /* NSData+AES.m */; };
 		7901A9CC257F6F8C0011BCAB /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C7257F6F8C0011BCAB /* GTMBase64.m */; };
@@ -35,8 +37,6 @@
 		C6992DEA360282021D32F3D4 /* libPods-mdbAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EF05BEBD2B4F855B2D956A /* libPods-mdbAPP.a */; };
 		EC8255FD693E1B756837DA33 /* libPods-mdbAPP-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB8FDA465D03147213826D2 /* libPods-mdbAPP-tvOSTests.a */; };
 		ECEF19BD9CCA4DD55A736229 /* libPods-mdbAPP-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E155307E2C175E0A2165CD39 /* libPods-mdbAPP-tvOS.a */; };
-		702F026DB6F3412E891E82EB /* antfill.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DF9A9F1203A462DB9219A2F /* antfill.ttf */; };
-		2109F403ACE645B59B940E34 /* antoutline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB6C5FFDAF7E4288AA9B3A0B /* antoutline.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +78,7 @@
 		140CB9E9CA404DC798006524 /* Pods-mdbAPP-mdbAPPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdbAPP-mdbAPPTests.debug.xcconfig"; path = "Target Support Files/Pods-mdbAPP-mdbAPPTests/Pods-mdbAPP-mdbAPPTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* mdbAPP-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mdbAPP-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* mdbAPP-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mdbAPP-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DF9A9F1203A462DB9219A2F /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		5002C4CE16E346995536FF68 /* Pods-mdbAPP-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdbAPP-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-mdbAPP-tvOS/Pods-mdbAPP-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		7901A9C0257F6F8C0011BCAB /* RCTAesCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTAesCrypto.h; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/RCTAesCrypto.h"; sourceTree = "<group>"; };
 		7901A9C2257F6F8C0011BCAB /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
@@ -126,9 +127,8 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F91401389D657C9CD4845AF9 /* libPods-mdbAPP-mdbAPPTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mdbAPP-mdbAPPTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB6C5FFDAF7E4288AA9B3A0B /* antoutline.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antoutline.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; };
 		FEB8FDA465D03147213826D2 /* libPods-mdbAPP-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mdbAPP-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3DF9A9F1203A462DB9219A2F /* antfill.ttf */ = {isa = PBXFileReference; name = "antfill.ttf"; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		FB6C5FFDAF7E4288AA9B3A0B /* antoutline.ttf */ = {isa = PBXFileReference; name = "antoutline.ttf"; path = "../node_modules/@ant-design/icons-react-native/fonts/antoutline.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +228,15 @@
 				8ED55F75D87C76A6C10556D3 /* Pods-mdbAPP-tvOSTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7010D36689544FC296A6451D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3DF9A9F1203A462DB9219A2F /* antfill.ttf */,
+				FB6C5FFDAF7E4288AA9B3A0B /* antoutline.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		7901A9C1257F6F8C0011BCAB /* AesKit */ = {
@@ -361,16 +370,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7010D36689544FC296A6451D /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				3DF9A9F1203A462DB9219A2F /* antfill.ttf */,
-				FB6C5FFDAF7E4288AA9B3A0B /* antoutline.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -467,7 +466,9 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = JY7FG97PKY;
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -877,7 +878,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JY7FG97PKY;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = mdbAPP/Info.plist;
@@ -887,8 +890,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdb.uat;
 				PRODUCT_NAME = mdbAPP;
+				PROVISIONING_PROFILE_SPECIFIER = aofacommdbuatprofile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -901,7 +905,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JY7FG97PKY;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = mdbAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -910,8 +916,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdb.uat;
 				PRODUCT_NAME = mdbAPP;
+				PROVISIONING_PROFILE_SPECIFIER = aofacommdbuatprofile;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

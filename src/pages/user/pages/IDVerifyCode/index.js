@@ -1,6 +1,11 @@
+/*
+ * @Author: deng.wulin@mdb-fintech.com
+ * @Date: 2020-12-16 10:03:25
+ * @Description: file content
+ */
 import React from 'react';
 import BasePage from '../../../BasePage';
-import VerifyCode from '../../../../components/business/VerifyCode';
+import VerifyCode from '#/components/business/VerifyCode';
 class IDVerifyCode extends BasePage {
   constructor(props) {
     super(props);

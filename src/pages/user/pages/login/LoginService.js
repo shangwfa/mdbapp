@@ -62,5 +62,18 @@ export default class LoginService {
     });
   }
 
-  logout() {}
+  logout() {
+    return new Promise((resolve, reject) => {
+      HTTP.api({
+        url: apiPaths.LOGIN,
+        method: 'POST',
+        data: {
+          ActionMethod: 'logout',
+          pageLanguage: 'CN',
+        },
+      }).then((res) => {
+        resolve();
+      });
+    });
+  }
 }
