@@ -13,7 +13,12 @@ class ResetTransPinResult extends BasePage {
     return (
       <View>
         <Text>修改交易密码成功</Text>
-        <Button onPress={() => {}} title="完成" />
+        <Button
+          onPress={() => {
+            this.props.navigation.navigate('AboutUS');
+          }}
+          title="完成"
+        />
       </View>
     );
   }

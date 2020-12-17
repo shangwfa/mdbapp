@@ -54,14 +54,6 @@ class AboutUS extends BasePage {
         },
         {
           onPress: () => {
-            navigation.navigate('TransPinVerifyCode', {
-              title: '获取重置交易密碼验证码',
-            });
-          },
-          title: '重置交易密碼',
-        },
-        {
-          onPress: () => {
             navigation.navigate('ShootIDCard', {
               title: '找回登錄ID及密碼',
             });
