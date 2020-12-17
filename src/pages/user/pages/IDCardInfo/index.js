@@ -33,7 +33,13 @@ class IDCardInfo extends BasePage {
         log_id: log_id,
       },
     });
-    this.props.navigation.navigate('FaceRecognition', {...res, ...this.state});
+    this.props.navigation.navigate('FaceRecognition', {
+      ...this.params,
+      ...this.state,
+      cif: res.cif,
+      isValidCustomer: res.isValidCustomer,
+      userId: res.userId,
+    });
   };
 
   renderContainer() {

@@ -9,28 +9,36 @@ class ResetIDPassword extends BasePage {
     this.state = {
       pin2: '',
       pin2Confirm: '',
-      editLoginId: '',
       log_id: this.params.log_id,
+      userId: this.params.userId,
+      oldUserId: this.params.userId,
+      cif: this.params.cif,
     };
   }
 
+  removeBlankAndIgnoreLowerUpper(str) {
+    return str.replace(/\s*/g, '').toUpperCase();
+  }
+
   submit = async () => {
-    console.log('submit111');
-    const res = await HTTP.api({
+    await HTTP.api({
       url: 'forgetPassWord.do',
       method: 'POST',
       data: {
         ActionMethod: 'changeLoginPassWord',
-        cif: '',
-        loginId: this.state.log_id,
-        oldLoginId: this.state.log_id,
-        newPassword: this.state.pin2,
-        confirmPassword: this.state.pin2Confirm,
-        editLoginId: this.state.log_id,
+        cif: this.state.cif,
+        loginId: this.state.userId, // 修改后的userId
+        oldLoginId: this.state.oldUserId, // 原來的userId
+        newPassword: encodeURIComponent(this.state.pin2),
+        confirmPassword: encodeURIComponent(this.state.pin2Confirm),
+        editLoginId:
+          this.removeBlankAndIgnoreLowerUpper(this.state.userId) ===
+          this.removeBlankAndIgnoreLowerUpper(this.state.oldUserId)
+            ? '0'
+            : '1',
         log_id: this.state.log_id,
       },
     });
-    console.log('submit222', res);
   };
   validateInput() {
     const {pin2, pin2Confirm} = this.state;
@@ -38,12 +46,8 @@ class ResetIDPassword extends BasePage {
       Toast.info('密碼和確認密碼不一致');
       return;
     }
-    if (pin2.length !== 6) {
-      Toast.info('密碼為6位數字');
-      return;
-    }
     this.submit();
-    this.props.navigation.navigate('ResetTransPinResult');
+    // this.props.navigation.navigate('ResetTransPinResult');
     // if (!validateRequired(form.pin2, form.pin2IsDisabled)) {
     //   JsonAjaxService.getErrMsgByLang('ERM2851');
     //   return false;
@@ -78,14 +82,14 @@ class ResetIDPassword extends BasePage {
       <>
         <List>
           <InputItem
-            value={this.state.editLoginId}
+            value={this.state.oldUserId}
             onChange={(value) => {
               this.setState({
-                editLoginId: value,
+                oldUserId: value,
               });
             }}
             placeholder="请输入登入ID">
-            登入ID1
+            登入ID
           </InputItem>
           <InputItem
             type="password"
