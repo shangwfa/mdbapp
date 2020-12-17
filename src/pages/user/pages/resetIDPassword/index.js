@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet, Button, Keyboard} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 import BasePage from '../../../BasePage';
 class ResetIDPassword extends BasePage {
   constructor(props) {
@@ -22,7 +23,7 @@ class ResetIDPassword extends BasePage {
 
   submit = async () => {
     await HTTP.api({
-      url: 'forgetPassWord.do',
+      url: apiPaths.FORGETPASSWORD,
       method: 'POST',
       data: {
         ActionMethod: 'changeLoginPassWord',

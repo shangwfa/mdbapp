@@ -3,6 +3,7 @@ import {Button, Text} from 'react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
 import imageBestBase64 from './imageBestBase64';
+import apiPaths from '../../../../api/path';
 class FaceRecognition extends BasePage {
   constructor(props) {
     super(props);
@@ -23,7 +24,7 @@ class FaceRecognition extends BasePage {
   checkCustomerFaceInfo = async () => {
     try {
       await HTTP.api({
-        url: 'forgetPassWord.do',
+        url: apiPaths.FORGETPASSWORD,
         method: 'POST',
         params: {
           ActionMethod: 'checkCustomerFaceInfo',
@@ -47,7 +48,7 @@ class FaceRecognition extends BasePage {
   getMobileNumberByCif = async () => {
     try {
       const res = await HTTP.api({
-        url: 'forgetPassWord.do',
+        url: apiPaths.FORGETPASSWORD,
         method: 'POST',
         params: {
           ActionMethod: 'getMobileNumberByCif',
