@@ -2,26 +2,35 @@ import React from 'react';
 import {View, StyleSheet, Button, Keyboard} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
-class ResetIDPassword extends React.Component {
+import BasePage from '../../../BasePage';
+class ResetIDPassword extends BasePage {
   constructor(props) {
     super(props);
     this.state = {
       pin2: '',
       pin2Confirm: '',
+      editLoginId: '',
+      log_id: this.params.log_id,
     };
   }
+
   submit = async () => {
-    await HTTP.api({
-      url: 'setPin2',
+    console.log('submit111');
+    const res = await HTTP.api({
+      url: 'forgetPassWord.do',
       method: 'POST',
       data: {
-        ActionMethod: 'sendOtp',
-        pin2: '123456',
-        pin2Confirm: '123456',
-        smsFlowNo: '202012025451622826',
-        seqNo: '7515',
+        ActionMethod: 'changeLoginPassWord',
+        cif: '',
+        loginId: this.state.log_id,
+        oldLoginId: this.state.log_id,
+        newPassword: this.state.pin2,
+        confirmPassword: this.state.pin2Confirm,
+        editLoginId: this.state.log_id,
+        log_id: this.state.log_id,
       },
     });
+    console.log('submit222', res);
   };
   validateInput() {
     const {pin2, pin2Confirm} = this.state;
@@ -33,7 +42,7 @@ class ResetIDPassword extends React.Component {
       Toast.info('密碼為6位數字');
       return;
     }
-    // this.submit();
+    this.submit();
     this.props.navigation.navigate('ResetTransPinResult');
     // if (!validateRequired(form.pin2, form.pin2IsDisabled)) {
     //   JsonAjaxService.getErrMsgByLang('ERM2851');
@@ -68,7 +77,16 @@ class ResetIDPassword extends React.Component {
     return (
       <>
         <List>
-          <InputItem value={'XUWENMING'}>登入ID</InputItem>
+          <InputItem
+            value={this.state.editLoginId}
+            onChange={(value) => {
+              this.setState({
+                editLoginId: value,
+              });
+            }}
+            placeholder="请输入登入ID">
+            登入ID1
+          </InputItem>
           <InputItem
             type="password"
             value={this.state.pin2}

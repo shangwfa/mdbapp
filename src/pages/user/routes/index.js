@@ -15,6 +15,7 @@ import TransPinVerifyCodePage from '../pages/transPinVerifyCode';
 import ResetTransPinPage from '../pages/resetTransPin';
 import ResetTransPinResultPage from '../pages/resetTransPinResult';
 import ShootIDCardPage from '../pages/shootIDCard';
+import IDCardInfoPage from '../pages/IDCardInfo';
 import IDVerifyCodePage from '../pages/IDVerifyCode';
 import ResetIDPasswordPage from '../pages/resetIDPassword';
 import SecuritySettingsPage from '../pages/securitySettings';
@@ -65,6 +66,10 @@ export default [
   {
     name: 'ShootIDCard',
     component: ShootIDCardPage,
+  },
+  {
+    name: 'IDCardInfo',
+    component: IDCardInfoPage,
   },
   {
     name: 'IDVerifyCode',
