@@ -1,4 +1,9 @@
-import LoginPage from '../pages/login/index';
+/*
+ * @Author: deng.wulin@mdb-fintech.com
+ * @Date: 2020-12-17 14:40:39
+ * @Description: file content
+ */
+import LoginPage from '../pages/login/LoginPage';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
@@ -78,11 +83,11 @@ export default [
     component: FaceRecognitionPage,
   },
   {
-    name:"ChangePin",
+    name: 'ChangePin',
     component: ChangePinPage,
   },
   {
-    name:"ChangeTransPin",
+    name: 'ChangeTransPin',
     component: ChangeTransPinPage,
-  }
+  },
 ];
