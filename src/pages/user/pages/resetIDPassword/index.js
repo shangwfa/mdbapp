@@ -16,11 +16,6 @@ class ResetIDPassword extends BasePage {
       cif: this.params.cif,
     };
   }
-
-  removeBlankAndIgnoreLowerUpper(str) {
-    return str.replace(/\s*/g, '').toUpperCase();
-  }
-
   submit = async () => {
     await HTTP.api({
       url: apiPaths.FORGETPASSWORD,
@@ -33,8 +28,8 @@ class ResetIDPassword extends BasePage {
         newPassword: encodeURIComponent(this.state.pin2),
         confirmPassword: encodeURIComponent(this.state.pin2Confirm),
         editLoginId:
-          this.removeBlankAndIgnoreLowerUpper(this.state.userId) ===
-          this.removeBlankAndIgnoreLowerUpper(this.state.oldUserId)
+          String(this.state.userId).replace(/\s*/g, '').toUpperCase() ===
+          String(this.state.oldUserId).replace(/\s*/g, '').toUpperCase()
             ? '0'
             : '1',
         log_id: this.state.log_id,

@@ -2,7 +2,6 @@ import React from 'react';
 import {Button, Text} from 'react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
-import imageBestBase64 from './imageBestBase64';
 import apiPaths from '../../../../api/path';
 class FaceRecognition extends BasePage {
   constructor(props) {
@@ -15,7 +14,7 @@ class FaceRecognition extends BasePage {
       idCard_type: this.params.idCard_type,
       localName: this.params.localName,
       log_id: this.params.log_id,
-      imageFontBase64: imageBestBase64,
+      imageFontBase64: this.params.imageFontBase64,
       cif: this.params.cif,
       isValidCustomer: this.params.isValidCustomer,
       userId: this.params.userId,
