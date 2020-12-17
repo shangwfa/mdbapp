@@ -3,8 +3,9 @@ import {Button, Keyboard, Text} from 'react-native';
 import {List, InputItem} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
+import imageBestBase64 from './imageBestBase64';
 // import VerifyCode from '../../../../components/business/VerifyCode';
-class IDVerifyCode extends BasePage {
+class FaceRecognition extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
@@ -16,37 +17,52 @@ class IDVerifyCode extends BasePage {
       localName: this.params.localName,
       log_id: this.params.log_id,
       imageFontBase64: this.params.imageFontBase64,
+      userId: this.params.userId,
     };
   }
-  checkOpenByIdNo = async () => {
-    this.props.navigation.navigate('ResetIDPassword');
-    // const {idCard_number, localName, log_id} = this.state;
-    // const res = await HTTP.api({
-    //   url: 'forgetPassWord.do',
-    //   method: 'POST',
-    //   params: {
-    //     ActionMethod: 'checkOpenByIdNo',
-    //     PageLanguage: 'zh_CN',
-    //     langCode: 'CN',
-    //     idCard: idCard_number,
-    //     idNum: idCard_number,
-    //     localName: localName,
-    //     log_id: log_id,
-    //   },
-    // });
-    // console.log('forgetPassWord.do res', res); // {"cif": "", "idNum": "440902199008083694", "idNumType": "CD", "isValidCustomer": "N", "localName": "吴超亮", "userId": ""}
+  checkCustomerFaceInfo = async () => {
+    console.log('发起人脸识别请求');
+    const {idCard_number, idCard_type, localName, log_id, userId} = this.state;
+    try {
+      const res = await HTTP.api({
+        url: 'forgetPassWord.do',
+        method: 'POST',
+        params: {
+          ActionMethod: 'checkCustomerFaceInfo',
+          PageLanguage: 'zh_CN',
+          cif: '',
+          idNum: idCard_number,
+          idNumType: idCard_type,
+          imageBestBase64: imageBestBase64,
+          imageFontBase64: imageBestBase64,
+          langCode: 'CN',
+          localName: localName,
+          log_id: log_id,
+          userId: userId,
+        },
+      });
+      console.log('checkCustomerFaceInfo res成功', res);
+    } catch (error) {
+      console.log('checkCustomerFaceInfo res失败', error);
+    }
     // this.props.navigation.navigate('ResetIDPassword', {...res, ...this.state});
   };
 
   renderContainer() {
-    const {idCard_number, idCard_type, localName, log_id} = this.state;
     return (
       <>
         <Text>人脸识别</Text>
         <Button
           onPress={() => {
-            Keyboard.dismiss();
-            this.checkOpenByIdNo();
+            this.checkCustomerFaceInfo();
+          }}
+          title="发起人脸识别请求"
+        />
+        <Button
+          onPress={() => {
+            this.props.navigation.navigate('ResetIDPassword', {
+              ...this.state,
+            });
           }}
           title="下一步"
         />
@@ -54,4 +70,4 @@ class IDVerifyCode extends BasePage {
     );
   }
 }
-export default IDVerifyCode;
+export default FaceRecognition;
