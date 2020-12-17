@@ -67,18 +67,18 @@ class ChangePin extends BasePage {
         newPassword:newPassword
       },
     });
-    await HTTP.api({
-      url: 'changePinSrv.do',
-      method: 'POST',
-      data: {
-        ActionMethod: 'changePinAck',
-        nPin:encodeURIComponent(res.nPin),
-        oPin:encodeURIComponent(res.oPin),
-        otp:this.state.otp.trim(),
-        exceedResendFlag:res.exceedResendFlag,
-        exceedResend:res.exceedResend
-      },
-    });
+    // await HTTP.api({
+    //   url: 'changePinSrv.do',
+    //   method: 'POST',
+    //   data: {
+    //     ActionMethod: 'changePinAck',
+    //     nPin:encodeURIComponent(res.nPin),
+    //     oPin:encodeURIComponent(res.oPin),
+    //     otp:this.state.otp.trim(),
+    //     exceedResendFlag:res.exceedResendFlag,
+    //     exceedResend:res.exceedResend
+    //   },
+    // });
     // this.props.submitVerifyCode({smsFlowNo, otp});
   }
   // renderContainer() {
