@@ -1,7 +1,7 @@
 // 客户分类
 import {ScrollView} from 'react-native';
 import React from 'react';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 
 class AccountType extends BasePage {
   didMount() {}

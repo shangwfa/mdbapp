@@ -1,8 +1,8 @@
 // 信任此设备 EToken
 import { ScrollView, Switch, View, Text } from 'react-native'
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
-import BasePage from '../../../BasePage';
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
+import BasePage from '#/pages/BasePage';
 
 class ChangeMobileToken extends BasePage {
   constructor(props) {

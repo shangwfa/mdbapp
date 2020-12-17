@@ -7,6 +7,8 @@ import androidx.multidex.MultiDex;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.rnfingerprint.FingerprintAuthPackage;
+import com.swmansion.reanimated.ReanimatedPackage;
 import com.hieuvp.fingerprint.ReactNativeFingerprintScannerPackage;
 import com.hieuvp.fingerprint.ReactNativeFingerprintScannerPackage;
 import com.rnfingerprint.FingerprintAuthPackage;

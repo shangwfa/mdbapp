@@ -77,8 +77,8 @@ class ResetIDPassword extends React.Component {
                 pin2: value,
               });
             }}
-            placeholder="请输入新密碼">
-            新密碼
+            placeholder="请输入登入密碼">
+            登入密碼
           </InputItem>
           <InputItem
             type="password"
@@ -88,8 +88,8 @@ class ResetIDPassword extends React.Component {
                 pin2Confirm: value,
               });
             }}
-            placeholder="请重複密碼">
-            重複密碼
+            placeholder="请再输入一次登入密碼">
+            再输入一次登入密碼
           </InputItem>
         </List>
         <View style={styles.wrapper}>

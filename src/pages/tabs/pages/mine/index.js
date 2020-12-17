@@ -18,7 +18,9 @@ class MinePage extends BasePage {
     return [
       {
         name: '安全設置',
-        onPress: () => {},
+        onPress: () => {
+          this.navigation.navigate('SecuritySettings');
+        },
         arrow: 'horizontal',
       },
       {

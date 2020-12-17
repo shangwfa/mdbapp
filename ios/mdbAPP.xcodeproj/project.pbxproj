@@ -20,7 +20,6 @@
 		7901A9CA257F6F8C0011BCAB /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C4257F6F8C0011BCAB /* SecurityUtil.m */; };
 		7901A9CB257F6F8C0011BCAB /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C5257F6F8C0011BCAB /* NSData+AES.m */; };
 		7901A9CC257F6F8C0011BCAB /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C7257F6F8C0011BCAB /* GTMBase64.m */; };
-		7901A9CD257F6F8C0011BCAB /* RCTAesCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C9257F6F8C0011BCAB /* RCTAesCrypto.m */; };
 		792ABF732570A23600496A12 /* img_camera_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF5E2570A23600496A12 /* img_camera_bg@2x.png */; };
 		792ABF742570A23600496A12 /* flash_camera_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF5F2570A23600496A12 /* flash_camera_btn@2x.png */; };
 		792ABF752570A23600496A12 /* flash_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF602570A23600496A12 /* flash_camera_btn@3x.png */; };
@@ -32,6 +31,7 @@
 		792ABF7B2570A23600496A12 /* back_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF662570A23600496A12 /* back_camera_btn@3x.png */; };
 		792ABF7C2570A23600496A12 /* take_pic_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF672570A23600496A12 /* take_pic_btn@2x.png */; };
 		792ABF7D2570A23600496A12 /* TakePhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 792ABF6A2570A23600496A12 /* TakePhotoViewController.xib */; };
+		7999DC79258B00070031BF08 /* RCTAesCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7999DC77258B00070031BF08 /* RCTAesCrypto.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85AE11594DA51D7E14E10707 /* libPods-mdbAPP-mdbAPPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F91401389D657C9CD4845AF9 /* libPods-mdbAPP-mdbAPPTests.a */; };
 		C6992DEA360282021D32F3D4 /* libPods-mdbAPP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EF05BEBD2B4F855B2D956A /* libPods-mdbAPP.a */; };
@@ -80,7 +80,6 @@
 		2D02E4901E0B4A5D006451C7 /* mdbAPP-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "mdbAPP-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF9A9F1203A462DB9219A2F /* antfill.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = antfill.ttf; path = "../node_modules/@ant-design/icons-react-native/fonts/antfill.ttf"; sourceTree = "<group>"; };
 		5002C4CE16E346995536FF68 /* Pods-mdbAPP-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mdbAPP-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-mdbAPP-tvOS/Pods-mdbAPP-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		7901A9C0257F6F8C0011BCAB /* RCTAesCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTAesCrypto.h; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/RCTAesCrypto.h"; sourceTree = "<group>"; };
 		7901A9C2257F6F8C0011BCAB /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
 		7901A9C3257F6F8C0011BCAB /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
 		7901A9C4257F6F8C0011BCAB /* SecurityUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityUtil.m; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 		7901A9C6257F6F8C0011BCAB /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		7901A9C7257F6F8C0011BCAB /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		7901A9C8257F6F8C0011BCAB /* SecurityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
-		7901A9C9257F6F8C0011BCAB /* RCTAesCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTAesCrypto.m; path = "../../../Downloads/react-native-aes-kit-master/ios/RCTAesCrypto/RCTAesCrypto.m"; sourceTree = "<group>"; };
 		792ABF512570A23600496A12 /* IDCardOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardOverView.m; sourceTree = "<group>"; };
 		792ABF522570A23600496A12 /* MDBOcrStartManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBOcrStartManager.h; sourceTree = "<group>"; };
 		792ABF532570A23600496A12 /* StartIDCardCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartIDCardCameraViewController.m; sourceTree = "<group>"; };
@@ -114,6 +112,8 @@
 		792ABF6A2570A23600496A12 /* TakePhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TakePhotoViewController.xib; sourceTree = "<group>"; };
 		792ABF6B2570A23600496A12 /* TakePhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhotoViewController.m; sourceTree = "<group>"; };
 		792ABF6C2570A23600496A12 /* NativeImagePickerUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeImagePickerUtil.h; sourceTree = "<group>"; };
+		7999DC77258B00070031BF08 /* RCTAesCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAesCrypto.m; sourceTree = "<group>"; };
+		7999DC78258B00070031BF08 /* RCTAesCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAesCrypto.h; sourceTree = "<group>"; };
 		79EF05BEBD2B4F855B2D956A /* libPods-mdbAPP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mdbAPP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = mdbAPP/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		82BD79ED8AB141DA8D3354DD /* libRCTAesCrypto.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTAesCrypto.a; sourceTree = "<group>"; };
@@ -188,8 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				7901A9C1257F6F8C0011BCAB /* AesKit */,
-				7901A9C0257F6F8C0011BCAB /* RCTAesCrypto.h */,
-				7901A9C9257F6F8C0011BCAB /* RCTAesCrypto.m */,
 				792ABF4F2570A23600496A12 /* MDBOCRIdentity */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -242,6 +240,8 @@
 		7901A9C1257F6F8C0011BCAB /* AesKit */ = {
 			isa = PBXGroup;
 			children = (
+				7999DC78258B00070031BF08 /* RCTAesCrypto.h */,
+				7999DC77258B00070031BF08 /* RCTAesCrypto.m */,
 				7901A9C2257F6F8C0011BCAB /* NSData+AES.h */,
 				7901A9C3257F6F8C0011BCAB /* GTMBase64.h */,
 				7901A9C4257F6F8C0011BCAB /* SecurityUtil.m */,
@@ -775,7 +775,7 @@
 				7901A9CA257F6F8C0011BCAB /* SecurityUtil.m in Sources */,
 				7901A9CC257F6F8C0011BCAB /* GTMBase64.m in Sources */,
 				7901A9CB257F6F8C0011BCAB /* NSData+AES.m in Sources */,
-				7901A9CD257F6F8C0011BCAB /* RCTAesCrypto.m in Sources */,
+				7999DC79258B00070031BF08 /* RCTAesCrypto.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

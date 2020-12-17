@@ -1852,6 +1852,13 @@ babel-plugin-jest-hoist@^26.6.2:
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
 
+babel-plugin-root-import@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.npmjs.org/babel-plugin-root-import/-/babel-plugin-root-import-6.6.0.tgz#85940840f308a8c292f66ca0b5bdd314046273ed"
+  integrity sha512-SPzVOHd7nDh5loZwZBxtX/oOu1MXeKjTkz+1VnnzLWC0dk8sJIGC2IDQ2uWIBjE5mUtXlQ35MTHSqN0Xn7qHrg==
+  dependencies:
+    slash "^3.0.0"
+
 babel-plugin-syntax-trailing-function-commas@^7.0.0-beta.0:
   version "7.0.0-beta.0"
   resolved "https://registry.npm.taobao.org/babel-plugin-syntax-trailing-function-commas/download/babel-plugin-syntax-trailing-function-commas-7.0.0-beta.0.tgz#aa213c1435e2bffeb6fca842287ef534ad05d5cf"
@@ -5931,6 +5938,16 @@ react-native-device-info@^7.1.0:
   resolved "https://registry.npm.taobao.org/react-native-device-info/download/react-native-device-info-7.2.1.tgz?cache=0&sync_timestamp=1606747037644&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-native-device-info%2Fdownload%2Freact-native-device-info-7.2.1.tgz#06a71703af744a30a1eb621cf20e95b43b3bbf85"
   integrity sha1-BqcXA690SjCh62Ic8g6VtDs7v4U=
 
+react-native-fingerprint-scanner@^6.0.0:
+  version "6.0.0"
+<<<<<<< HEAD
+  resolved "https://registry.npm.taobao.org/react-native-fingerprint-scanner/download/react-native-fingerprint-scanner-6.0.0.tgz#ecb47ad0682d2a66a5e126d2b9e4d95e73c8dbf2"
+  integrity sha1-7LR60GgtKmal4SbSueTZXnPI2/I=
+=======
+  resolved "https://registry.npmjs.org/react-native-fingerprint-scanner/-/react-native-fingerprint-scanner-6.0.0.tgz#ecb47ad0682d2a66a5e126d2b9e4d95e73c8dbf2"
+  integrity sha512-8VoKSA0Z0kWnIni96yABZfUUzfmWFXQEXcELwWr1CNLloPt3WoPptYb/6pGsBcH0YxSsW3X4+C8tl0clgyBsvA==
+>>>>>>> 65f0c19c52e6fd39c53e21676316bf75ba2deea8
+
 react-native-gesture-handler@^1.8.0:
   version "1.9.0"
   resolved "https://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.9.0.tgz#e441b1c0277c3fd4ca3e5c58fdd681e2f0ceddf0"
@@ -6023,6 +6040,16 @@ react-native-swipeout@^2.3.6:
     create-react-class "^15.6.0"
     prop-types "^15.5.10"
     react-tween-state "^0.1.5"
+
+react-native-touch-id@^4.4.1:
+  version "4.4.1"
+<<<<<<< HEAD
+  resolved "https://registry.npm.taobao.org/react-native-touch-id/download/react-native-touch-id-4.4.1.tgz#8b1bb2d04c30bac36bb9696d2d723e719c4a8b08"
+  integrity sha1-ixuy0EwwusNruWltLXI+cZxKiwg=
+=======
+  resolved "https://registry.npmjs.org/react-native-touch-id/-/react-native-touch-id-4.4.1.tgz#8b1bb2d04c30bac36bb9696d2d723e719c4a8b08"
+  integrity sha512-1jTl8fC+0fxvqegy/XXTyo6vMvPhjzkoDdaqoYZx0OH8AT250NuXnNPyKktvigIcys3+2acciqOeaCall7lrvg==
+>>>>>>> 65f0c19c52e6fd39c53e21676316bf75ba2deea8
 
 react-native-webview@^11.0.2:
   version "11.0.2"

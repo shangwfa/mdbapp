@@ -5,7 +5,7 @@ class TransPinVerifyCode extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '获取重置交易密碼验证码',
+      title: '3333',
     });
     this.state = {
       code: 1,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Button, Keyboard, View} from 'react-native';
+import {StyleSheet, Button, Keyboard, View, Text} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
@@ -15,17 +15,20 @@ class ResetTransPin extends BasePage {
     };
   }
   submit = async () => {
+    const {smsFlowNo, otp} = this.props.route.params;
+    const {pin2, pin2Confirm} = this.state;
     await HTTP.api({
-      url: 'setPin2',
+      url: 'login.do',
       method: 'POST',
       data: {
-        ActionMethod: 'sendOtp',
-        pin2: '123456',
-        pin2Confirm: '123456',
-        smsFlowNo: '202012025451622826',
-        seqNo: '7515',
+        ActionMethod: 'setPin2',
+        otp: otp,
+        pin2: pin2,
+        pin2Confirm: pin2Confirm,
+        smsFlowNo: smsFlowNo,
       },
     });
+    this.props.navigation.navigate('ResetTransPinResult');
   };
   validateInput() {
     const {pin2, pin2Confirm} = this.state;
@@ -37,8 +40,7 @@ class ResetTransPin extends BasePage {
       Toast.info('密碼為6位數字');
       return;
     }
-    // this.submit();
-    this.props.navigation.navigate('ResetTransPinResult');
+    this.submit();
     // if (!validateRequired(form.pin2, form.pin2IsDisabled)) {
     //   JsonAjaxService.getErrMsgByLang('ERM2851');
     //   return false;
