@@ -75,7 +75,7 @@ class ShootIDCard extends BasePage {
         return Toast.info(res.ERR_DESC);
       }
       if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
-        navigation.navigate('IDVerifyCode', {
+        navigation.navigate('IDCardInfo', {
           log_id: res.log_id,
           imageFontBase64: res.imageFontBase64,
           localName: res.localName,

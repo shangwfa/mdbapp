@@ -1,6 +1,5 @@
 import React from 'react';
-import {Button, Keyboard, Text} from 'react-native';
-import {List, InputItem} from '@ant-design/react-native';
+import {Button, Text} from 'react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
 import imageBestBase64 from './imageBestBase64';
@@ -22,7 +21,6 @@ class FaceRecognition extends BasePage {
     };
   }
   checkCustomerFaceInfo = async () => {
-    console.log('发起人脸识别请求');
     const {idCard_number, idCard_type, localName, log_id, userId} = this.state;
     try {
       const res = await HTTP.api({
@@ -42,14 +40,12 @@ class FaceRecognition extends BasePage {
           userId: userId,
         },
       });
-      console.log('checkCustomerFaceInfo res成功', res);
       this.getMobileNumberByCif();
     } catch (error) {
       console.log('checkCustomerFaceInfo res失败', error);
     }
   };
   getMobileNumberByCif = async () => {
-    console.log('人脸识别成功后发起的请求');
     const {idCard_number, idCard_type, cif, log_id, userId} = this.state;
     try {
       const res = await HTTP.api({
@@ -66,7 +62,6 @@ class FaceRecognition extends BasePage {
           userId: userId,
         },
       });
-      console.log('checkCustomerFaceInfo res成功', res);
       // this.props.navigation.navigate('ResetIDPassword', {...res, ...this.state});
     } catch (error) {
       console.log('checkCustomerFaceInfo res失败', error);
@@ -84,7 +79,7 @@ class FaceRecognition extends BasePage {
         />
         <Button
           onPress={() => {
-            this.props.navigation.navigate('ResetIDPassword', {
+            this.props.navigation.navigate('IDVerifyCode', {
               ...this.state,
             });
           }}
