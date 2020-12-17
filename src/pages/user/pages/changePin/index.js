@@ -10,7 +10,11 @@ class ChangePin extends BasePage {
       title: '修改登入密碼',
     });
     this.state = {
-      code: 1,
+      oldPassword:"",
+      newPassword:"",
+      confirmPassword:"",
+      smsFlowNo:"",
+      otp:"",
     };
   }
   submitVerifyCode = (smsFlowNo) => {
@@ -51,6 +55,32 @@ class ChangePin extends BasePage {
       btnOtpDisabled: false,
     });
   };
+  onSubmit = async () =>{
+    let {oldPassword, newPin2,newPin2Confirm} = this.state;
+    console.log(oldPin2,newPin2,newPin2Confirm);
+    await HTTP.api({
+      url: 'changePinSrv.do',
+      method: 'POST',
+      data: {
+        ActionMethod: 'changePinConfirm',
+        oldPassword:oldPassword,
+        newPassword:newPassword
+      },
+    });
+    await HTTP.api({
+      url: 'changePinSrv.do',
+      method: 'POST',
+      data: {
+        ActionMethod: 'changePinAck',
+        nPin:encodeURIComponent(res.nPin),
+        oPin:encodeURIComponent(res.oPin),
+        otp:this.state.otp.trim(),
+        exceedResendFlag:res.exceedResendFlag,
+        exceedResend:res.exceedResend
+      },
+    });
+    // this.props.submitVerifyCode({smsFlowNo, otp});
+  }
   // renderContainer() {
   //   return (<List> <InputItem value={'XUWENMING'}>登入ID</InputItem></List>)
   // }
@@ -58,17 +88,29 @@ class ChangePin extends BasePage {
     return (
       <>
       <List>
-          <InputItem>原密碼</InputItem>
-          <InputItem>新密碼</InputItem>
-          <InputItem>重複密碼</InputItem>
+          <InputItem value={this.state.oldPassword} onChange={(value) => {
+              this.setState({
+                oldPassword: value,
+              });
+            }} placeholder={'請輸入密碼'}>原密碼</InputItem>
+          <InputItem value={this.state.newPassword} onChange={(value) => {
+              this.setState({
+                newPassword: value,
+              });
+            }} placeholder={'請輸入新密碼'}>新密碼</InputItem>
+          <InputItem value={this.state.confirmPassword} onChange={(value) => {
+              this.setState({
+                confirmPassword: value,
+              });
+            }} placeholder={'請重複新密碼'}>重複密碼</InputItem>
           </List>
           <View>
             <Text>8-20位數字及英文組合，區分大小寫，不能輸入空格及符號</Text>
             <InputItem
-            value={this.state.otp}
+            value={this.state.smsFlowNo}
             onChange={(value) => {
               this.setState({
-                otp: value,
+                smsFlowNo: value,
               });
             }}
             extra={
@@ -83,7 +125,14 @@ class ChangePin extends BasePage {
             placeholder="请输入短訊驗證碼">
             短訊驗證碼
           </InputItem>
-          </View>
+          <Button
+            onPress={() => {
+              Keyboard.dismiss();
+              this.validateInput();
+            }}
+            title="完成"
+          />
+        </View>
           </>
       )
   }
