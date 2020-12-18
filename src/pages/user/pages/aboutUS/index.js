@@ -15,31 +15,31 @@ class AboutUS extends BasePage {
         {
           extra: 'www.mdb.com.mo',
           onPress: () => {
-            navigation.navigate('Statements', {title: '官方網站'});
+            navigation.navigate('Statements');
           },
           title: '官方網站',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '服務條款'});
+            navigation.navigate('Statements');
           },
           title: '服務條款',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '資料保護聲明'});
+            navigation.navigate('Statements');
           },
           title: '資料保護聲明',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '重要聲明'});
+            navigation.navigate('Statements');
           },
           title: '重要聲明',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '知識產權聲明'});
+            navigation.navigate('Statements');
           },
           title: '知識產權聲明',
         },
@@ -54,9 +54,7 @@ class AboutUS extends BasePage {
         },
         {
           onPress: () => {
-            navigation.navigate('ShootIDCard', {
-              title: '找回登錄ID及密碼',
-            });
+            navigation.navigate('ShootIDCard');
           },
           title: '找回登錄ID及密碼',
         },
