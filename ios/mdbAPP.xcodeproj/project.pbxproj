@@ -45,7 +45,6 @@
 		EC8255FD693E1B756837DA33 /* libPods-mdbAPP-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEB8FDA465D03147213826D2 /* libPods-mdbAPP-tvOSTests.a */; };
 		ECEF19BD9CCA4DD55A736229 /* libPods-mdbAPP-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E155307E2C175E0A2165CD39 /* libPods-mdbAPP-tvOS.a */; };
 		F566BEC0258B395E008B9288 /* IDResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F566BEBD258B395C008B9288 /* IDResource.bundle */; };
-		F566BEC3258B3B34008B9288 /* libIDCardOCR.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F566BEC2258B3B34008B9288 /* libIDCardOCR.a */; };
 		F566BEC5258B3D5B008B9288 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F566BEC4258B3D45008B9288 /* libiconv.2.4.0.tbd */; };
 /* End PBXBuildFile section */
 
@@ -160,7 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6992DEA360282021D32F3D4 /* libPods-mdbAPP.a in Frameworks */,
-				F566BEC3258B3B34008B9288 /* libIDCardOCR.a in Frameworks */,
 				F566BEC5258B3D5B008B9288 /* libiconv.2.4.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
