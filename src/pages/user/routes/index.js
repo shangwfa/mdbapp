@@ -22,6 +22,14 @@ import SecuritySettingsPage from '../pages/securitySettings';
 import FaceRecognitionPage from '../pages/faceRecognition';
 import ChangePinPage from '../pages/changePin';
 import ChangeTransPinPage from '../pages/changeTransPin';
+
+import AccountType from '../pages/accountType'
+import ChangeMobileToken from '../pages/changeMobileToken'
+import LoginLogs from '../pages/loginLogs'
+import Logout from '../pages/logout'
+import QuestionNaire from '../pages/questionNaire'
+import SessionOnline from '../pages/sessionOnline'
+
 export default [
   {
     name: 'Login',
@@ -94,5 +102,29 @@ export default [
   {
     name: 'ChangeTransPin',
     component: ChangeTransPinPage,
+  },
+  {
+    name: 'AccountType',
+    component: AccountType
+  },
+  {
+    name: 'ChangeMobileToken',
+    component: ChangeMobileToken
+  },
+  {
+    name: 'LoginLogs',
+    component: LoginLogs
+  },
+  {
+    name: 'Logout',
+    component: Logout
+  },
+  {
+    name: 'QuestionNaire',
+    component: QuestionNaire
+  },
+  {
+    name: 'SessionOnline',
+    component: SessionOnline
   },
 ];
