@@ -13,7 +13,7 @@ class IDVerifyCode extends BasePage {
       title: '找回登入ID及密码獲取驗證碼',
     });
     this.state = {
-      verifyCodeParams: {
+      httpData: {
         ActionMethod: 'forgetPassWordSendOtp',
         funcName: 'app.mb.action.ol.ForgetPassWordAction',
         langCode: 'C',
@@ -32,7 +32,7 @@ class IDVerifyCode extends BasePage {
     return (
       <VerifyCode
         submitVerifyCode={this.submitVerifyCode}
-        verifyCodeParams={{}}
+        httpData={this.state.httpData}
       />
     );
   }

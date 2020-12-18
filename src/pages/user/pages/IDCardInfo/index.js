@@ -24,7 +24,7 @@ class IDCardInfo extends BasePage {
     const res = await HTTP.api({
       url: apiPaths.FORGETPASSWORD,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'checkOpenByIdNo',
         PageLanguage: 'zh_CN',
         langCode: 'CN',

@@ -25,7 +25,7 @@ class FaceRecognition extends BasePage {
       await HTTP.api({
         url: apiPaths.FORGETPASSWORD,
         method: 'POST',
-        params: {
+        data: {
           ActionMethod: 'checkCustomerFaceInfo',
           PageLanguage: 'zh_CN',
           cif: this.state.cif,
@@ -49,7 +49,7 @@ class FaceRecognition extends BasePage {
       const res = await HTTP.api({
         url: apiPaths.FORGETPASSWORD,
         method: 'POST',
-        params: {
+        data: {
           ActionMethod: 'getMobileNumberByCif',
           PageLanguage: 'zh_CN',
           cif: this.state.cif,
