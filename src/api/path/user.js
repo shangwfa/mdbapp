@@ -3,5 +3,6 @@ export default {
   SETTINGINFO: '/settingInfo.do',
   LOGOUT: '/login.do',
   JSONURL: '/json.do',
-  TRANSFERINVESTMENT: '/transferInvestment.do'
+  TRANSFERINVESTMENT: '/transferInvestment.do',
+  FORGETPASSWORD: '/forgetPassWord.do',
 };

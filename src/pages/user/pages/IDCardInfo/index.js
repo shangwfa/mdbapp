@@ -3,6 +3,7 @@ import {Button, Keyboard} from 'react-native';
 import {List, InputItem} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 // import VerifyCode from '../../../../components/business/VerifyCode';
 class IDCardInfo extends BasePage {
   constructor(props) {
@@ -21,7 +22,7 @@ class IDCardInfo extends BasePage {
   checkOpenByIdNo = async () => {
     const {idCard_number, localName, log_id} = this.state;
     const res = await HTTP.api({
-      url: 'forgetPassWord.do',
+      url: apiPaths.FORGETPASSWORD,
       method: 'POST',
       params: {
         ActionMethod: 'checkOpenByIdNo',
@@ -33,7 +34,13 @@ class IDCardInfo extends BasePage {
         log_id: log_id,
       },
     });
-    this.props.navigation.navigate('FaceRecognition', {...res, ...this.state});
+    this.props.navigation.navigate('FaceRecognition', {
+      ...this.params,
+      ...this.state,
+      cif: res.cif,
+      isValidCustomer: res.isValidCustomer,
+      userId: res.userId,
+    });
   };
 
   renderContainer() {

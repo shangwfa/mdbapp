@@ -12,14 +12,29 @@ class IDVerifyCode extends BasePage {
     this.initHeader({
       title: '找回登入ID及密码獲取驗證碼',
     });
-    this.state = {};
+    this.state = {
+      verifyCodeParams: {
+        ActionMethod: 'forgetPassWordSendOtp',
+        funcName: 'app.mb.action.ol.ForgetPassWordAction',
+        langCode: 'C',
+        mobileCode: this.params.mobileNumber,
+        mobileNo: this.params.mobileNumber,
+        userId: this.params.userId,
+        cif: this.params.cif,
+      },
+    };
   }
   submitVerifyCode = (smsFlowNo) => {
     this.props.navigation.navigate('ResetIDPassword', {...this.params});
   };
 
   renderContainer() {
-    return <VerifyCode submitVerifyCode={this.submitVerifyCode} />;
+    return (
+      <VerifyCode
+        submitVerifyCode={this.submitVerifyCode}
+        verifyCodeParams={{}}
+      />
+    );
   }
 }
 export default IDVerifyCode;
