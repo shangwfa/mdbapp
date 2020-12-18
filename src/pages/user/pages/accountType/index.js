@@ -5,7 +5,6 @@ import BasePage from '#/pages/BasePage';
 
 class AccountType extends BasePage {
   didMount() {}
-
   renderContainer() {
     return <ScrollView></ScrollView>;
   }

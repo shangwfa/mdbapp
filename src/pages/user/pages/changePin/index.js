@@ -1,6 +1,6 @@
 import React from 'react';
 import BasePage from '../../../BasePage';
-import {View, StyleSheet, Button, Keyboard,Text} from 'react-native';
+import {View, StyleSheet, Button, Keyboard, Text} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import CountDown from '../../../../components/base/CountDown';
 class ChangePin extends BasePage {
@@ -57,14 +57,14 @@ class ChangePin extends BasePage {
   renderContainer() {
     return (
       <>
-      <List>
+        <List>
           <InputItem>原密碼</InputItem>
           <InputItem>新密碼</InputItem>
           <InputItem>重複密碼</InputItem>
-          </List>
-          <View>
-            <Text>8-20位數字及英文組合，區分大小寫，不能輸入空格及符號</Text>
-            <InputItem
+        </List>
+        <View>
+          <Text>8-20位數字及英文組合，區分大小寫，不能輸入空格及符號</Text>
+          <InputItem
             value={this.state.otp}
             onChange={(value) => {
               this.setState({
@@ -83,9 +83,9 @@ class ChangePin extends BasePage {
             placeholder="请输入短訊驗證碼">
             短訊驗證碼
           </InputItem>
-          </View>
-          </>
-      )
+        </View>
+      </>
+    );
   }
 }
 export default ChangePin;
