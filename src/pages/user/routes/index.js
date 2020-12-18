@@ -3,7 +3,7 @@
  * @Date: 2020-12-17 14:40:39
  * @Description: file content
  */
-import LoginPage from '../pages/login/LoginPage';
+import LoginPage from '../pages/login';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
@@ -22,6 +22,14 @@ import SecuritySettingsPage from '../pages/securitySettings';
 import FaceRecognitionPage from '../pages/faceRecognition';
 import ChangePinPage from '../pages/changePin';
 import ChangeTransPinPage from '../pages/changeTransPin';
+
+import AccountType from '../pages/accountType';
+import ChangeMobileToken from '../pages/changeMobileToken';
+import LoginLogs from '../pages/loginLogs';
+import Logout from '../pages/logout';
+import QuestionNaire from '../pages/questionNaire';
+import SessionOnline from '../pages/sessionOnline';
+
 export default [
   {
     name: 'Login',
@@ -50,46 +58,57 @@ export default [
   },
   {
     name: 'AboutUS',
+    cname: '关于我们',
     component: AboutUSPage,
   },
   {
     name: 'Statements',
+    cname: '声明与条款',
     component: StatementsPage,
   },
   {
     name: 'TransPinVerifyCode',
+    cname: '获取重置交易密碼验证码',
     component: TransPinVerifyCodePage,
   },
   {
     name: 'ResetTransPin',
+    cname: '重置交易密碼',
     component: ResetTransPinPage,
   },
   {
     name: 'ResetTransPinResult',
+    cname: '重置交易密碼结果页',
     component: ResetTransPinResultPage,
   },
   {
     name: 'ShootIDCard',
+    cname: '找回登录ID及密码-拍摄身份证正面',
     component: ShootIDCardPage,
   },
   {
     name: 'IDCardInfo',
+    cname: '找回登录ID及密码-提交身份证信息',
     component: IDCardInfoPage,
   },
   {
     name: 'IDVerifyCode',
+    cname: '找回登录ID及密码-获取验证码',
     component: IDVerifyCodePage,
   },
   {
     name: 'ResetIDPassword',
+    cname: '找回登录ID及密码-重置ID及密码',
     component: ResetIDPasswordPage,
   },
   {
     name: 'SecuritySettings',
+    cname: '安全设置',
     component: SecuritySettingsPage,
   },
   {
     name: 'FaceRecognition',
+    cname: '找回登录ID及密码-人脸识别',
     component: FaceRecognitionPage,
   },
   {
@@ -101,5 +120,35 @@ export default [
     name: 'ChangeTransPin',
     cname: '修改交易密码',
     component: ChangeTransPinPage,
+  },
+  {
+    name: 'AccountType',
+    cname: '客户分类',
+    component: AccountType,
+  },
+  {
+    name: 'ChangeMobileToken',
+    cname: '信任此设备',
+    component: ChangeMobileToken,
+  },
+  {
+    name: 'LoginLogs',
+    cname: '登录历史',
+    component: LoginLogs,
+  },
+  {
+    name: 'Logout',
+    cname: '退出登录',
+    component: Logout,
+  },
+  {
+    name: 'QuestionNaire',
+    cname: '风险问卷',
+    component: QuestionNaire,
+  },
+  {
+    name: 'SessionOnline',
+    cname: '设置退出时间',
+    component: SessionOnline,
   },
 ];
