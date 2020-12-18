@@ -52,24 +52,6 @@ service.interceptors.response.use(
   },
 );
 
-[
-  {
-    name: 'login',
-    method: 'POST',
-    path: '/login',
-    params: {userName: '', pwd: ''},
-    data: {},
-  },
-  {
-    name: 'userInfo',
-    method: 'GET',
-    path: '/userInfo',
-    preParams: {userId: 'login.userId'},
-    params: {},
-    preData: {},
-    data: {},
-  },
-];
 const api = async (request) => {
   store.dispatch(Actions[ActionTypes.G_IS_LOADING](true));
   try {
@@ -98,6 +80,28 @@ const getPreData = (res, predata) => {
   return result;
 };
 
+/**
+ * 示例：
+ * [
+  {
+    name: 'login',
+    method: 'POST',
+    path: '/login',
+    params: {userName: '', pwd: ''},
+    data: {},
+  },
+  {
+    name: 'userInfo',
+    method: 'GET',
+    path: '/userInfo',
+    preParams: {userId: 'login.userId'},
+    params: {},
+    preData: {},
+    data: {},
+  },
+];
+ *
+ */
 const apis = async (requests) => {
   store.dispatch(Actions(ActionTypes.G_IS_LOADING)(true));
   const result = {};

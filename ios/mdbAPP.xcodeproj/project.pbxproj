@@ -194,11 +194,11 @@
 		13B07FAE1A68108700A75B9A /* mdbAPP */ = {
 			isa = PBXGroup;
 			children = (
+				7999DCB1258B04560031BF08 /* MDBOCRIdentity */,
 				7901A9C1257F6F8C0011BCAB /* AesKit */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				7999DCB1258B04560031BF08 /* MDBOCRIdentity */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,

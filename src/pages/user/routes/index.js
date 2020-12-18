@@ -19,6 +19,7 @@ import ChangeTransPinPage from '../pages/changeTransPin';
 export default [
   {
     name: 'Login',
+    cname: '登录页面',
     component: LoginPage,
   },
   {
@@ -78,11 +79,11 @@ export default [
     component: FaceRecognitionPage,
   },
   {
-    name:"ChangePin",
+    name: 'ChangePin',
     component: ChangePinPage,
   },
   {
-    name:"ChangeTransPin",
+    name: 'ChangeTransPin',
     component: ChangeTransPinPage,
-  }
+  },
 ];
