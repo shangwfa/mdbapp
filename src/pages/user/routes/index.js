@@ -93,11 +93,13 @@ export default [
     component: FaceRecognitionPage,
   },
   {
-    name: 'ChangePin',
+    name:"ChangePin",
+    cname:"修改登入密码",
     component: ChangePinPage,
   },
   {
     name: 'ChangeTransPin',
+    cname:"修改交易密码",
     component: ChangeTransPinPage,
   },
 ];
