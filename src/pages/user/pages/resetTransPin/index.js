@@ -3,6 +3,7 @@ import {StyleSheet, Button, Keyboard, View, Text} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 class ResetTransPin extends BasePage {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ class ResetTransPin extends BasePage {
     const {smsFlowNo, otp} = this.props.route.params;
     const {pin2, pin2Confirm} = this.state;
     await HTTP.api({
-      url: 'login.do',
+      url: apiPaths.LOGIN,
       method: 'POST',
       data: {
         ActionMethod: 'setPin2',

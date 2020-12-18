@@ -92,4 +92,6 @@ export default class UserProfileService {
       });
     });
   }
+
+  resendSMS() {}
 }

@@ -3,6 +3,7 @@ import {StyleSheet, Button, Keyboard} from 'react-native';
 import {View, List, InputItem} from '@ant-design/react-native';
 import CountDown from '../base/CountDown';
 import HTTP from '../../api';
+import apiPaths from '../../api/path';
 class VerificationCode extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,7 @@ class VerificationCode extends React.Component {
     //點擊發送或者重發
     if (this.state.firstOnPress) {
       const res = await HTTP.api({
-        url: 'json.do',
+        url: apiPaths.JSONURL,
         method: 'POST',
         params: {
           ActionMethod: 'sendOtp',
@@ -37,7 +38,7 @@ class VerificationCode extends React.Component {
   resendOtp = async () => {
     const {smsFlowNo} = this.state;
     await HTTP.api({
-      url: 'json.do',
+      url: apiPaths.JSONURL,
       method: 'POST',
       data: {
         ActionMethod: 'resendOtp',
@@ -52,7 +53,7 @@ class VerificationCode extends React.Component {
   submitVerifyCode = async () => {
     let {smsFlowNo, otp} = this.state;
     await HTTP.api({
-      url: 'json.do',
+      url: apiPaths.JSONURL,
       method: 'POST',
       data: {
         ActionMethod: 'checkOtp',

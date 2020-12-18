@@ -2,24 +2,37 @@ import React from 'react';
 import {View, StyleSheet, Button, Keyboard} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
-class ResetIDPassword extends React.Component {
+import apiPaths from '../../../../api/path';
+import BasePage from '../../../BasePage';
+class ResetIDPassword extends BasePage {
   constructor(props) {
     super(props);
     this.state = {
       pin2: '',
       pin2Confirm: '',
+      log_id: this.params.log_id,
+      userId: this.params.userId,
+      oldUserId: this.params.userId,
+      cif: this.params.cif,
     };
   }
   submit = async () => {
     await HTTP.api({
-      url: 'setPin2',
+      url: apiPaths.FORGETPASSWORD,
       method: 'POST',
       data: {
-        ActionMethod: 'sendOtp',
-        pin2: '123456',
-        pin2Confirm: '123456',
-        smsFlowNo: '202012025451622826',
-        seqNo: '7515',
+        ActionMethod: 'changeLoginPassWord',
+        cif: this.state.cif,
+        loginId: this.state.userId, // 修改后的userId
+        oldLoginId: this.state.oldUserId, // 原來的userId
+        newPassword: encodeURIComponent(this.state.pin2),
+        confirmPassword: encodeURIComponent(this.state.pin2Confirm),
+        editLoginId:
+          String(this.state.userId).replace(/\s*/g, '').toUpperCase() ===
+          String(this.state.oldUserId).replace(/\s*/g, '').toUpperCase()
+            ? '0'
+            : '1',
+        log_id: this.state.log_id,
       },
     });
   };
@@ -29,12 +42,8 @@ class ResetIDPassword extends React.Component {
       Toast.info('密碼和確認密碼不一致');
       return;
     }
-    if (pin2.length !== 6) {
-      Toast.info('密碼為6位數字');
-      return;
-    }
-    // this.submit();
-    this.props.navigation.navigate('ResetTransPinResult');
+    this.submit();
+    // this.props.navigation.navigate('ResetTransPinResult');
     // if (!validateRequired(form.pin2, form.pin2IsDisabled)) {
     //   JsonAjaxService.getErrMsgByLang('ERM2851');
     //   return false;
@@ -68,7 +77,16 @@ class ResetIDPassword extends React.Component {
     return (
       <>
         <List>
-          <InputItem value={'XUWENMING'}>登入ID</InputItem>
+          <InputItem
+            value={this.state.oldUserId}
+            onChange={(value) => {
+              this.setState({
+                oldUserId: value,
+              });
+            }}
+            placeholder="请输入登入ID">
+            登入ID
+          </InputItem>
           <InputItem
             type="password"
             value={this.state.pin2}

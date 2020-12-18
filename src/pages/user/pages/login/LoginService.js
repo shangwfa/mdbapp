@@ -44,6 +44,7 @@ export default class LoginService {
           checkForm: JSON.stringify({Version: '1.0.2', Flag: 'Y'}),
         },
       }).then((res) => {
+        console.log('HTTP：res: ', res);
         //记住密码
         if (loginFrom.rememberStatus) {
           utils.saveStorage(
@@ -62,5 +63,18 @@ export default class LoginService {
     });
   }
 
-  logout() {}
+  logout() {
+    return new Promise((resolve, reject) => {
+      HTTP.api({
+        url: apiPaths.LOGIN,
+        method: 'POST',
+        data: {
+          ActionMethod: 'logout',
+          pageLanguage: 'CN',
+        },
+      }).then((res) => {
+        resolve();
+      });
+    });
+  }
 }

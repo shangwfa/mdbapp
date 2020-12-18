@@ -6,7 +6,7 @@
 import React, {Component} from 'react';
 import {Text, StyleSheet, View, Button} from 'react-native';
 import FingerLoginService from './FingerLoginService';
-
+import {List, WhiteSpace} from '@ant-design/react-native';
 export default class FingerLoginPage extends Component {
   constructor(props) {
     super(props);
@@ -19,9 +19,11 @@ export default class FingerLoginPage extends Component {
     return (
       <View>
         <Text> textInComponent </Text>
-
+        <WhiteSpace />
+        <WhiteSpace />
         <Button
           title="指纹授权"
+          styles={{marginTop: 30}}
           onPress={() => {
             this.fingerLoginService.authenticate();
           }}></Button>
