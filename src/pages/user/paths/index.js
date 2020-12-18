@@ -9,4 +9,5 @@ export default {
   USER_PROFILE_URL: '/chPerInfo.do',
   USER_ADDRESS_URL: '/remitAddress.do',
   SEND_SMS_URL: '/json.do',
+  CHANGE_PIN: '/changePinSrv.do',
 };
