@@ -1,8 +1,9 @@
 import React from 'react';
 import BasePage from '../../../BasePage';
-import {View, StyleSheet, Button, Keyboard,Text} from 'react-native';
-import {Toast, List, InputItem} from '@ant-design/react-native';
+import {View,  Button, Keyboard,Text} from 'react-native';
+import { List, InputItem} from '@ant-design/react-native';
 import CountDown from '../../../../components/base/CountDown';
+import apiPaths from '../../paths';
 class ChangePin extends BasePage {
   constructor(props) {
     super(props);
@@ -28,8 +29,7 @@ class ChangePin extends BasePage {
         method: 'POST',
         params: {
           ActionMethod: 'sendOtp',
-          PageLanguage: 'zh_CN',
-          funcName: 'app.mb.core.resetTxnPwd',
+          funcName: 'app.mb.action.srv.ChangePinAction',
         },
       });
       this.setState({
@@ -44,7 +44,7 @@ class ChangePin extends BasePage {
   resendOtp = async () => {
     const {smsFlowNo} = this.state;
     await HTTP.api({
-      url: 'json.do',
+      url: apiPaths.SEND_SMS_URL,
       method: 'POST',
       data: {
         ActionMethod: 'resendOtp',
@@ -55,20 +55,20 @@ class ChangePin extends BasePage {
       btnOtpDisabled: false,
     });
   };
-  onSubmit = async () =>{
-    let {oldPassword, newPin2,newPin2Confirm} = this.state;
-    console.log(oldPin2,newPin2,newPin2Confirm);
-    await HTTP.api({
-      url: 'changePinSrv.do',
+  onSubmit =  async () =>{
+    let {oldPassword, newPassword,confirmPassword} = this.state;
+    console.log(oldPassword,newPassword,confirmPassword);
+    const res = await HTTP.api({
+      url: apiPaths.CHANGE_PIN,
       method: 'POST',
       data: {
         ActionMethod: 'changePinConfirm',
-        oldPassword:oldPassword,
-        newPassword:newPassword
+        oldPassword:encodeURIComponent(oldPassword),
+        newPassword:encodeURIComponent(newPassword)
       },
     });
     // await HTTP.api({
-    //   url: 'changePinSrv.do',
+    //   url: apiPaths.CHANGE_PIN,
     //   method: 'POST',
     //   data: {
     //     ActionMethod: 'changePinAck',
@@ -76,7 +76,8 @@ class ChangePin extends BasePage {
     //     oPin:encodeURIComponent(res.oPin),
     //     otp:this.state.otp.trim(),
     //     exceedResendFlag:res.exceedResendFlag,
-    //     exceedResend:res.exceedResend
+    //     exceedResend:res.exceedResend,
+    //     smsFlowNo:this.state.smsFlowNo
     //   },
     // });
     // this.props.submitVerifyCode({smsFlowNo, otp});
@@ -128,7 +129,7 @@ class ChangePin extends BasePage {
           <Button
             onPress={() => {
               Keyboard.dismiss();
-              this.validateInput();
+              this.onSubmit();
             }}
             title="完成"
           />
