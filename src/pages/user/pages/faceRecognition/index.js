@@ -1,10 +1,8 @@
 import React from 'react';
-import {Button, Keyboard, Text} from 'react-native';
-import {List, InputItem} from '@ant-design/react-native';
+import {Button, Text} from 'react-native';
 import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
-import imageBestBase64 from './imageBestBase64';
-// import VerifyCode from '../../../../components/business/VerifyCode';
+import apiPaths from '../../../../api/path';
 class FaceRecognition extends BasePage {
   constructor(props) {
     super(props);
@@ -17,57 +15,56 @@ class FaceRecognition extends BasePage {
       localName: this.params.localName,
       log_id: this.params.log_id,
       imageFontBase64: this.params.imageFontBase64,
-      userId: this.params.userId,
       cif: this.params.cif,
+      isValidCustomer: this.params.isValidCustomer,
+      userId: this.params.userId,
     };
   }
   checkCustomerFaceInfo = async () => {
-    console.log('发起人脸识别请求');
-    const {idCard_number, idCard_type, localName, log_id, userId} = this.state;
     try {
-      const res = await HTTP.api({
-        url: 'forgetPassWord.do',
+      await HTTP.api({
+        url: apiPaths.FORGETPASSWORD,
         method: 'POST',
         params: {
           ActionMethod: 'checkCustomerFaceInfo',
           PageLanguage: 'zh_CN',
-          cif: '',
-          idNum: idCard_number,
-          idNumType: idCard_type,
-          imageBestBase64: imageBestBase64,
-          imageFontBase64: imageBestBase64,
+          cif: this.state.cif,
+          idNum: this.state.idCard_number,
+          idNumType: this.state.idCard_type,
+          imageBestBase64: this.state.imageFontBase64,
+          imageFontBase64: this.state.imageFontBase64,
           langCode: 'CN',
-          localName: localName,
-          log_id: log_id,
-          userId: userId,
+          localName: this.state.localName,
+          log_id: this.state.log_id,
+          userId: this.state.userId,
         },
       });
-      console.log('checkCustomerFaceInfo res成功', res);
       this.getMobileNumberByCif();
     } catch (error) {
       console.log('checkCustomerFaceInfo res失败', error);
     }
   };
   getMobileNumberByCif = async () => {
-    console.log('人脸识别成功后发起的请求');
-    const {idCard_number, idCard_type, cif, log_id, userId} = this.state;
     try {
       const res = await HTTP.api({
-        url: 'forgetPassWord.do',
+        url: apiPaths.FORGETPASSWORD,
         method: 'POST',
         params: {
           ActionMethod: 'getMobileNumberByCif',
           PageLanguage: 'zh_CN',
-          cif: cif,
-          idNum: idCard_number,
-          idNumType: idCard_type,
+          cif: this.state.cif,
+          idNum: this.state.idCard_number,
+          idNumType: this.state.idCard_type,
           langCode: 'CN',
-          log_id: log_id,
-          userId: userId,
+          log_id: this.state.log_id,
+          userId: this.state.userId,
         },
       });
-      console.log('checkCustomerFaceInfo res成功', res);
-      // this.props.navigation.navigate('ResetIDPassword', {...res, ...this.state});
+      this.props.navigation.navigate('ResetIDPassword', {
+        ...this.params,
+        ...this.state,
+        mobileNumber: res.mobileNumber,
+      });
     } catch (error) {
       console.log('checkCustomerFaceInfo res失败', error);
     }
@@ -84,8 +81,10 @@ class FaceRecognition extends BasePage {
         />
         <Button
           onPress={() => {
-            this.props.navigation.navigate('ResetIDPassword', {
+            this.props.navigation.navigate('IDVerifyCode', {
+              ...this.params,
               ...this.state,
+              mobileNumber: '+8613560738475',
             });
           }}
           title="下一步"

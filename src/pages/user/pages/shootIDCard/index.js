@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 import {Toast} from '@ant-design/react-native';
 import HTTP from '../../../../api';
+import apiPaths from '../../../../api/path';
 export const {width} = Dimensions.get('window');
 import BasePage from '../../../BasePage';
 class ShootIDCard extends BasePage {
@@ -61,7 +62,7 @@ class ShootIDCard extends BasePage {
     const {navigation} = this.props;
     try {
       const res = await HTTP.api({
-        url: 'forgetPassWord.do',
+        url: apiPaths.FORGETPASSWORD,
         method: 'POST',
         data: {
           ActionMethod: 'getIDCardInfo',
@@ -75,7 +76,7 @@ class ShootIDCard extends BasePage {
         return Toast.info(res.ERR_DESC);
       }
       if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
-        navigation.navigate('IDVerifyCode', {
+        navigation.navigate('IDCardInfo', {
           log_id: res.log_id,
           imageFontBase64: res.imageFontBase64,
           localName: res.localName,

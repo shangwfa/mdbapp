@@ -1,4 +1,9 @@
-import LoginPage from '../pages/login/index';
+/*
+ * @Author: deng.wulin@mdb-fintech.com
+ * @Date: 2020-12-17 14:40:39
+ * @Description: file content
+ */
+import LoginPage from '../pages/login/LoginPage';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
@@ -10,6 +15,7 @@ import TransPinVerifyCodePage from '../pages/transPinVerifyCode';
 import ResetTransPinPage from '../pages/resetTransPin';
 import ResetTransPinResultPage from '../pages/resetTransPinResult';
 import ShootIDCardPage from '../pages/shootIDCard';
+import IDCardInfoPage from '../pages/IDCardInfo';
 import IDVerifyCodePage from '../pages/IDVerifyCode';
 import ResetIDPasswordPage from '../pages/resetIDPassword';
 import SecuritySettingsPage from '../pages/securitySettings';
@@ -61,6 +67,10 @@ export default [
   {
     name: 'ShootIDCard',
     component: ShootIDCardPage,
+  },
+  {
+    name: 'IDCardInfo',
+    component: IDCardInfoPage,
   },
   {
     name: 'IDVerifyCode',
