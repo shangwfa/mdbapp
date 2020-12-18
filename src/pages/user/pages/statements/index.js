@@ -1,7 +1,7 @@
 import React from 'react';
 // import {Platform} from 'react-native';
 import {WebView} from 'react-native-webview';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 class Statements extends BasePage {
   constructor(props) {
     super(props);

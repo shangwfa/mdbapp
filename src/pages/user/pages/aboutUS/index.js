@@ -1,7 +1,7 @@
 import React from 'react';
 import {Linking} from 'react-native';
 import {List} from '@ant-design/react-native';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 const Item = List.Item;
 class AboutUS extends BasePage {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Keyboard} from 'react-native';
 import {List, InputItem} from '@ant-design/react-native';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 // import VerifyCode from '../../../../components/business/VerifyCode';

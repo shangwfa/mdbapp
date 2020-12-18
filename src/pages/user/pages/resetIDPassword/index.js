@@ -3,7 +3,7 @@ import {View, StyleSheet, Button, Keyboard} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 class ResetIDPassword extends BasePage {
   constructor(props) {
     super(props);

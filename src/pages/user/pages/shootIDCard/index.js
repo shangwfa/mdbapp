@@ -14,7 +14,7 @@ import {Toast} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 export const {width} = Dimensions.get('window');
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 class ShootIDCard extends BasePage {
   constructor(props) {
     super(props);

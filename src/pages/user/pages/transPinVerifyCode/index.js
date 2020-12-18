@@ -1,5 +1,5 @@
 import React from 'react';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 import VerifyCode from '../../../../components/business/VerifyCode';
 class TransPinVerifyCode extends BasePage {
   constructor(props) {

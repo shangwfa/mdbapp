@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Text} from 'react-native';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 class FaceRecognition extends BasePage {
