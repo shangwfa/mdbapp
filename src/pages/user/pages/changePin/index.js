@@ -4,6 +4,7 @@ import {View,  Button, Keyboard,Text} from 'react-native';
 import { List, InputItem} from '@ant-design/react-native';
 import CountDown from '../../../../components/base/CountDown';
 import apiPaths from '../../paths';
+import HTTP from '../../../../api';
 class ChangePin extends BasePage {
   constructor(props) {
     super(props);
