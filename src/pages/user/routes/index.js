@@ -123,26 +123,32 @@ export default [
   },
   {
     name: 'AccountType',
+    cname: '客户分类',
     component: AccountType
   },
   {
     name: 'ChangeMobileToken',
+    cname: '信任此设备',
     component: ChangeMobileToken
   },
   {
     name: 'LoginLogs',
+    cname: '登录历史',
     component: LoginLogs
   },
   {
     name: 'Logout',
+    cname: '退出登录',
     component: Logout
   },
   {
     name: 'QuestionNaire',
+    cname: '风险问卷',
     component: QuestionNaire
   },
   {
     name: 'SessionOnline',
+    cname: '设置退出时间',
     component: SessionOnline
   },
 ];
