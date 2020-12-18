@@ -25,22 +25,27 @@ import ChangeTransPinPage from '../pages/changeTransPin';
 export default [
   {
     name: 'Login',
+    cname: '登陆',
     component: LoginPage,
   },
   {
     name: 'userProfile',
+    cname: '用户资料',
     component: UserProfile,
   },
   {
     name: 'fingerLogin',
+    cname: '指纹登陆',
     component: FingerLoginPage,
   },
   {
     name: 'faceIDLogin',
+    cname: 'faceID登陆',
     component: FaceIDLoginPage,
   },
   {
     name: 'fingerDemo',
+    cname: '指纹识别测试',
     component: FingerDemo,
   },
   {
