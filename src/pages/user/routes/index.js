@@ -3,7 +3,7 @@
  * @Date: 2020-12-17 14:40:39
  * @Description: file content
  */
-import LoginPage from '../pages/login/LoginPage';
+import LoginPage from '../pages/login';
 import FaceIDLoginPage from '../pages/faceIDLogin/FaceIDLoginPage';
 import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
@@ -23,12 +23,12 @@ import FaceRecognitionPage from '../pages/faceRecognition';
 import ChangePinPage from '../pages/changePin';
 import ChangeTransPinPage from '../pages/changeTransPin';
 
-import AccountType from '../pages/accountType'
-import ChangeMobileToken from '../pages/changeMobileToken'
-import LoginLogs from '../pages/loginLogs'
-import Logout from '../pages/logout'
-import QuestionNaire from '../pages/questionNaire'
-import SessionOnline from '../pages/sessionOnline'
+import AccountType from '../pages/accountType';
+import ChangeMobileToken from '../pages/changeMobileToken';
+import LoginLogs from '../pages/loginLogs';
+import Logout from '../pages/logout';
+import QuestionNaire from '../pages/questionNaire';
+import SessionOnline from '../pages/sessionOnline';
 
 export default [
   {
@@ -124,31 +124,31 @@ export default [
   {
     name: 'AccountType',
     cname: '客户分类',
-    component: AccountType
+    component: AccountType,
   },
   {
     name: 'ChangeMobileToken',
     cname: '信任此设备',
-    component: ChangeMobileToken
+    component: ChangeMobileToken,
   },
   {
     name: 'LoginLogs',
     cname: '登录历史',
-    component: LoginLogs
+    component: LoginLogs,
   },
   {
     name: 'Logout',
     cname: '退出登录',
-    component: Logout
+    component: Logout,
   },
   {
     name: 'QuestionNaire',
     cname: '风险问卷',
-    component: QuestionNaire
+    component: QuestionNaire,
   },
   {
     name: 'SessionOnline',
     cname: '设置退出时间',
-    component: SessionOnline
+    component: SessionOnline,
   },
 ];
