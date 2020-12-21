@@ -29,6 +29,7 @@ import LoginLogs from '../pages/loginLogs';
 import Logout from '../pages/logout';
 import QuestionNaire from '../pages/questionNaire';
 import SessionOnline from '../pages/sessionOnline';
+import LoanAccount from '../pages/loanAccount';
 
 export default [
   {
@@ -150,5 +151,10 @@ export default [
     name: 'SessionOnline',
     cname: '设置退出时间',
     component: SessionOnline,
+  },
+  {
+    name: 'LoanAccount',
+    cname: '贷款账户',
+    component: LoanAccount,
   },
 ];

@@ -2,8 +2,8 @@ import React from 'react';
 import {StyleSheet, Button, Keyboard, View, Text} from 'react-native';
 import {Toast, List, InputItem} from '@ant-design/react-native';
 import BasePage from '#/pages/BasePage';
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
 class ResetTransPin extends BasePage {
   constructor(props) {
     super(props);
