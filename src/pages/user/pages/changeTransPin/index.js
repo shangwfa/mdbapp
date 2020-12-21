@@ -15,8 +15,30 @@ class changeTransPin extends BasePage {
       btnOtpDisabled: false,
       oldPin2:"",
       newPin2:"",
-      newPin2Confirm:""
+      newPin2Confirm:"",
+      itemArr:[
+        {
+          name:"原密碼",
+          placeholder:"請輸入密碼",
+          field:"oldPin2"
+        },
+        {
+          name:"新密碼",
+          placeholder:"請輸入新密碼",
+          field:"newPin2"
+        },
+        {
+          name:"重複密碼",
+          placeholder:"請重複新密碼",
+          field:"newPin2Confirm"
+        }
+      ]
     };
+  }
+  _onChange(val,item){
+    this.setState({
+      [item.field]: val,
+    });
   }
   onSubmit = async () =>{
     let {oldPin2, newPin2,newPin2Confirm} = this.state;
@@ -34,25 +56,13 @@ class changeTransPin extends BasePage {
     // this.props.submitVerifyCode({smsFlowNo, otp});
   }
   renderContainer() {
-    const {btnOtpDisabled} = this.state;
+    const {btnOtpDisabled,itemArr} = this.state;
     return (
       <>
       <List>
-          <InputItem value={this.state.oldPin2} onChange={(value) => {
-              this.setState({
-                oldPin2: value,
-              });
-            }}>原密碼</InputItem>
-          <InputItem value={this.state.newPin2} onChange={(value) => {
-              this.setState({
-                newPin2: value,
-              });
-            }}>新密碼</InputItem>
-          <InputItem value={this.state.newPin2Confirm} onChange={(value) => {
-              this.setState({
-                newPin2Confirm: value,
-              });
-            }}>重複密碼</InputItem>
+      {itemArr.map((item) => (
+         <InputItem value={this.state[item.field]} onChange={(val) => this._onChange(val,item)} placeholder={item.placeholder} key={item.field}>{item.name}</InputItem>
+      ))}
           </List>
           <View>
           <Text>6位數字組合</Text>
