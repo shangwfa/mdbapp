@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Text} from 'react-native';
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 class FaceRecognition extends BasePage {
@@ -25,7 +25,7 @@ class FaceRecognition extends BasePage {
       await HTTP.api({
         url: apiPaths.FORGETPASSWORD,
         method: 'POST',
-        params: {
+        data: {
           ActionMethod: 'checkCustomerFaceInfo',
           PageLanguage: 'zh_CN',
           cif: this.state.cif,
@@ -49,7 +49,7 @@ class FaceRecognition extends BasePage {
       const res = await HTTP.api({
         url: apiPaths.FORGETPASSWORD,
         method: 'POST',
-        params: {
+        data: {
           ActionMethod: 'getMobileNumberByCif',
           PageLanguage: 'zh_CN',
           cif: this.state.cif,

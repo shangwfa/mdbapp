@@ -14,7 +14,7 @@ import {Toast} from '@ant-design/react-native';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 export const {width} = Dimensions.get('window');
-import BasePage from '../../../BasePage';
+import BasePage from '#/pages/BasePage';
 class ShootIDCard extends BasePage {
   constructor(props) {
     super(props);
@@ -75,7 +75,7 @@ class ShootIDCard extends BasePage {
       if (res.ERR_DESC) {
         return Toast.info(res.ERR_DESC);
       }
-      if (res.idCard_type === 'CD' || res.idCard_type === 'MT') {
+      if (['CD', 'MT'].includes(res.idCard_type)) {
         navigation.navigate('IDCardInfo', {
           log_id: res.log_id,
           imageFontBase64: res.imageFontBase64,
@@ -92,35 +92,40 @@ class ShootIDCard extends BasePage {
       console.log('error');
     }
   };
+  // 未拍摄照片
+  pickerWithoutImg = () => (
+    <ImageBackground
+      style={styles.ETOLIDCardImageBackground}
+      source={require('../../../../assets/img_IdCardFornt_Bg1.png')}
+      resizeMode="stretch">
+      <TouchableOpacity
+        style={styles.ETOLIDCardCircleBox}
+        onPress={this.takePhotoPage}
+        activeOpacity={1}>
+        <Image
+          style={styles.ETOLIDCardFrontImage}
+          source={require('../../../../assets/img_IdCard_camera.png')}
+          resizeMode="stretch"
+        />
+      </TouchableOpacity>
+    </ImageBackground>
+  );
+  //已拍摄照片
+  pickerWithImg = () => (
+    <TouchableOpacity onPress={this.takePhotoPage} activeOpacity={1}>
+      <Image
+        style={styles.ETOLIDCardImageBackground}
+        source={this.state.selectPathFront}
+        resizeMode={'contain'}
+      />
+    </TouchableOpacity>
+  );
   renderContainer() {
-    const {selectPathFront} = this.state;
     return (
       <View style={styles.wrapper}>
-        {selectPathFront === null ? (
-          <ImageBackground
-            style={styles.ETOLIDCardImageBackground}
-            source={require('../../../../assets/img_IdCardFornt_Bg1.png')}
-            resizeMode="stretch">
-            <TouchableOpacity
-              style={styles.ETOLIDCardCircleBox}
-              onPress={this.takePhotoPage}
-              activeOpacity={1}>
-              <Image
-                style={styles.ETOLIDCardFrontImage}
-                source={require('../../../../assets/img_IdCard_camera.png')}
-                resizeMode="stretch"
-              />
-            </TouchableOpacity>
-          </ImageBackground>
-        ) : (
-          <TouchableOpacity onPress={this.takePhotoPage} activeOpacity={1}>
-            <Image
-              style={styles.ETOLIDCardImageBackground}
-              source={selectPathFront}
-              resizeMode={'contain'}
-            />
-          </TouchableOpacity>
-        )}
+        {this.state.selectPathFront === null
+          ? this.pickerWithoutImg()
+          : this.pickerWithImg()}
 
         <Button onPress={this.onConfirmNextPage} title="下一步" />
       </View>
