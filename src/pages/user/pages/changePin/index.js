@@ -5,7 +5,7 @@ import { List, InputItem} from '@ant-design/react-native';
 import CountDown from '../../../../components/base/CountDown';
 import apiPaths from '../../paths';
 import HTTP from '../../../../api';
-import VerifyCode from './VerifyCode';
+// import VerifyCode from './VerifyCode';
 class ChangePin extends BasePage {
   constructor(props) {
     super(props);
@@ -108,9 +108,6 @@ class ChangePin extends BasePage {
       [item.field]: val,
     });
   }
-  submitVerifyCode(smsFlowNo){
-    // this.props.navigation.navigate('ResetIDPassword', {...this.params});
-  }
 
   renderContainer() {
     const {itemArr} = this.state;
@@ -123,9 +120,9 @@ class ChangePin extends BasePage {
           </List>
           <View>
             <Text>8-20位數字及英文組合，區分大小寫，不能輸入空格及符號</Text>
-            <VerifyCode submitVerifyCode={this.submitVerifyCode}
-               verifyCodeParams={{}}/>
-            {/* <InputItem
+            {/* <VerifyCode submitVerifyCode={this.submitVerifyCode}
+               verifyCodeParams={{}}/> */}
+            <InputItem
             value={this.state.smsFlowNo}
             onChange={(value) => {
               this.setState({
@@ -143,7 +140,7 @@ class ChangePin extends BasePage {
             }
             placeholder="请输入短訊驗證碼">
             短訊驗證碼
-          </InputItem> */}
+          </InputItem>
           <Button
             onPress={() => {
               Keyboard.dismiss();
