@@ -1,21 +1,9 @@
 import React from 'react';
-import {
-  Button,
-  View,
-  NativeModules,
-  Platform,
-  ImageBackground,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-  Dimensions,
-  Text,
-} from 'react-native';
-import {Toast} from '@ant-design/react-native';
+import {View} from 'react-native';
 import HTTP from '#/api';
 import apiPaths from '#/api/path';
-export const {width} = Dimensions.get('window');
 import BasePage from '#/pages/BasePage';
+import AccountItem from './AccountItem';
 class LoanAccount extends BasePage {
   constructor(props) {
     super(props);
@@ -23,43 +11,38 @@ class LoanAccount extends BasePage {
       title: '贷款账户',
     });
     this.state = {
-      selectPathFront: null,
-      imageFontBase64: null,
+      acctList: [],
     };
   }
+  async componentDidMount() {
+    this.getAcctList();
+  }
+  getAcctList = async () => {
+    const {LA_AcctList = []} = await HTTP.api({
+      url: apiPaths.LOANACCENQ,
+      method: 'POST',
+      data: {
+        ActionMethod: 'loanAccLoad',
+        PageLanguage: 'zh_CN',
+      },
+    });
+    this.setState({
+      acctList: LA_AcctList,
+    });
+  };
   renderContainer() {
+    const {acctList} = this.state;
     return (
-      <View style={styles.wrapper}>
-        <Text>Text----贷款账户</Text>
-        <Button onPress={this.onConfirmNextPage} title="下一步" />
+      <View>
+        {acctList.map((accData) => (
+          <AccountItem
+            acctNum={accData.acctNum}
+            bal={accData.bal}
+            ccyName={accData.ccyName}
+          />
+        ))}
       </View>
     );
   }
 }
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  ETOLIDCardImageBackground: {
-    width: width * 0.78,
-    height: width * 0.52,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  ETOLIDCardCircleBox: {
-    width: width * 0.18,
-    height: width * 0.18,
-    borderRadius: width * 0.09,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(151,151,151,0.5)',
-  },
-  ETOLIDCardFrontImage: {
-    width: width * 0.09,
-    height: width * 0.07,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});
 export default LoanAccount;
