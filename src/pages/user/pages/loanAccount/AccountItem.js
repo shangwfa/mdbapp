@@ -9,13 +9,10 @@ import {
 } from 'react-native';
 export const {width} = Dimensions.get('window');
 import * as PbSizeStyle from './PbSizeStyle';
-function AccountItem({acctNum, ccyName, bal}) {
+function AccountItem({acctNum, ccyName, bal, navigation}) {
   function Header() {
     return (
-      <TouchableOpacity
-        style={homeStyle.AccountCardItemTop}
-        onPress={() => {}}
-        activeOpacity={1}>
+      <TouchableOpacity style={homeStyle.AccountCardItemTop} activeOpacity={1}>
         <View style={homeStyle.AccountCardItemTopLeft2}>
           <Text
             allowFontScaling={false}
@@ -36,7 +33,9 @@ function AccountItem({acctNum, ccyName, bal}) {
       <View style={homeStyle.AccountCardItemList}>
         <TouchableOpacity
           style={[homeStyle.LoginMidListAccountItemPath]}
-          onPress={() => {}}
+          onPress={() => {
+            navigation.navigate('LoanAccountDetail', {acctNum});
+          }}
           activeOpacity={0.8}>
           <View style={homeStyle.AccountCardItem}>
             <View style={homeStyle.LoanListItem}>

@@ -32,6 +32,7 @@ class LoanAccount extends BasePage {
   };
   renderContainer() {
     const {acctList} = this.state;
+    const {navigation} = this.props;
     return (
       <View>
         {acctList.map((accData) => (
@@ -39,6 +40,7 @@ class LoanAccount extends BasePage {
             acctNum={accData.acctNum}
             bal={accData.bal}
             ccyName={accData.ccyName}
+            navigation={navigation}
           />
         ))}
       </View>
