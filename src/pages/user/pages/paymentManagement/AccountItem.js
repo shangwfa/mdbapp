@@ -1,12 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
-  Image,
   TouchableOpacity,
   StyleSheet,
   Dimensions,
   Text,
 } from 'react-native';
+import {Switch} from '@ant-design/react-native';
 export const {width} = Dimensions.get('window');
 import * as PbSizeStyle from './PbSizeStyle';
 function AccountItem({
@@ -16,6 +16,7 @@ function AccountItem({
   custBaseInfoVoList,
   navigation,
 }) {
+  const [checked, setChecked] = useState(isOpen === 'Y');
   function Header() {
     return (
       <TouchableOpacity style={homeStyle.AccountCardItemTop} activeOpacity={1}>
@@ -23,7 +24,8 @@ function AccountItem({
           <Text
             allowFontScaling={false}
             style={homeStyle.AccountCardItemTopLeft_Text1}>
-            往來賬戶
+            {acctType === 'CA' ? '往來賬戶' : '儲蓄賬戶'}
+            {/* title1:acctList[i].acctType=='CA'?language.currentAccount:language.savingAccount, */}
           </Text>
           <Text
             allowFontScaling={false}
@@ -51,17 +53,11 @@ function AccountItem({
                 快捷支付功能
               </Text>
               <View style={homeStyle.AccountCardItemTopRight}>
-                <Text
-                  allowFontScaling={false}
-                  style={[
-                    homeStyle.AccountCardLoansRight_Text1,
-                    {paddingRight: PbSizeStyle.size1},
-                  ]}>
-                  開關
-                </Text>
-                <Image
-                  style={homeStyle.AccountCardItemRightImage}
-                  source={require('#/assets/icon_home_accountAvater.png')}
+                <Switch
+                  checked={checked}
+                  onChange={() => {
+                    setChecked(!checked);
+                  }}
                 />
               </View>
             </View>
