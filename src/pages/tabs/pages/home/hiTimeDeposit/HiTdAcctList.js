@@ -1,7 +1,7 @@
 // 我的高息定存列表
 import { ScrollView } from 'react-native'
 import HTTP from '#/api';
-import apiPaths from '../../paths';
+import apiPaths from '../paths';
 import React from 'react'
 import BasePage from '#/pages/BasePage'
 
