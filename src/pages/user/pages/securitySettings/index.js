@@ -14,25 +14,19 @@ class AboutUS extends BasePage {
         {
           extra: 'www.mdb.com.mo',
           onPress: () => {
-            navigation.navigate('ChangePin', {
-              title: '修改登入密碼',
-            });
+            navigation.navigate('ChangePin');
           },
           title: '修改登入密碼',
         },
         {
           onPress: () => {
-            navigation.navigate('ChangeTransPin', {
-              title: '修改交易密碼',
-            });
+            navigation.navigate('ChangeTransPin');
           },
           title: '修改交易密碼',
         },
         {
           onPress: () => {
-            navigation.navigate('TransPinVerifyCode', {
-              title: '获取重置交易密碼验证码',
-            });
+            navigation.navigate('TransPinVerifyCode');
           },
           title: '重置交易密碼',
         },
@@ -42,7 +36,9 @@ class AboutUS extends BasePage {
           extra: '關閉',
         },
         {
-          onPress: () => {},
+          onPress: () => {
+            navigation.navigate('PaymentManagement');
+          },
           title: '快捷支付管理',
         },
         {

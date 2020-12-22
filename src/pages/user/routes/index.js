@@ -31,6 +31,7 @@ import QuestionNaire from '../pages/questionNaire';
 import SessionOnline from '../pages/sessionOnline';
 import LoanAccount from '../pages/loanAccount';
 import LoanAccountDetail from '../pages/loanAccountDetail';
+import PaymentManagement from '../pages/paymentManagement';
 
 export default [
   {
@@ -162,5 +163,10 @@ export default [
     name: 'LoanAccountDetail',
     cname: '贷款账户详情',
     component: LoanAccountDetail,
+  },
+  {
+    name: 'PaymentManagement',
+    cname: '快捷支付管理賬戶列表',
+    component: PaymentManagement,
   },
 ];
