@@ -30,6 +30,7 @@ import Logout from '../pages/logout';
 import QuestionNaire from '../pages/questionNaire';
 import SessionOnline from '../pages/sessionOnline';
 import LoanAccount from '../pages/loanAccount';
+import LoanAccountDetail from '../pages/loanAccountDetail';
 
 export default [
   {
@@ -156,5 +157,10 @@ export default [
     name: 'LoanAccount',
     cname: '贷款账户',
     component: LoanAccount,
+  },
+  {
+    name: 'LoanAccountDetail',
+    cname: '贷款账户详情',
+    component: LoanAccountDetail,
   },
 ];
