@@ -31,7 +31,7 @@ class LoanAccount extends BasePage {
     });
   };
   renderContainer() {
-    const {acctList} = this.state;
+    const {acctList = []} = this.state;
     const {navigation} = this.props;
     return (
       <View>
