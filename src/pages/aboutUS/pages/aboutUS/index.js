@@ -2,6 +2,7 @@ import React from 'react';
 import {Linking} from 'react-native';
 import {List} from '@ant-design/react-native';
 import BasePage from '#/pages/BasePage';
+import lang from '#/i18n';
 const Item = List.Item;
 class AboutUS extends BasePage {
   constructor(props) {
@@ -15,33 +16,43 @@ class AboutUS extends BasePage {
         {
           extra: 'www.mdb.com.mo',
           onPress: () => {
-            navigation.navigate('Statements', {title: '官方網站'});
+            navigation.navigate('Statements', {
+              title: lang.t('aboutUs.WebSite'),
+            });
           },
-          title: '官方網站',
+          title: lang.t('aboutUs.WebSite'),
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '服務條款'});
+            navigation.navigate('Statements', {
+              title: lang.t('aboutUs.TermsOfService'),
+            });
           },
-          title: '服務條款',
+          title: lang.t('aboutUs.TermsOfService'),
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '資料保護聲明'});
+            navigation.navigate('Statements', {
+              title: lang.t('aboutUs.PrivacyPolicy'),
+            });
           },
-          title: '資料保護聲明',
+          title: lang.t('aboutUs.PrivacyPolicy'),
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '重要聲明'});
+            navigation.navigate('Statements', {
+              title: lang.t('aboutUs.ImportantStatement'),
+            });
           },
-          title: '重要聲明',
+          title: lang.t('aboutUs.ImportantStatement'),
         },
         {
           onPress: () => {
-            navigation.navigate('Statements', {title: '知識產權聲明'});
+            navigation.navigate('Statements', {
+              title: lang.t('aboutUs.IntellectualStatement'),
+            });
           },
-          title: '知識產權聲明',
+          title: lang.t('aboutUs.IntellectualStatement'),
         },
         {
           extra: '+853 28337766',
@@ -50,7 +61,7 @@ class AboutUS extends BasePage {
               console.log('call MDB Service Hotline failed ' + err);
             });
           },
-          title: '聯絡我們',
+          title: lang.t('aboutUs.ContactUs'),
         },
         {
           onPress: () => {
