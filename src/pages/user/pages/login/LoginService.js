@@ -32,8 +32,10 @@ export default class LoginService {
         data: {
           ActionMethod: 'login',
           pageLanguage: 'CN',
-          username: 'TESTUSER01',
-          password: '111111qq',
+          username: 'NEW00005',
+          password: 'Abcd1234',
+          // username: 'testuser03',
+          // password: '111111qq',
           Login: 'Login',
           browserOk: 'N',
           loginDeviceId: DeviceInfo.getUniqueId(),
@@ -58,7 +60,7 @@ export default class LoginService {
           let authKey = result.jsonData.authKey ? result.jsonData.authKey : '';
           utils.saveStorage(utils.STORAGEKEYS.BIOMETRICS_AUTH_KEY, authKey);
         }
-        resolve(JSON.parse(res));
+        resolve(res);
       });
     });
   }

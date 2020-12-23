@@ -36,8 +36,10 @@ class LoginPage extends BasePage {
         <Button
           title="用户名登陆"
           style={styles.buttons}
-          onPress={() => {
-            let res = this.loginService.loginWithUsername(this.state.loginFrom);
+          onPress={async () => {
+            let res = await this.loginService.loginWithUsername(
+              this.state.loginFrom,
+            );
             this.props.onLoginSuccess(res);
           }}
         />

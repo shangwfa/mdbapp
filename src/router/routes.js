@@ -8,6 +8,11 @@ import Tabs from '../pages/tabs';
 import RNCameraPage from '../pages/test/rnCamera';
 import UserModule from '../pages/user';
 import SmartDepositModule from '../pages/smartDeposit';
+import PaymentManagement from '../pages/paymentManagement';
+import LoanAccount from '../pages/loanAccount';
+import ResetIDPassword from '../pages/resetIDPassword';
+import ResetTransPin from '../pages/resetTransPin';
+
 const routes = [
   {
     name: 'Splash',
@@ -23,6 +28,10 @@ const routes = [
   },
   ...UserModule.routes,
   ...SmartDepositModule.routes,
+  ...PaymentManagement.routes,
+  ...LoanAccount.routes,
+  ...ResetIDPassword.routes,
+  ...ResetTransPin.routes,
 ];
 
 export const routePaths = {};

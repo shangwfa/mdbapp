@@ -60,7 +60,7 @@ class AboutUS extends BasePage {
         },
         {
           onPress: () => {
-            navigation.navigate('LoanAccount');
+            navigation.navigate('AccountList');
           },
           title: '贷款账户',
         },
