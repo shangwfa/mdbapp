@@ -49,7 +49,7 @@ function Body({
     }
   };
   const paymentOpen = () => {
-    navigation.navigate('PaymentWebView');
+    navigation.navigate('PaymentWebView', {bankCardNo: bankCardNo});
   };
   return (
     <View style={homeStyle.AccountCardItemList}>

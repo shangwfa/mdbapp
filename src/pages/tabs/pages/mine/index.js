@@ -30,7 +30,9 @@ class MinePage extends BasePage {
       },
       {
         name: '交易限額',
-        onPress: () => {},
+        onPress: () => {
+          this.navigation.navigate('TransLimit');
+        },
         arrow: 'horizontal',
       },
       {
