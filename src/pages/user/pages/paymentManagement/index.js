@@ -35,8 +35,9 @@ class Index extends BasePage {
     const {navigation} = this.props;
     return (
       <View>
-        {paymentList.map((accData) => (
+        {paymentList.map((accData, index) => (
           <AccountItem
+            key={index}
             navigation={navigation}
             refreshPaymentList={this.getpaymentList}
             {...accData}

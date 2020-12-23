@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {Checkbox, WhiteSpace} from '@ant-design/react-native';
+import {Checkbox, Button, WhiteSpace} from '@ant-design/react-native';
 import {WebView} from 'react-native-webview';
 import BasePage from '#/pages/BasePage';
 const AgreeItem = Checkbox.AgreeItem;
@@ -16,6 +16,7 @@ class Index extends BasePage {
   }
   renderContainer() {
     const {navigation} = this.props;
+    const {isChecked} = this.state;
     return (
       <View>
         <Text>
@@ -24,12 +25,23 @@ class Index extends BasePage {
         </Text>
         <WhiteSpace />
         <AgreeItem
-          checked={this.state.isChecked}
+          checked={isChecked}
           onChange={() => {
-            this.setState({isChecked: !this.state.isChecked});
+            this.setState({isChecked: !isChecked});
           }}>
           我已經閲讀所有服務條款，同意並且遵循所有內容
         </AgreeItem>
+        <WhiteSpace />
+        <Button
+          type="primary"
+          disabled={!isChecked}
+          onPress={() => {
+            navigation.navigate('PaymentVerifyCode', {
+              bankCardNo: this.params.bankCardNo,
+            });
+          }}>
+          同意並繼續進行
+        </Button>
       </View>
     );
   }

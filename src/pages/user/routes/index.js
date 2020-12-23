@@ -33,7 +33,7 @@ import LoanAccount from '../pages/loanAccount';
 import LoanAccountDetail from '../pages/loanAccountDetail';
 import PaymentManagement from '../pages/paymentManagement';
 import PaymentWebView from '../pages/paymentWebView';
-
+import PaymentVerifyCode from '../pages/paymentVerifyCode';
 export default [
   {
     name: 'Login',
@@ -174,5 +174,10 @@ export default [
     name: 'PaymentWebView',
     cname: '服務條款說明',
     component: PaymentWebView,
+  },
+  {
+    name: 'PaymentVerifyCode',
+    cname: '快捷支付管理',
+    component: PaymentVerifyCode,
   },
 ];
