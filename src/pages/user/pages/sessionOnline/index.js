@@ -1,13 +1,12 @@
 // 退出时间设置
-import { ScrollView } from 'react-native'
+import {ScrollView} from 'react-native';
 import HTTP from '#/api';
 import apiPaths from '#/api/path';
-import React from 'react'
-import BasePage from '#/pages/BasePage'
+import React from 'react';
+import BasePage from '#/pages/BasePage';
 
 class SessionOnline extends BasePage {
-  didMount(){
-  }
+  didMount() {}
   // 设置退出时间
   loadLoginLog = async () => {
     await HTTP.api({
@@ -27,16 +26,14 @@ class SessionOnline extends BasePage {
         sessionOnlineTime: 5,
         status: 0,
         setUpType: 2,
-        checkType: 'N'
-      }
-    })
-  }
+        checkType: 'N',
+      },
+    });
+  };
 
   renderContainer() {
-    return (
-      <ScrollView></ScrollView>
-    )
+    return <ScrollView></ScrollView>;
   }
 }
 
-export default SessionOnline
+export default SessionOnline;

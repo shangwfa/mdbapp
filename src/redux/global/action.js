@@ -17,4 +17,12 @@ export default {
       },
     };
   },
+  [Types.G_THEME]: (type) => {
+    return {
+      type: Types.G_THEME,
+      payload: {
+        type,
+      },
+    };
+  },
 };

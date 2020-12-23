@@ -1,8 +1,10 @@
 import Types from './actionType';
+import theme from '../../theme';
 
 const initState = {
   ENV: 'UAT',
   isLoading: false,
+  theme: theme['light'],
 };
 
 const onAction = (state = initState, action) => {
@@ -19,6 +21,14 @@ const onAction = (state = initState, action) => {
       return {
         ...state,
         isLoading: isLoading,
+      };
+    case Types.G_THEME:
+      console.log('playload', payload);
+      const {type: xx} = payload;
+
+      return {
+        ...state,
+        theme: theme[xx],
       };
     default:
       return state;

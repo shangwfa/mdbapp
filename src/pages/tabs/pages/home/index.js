@@ -68,6 +68,9 @@ class HomePage extends BasePage {
   toRNCamera = () => {
     this.navigation.navigate('RNCamera');
   };
+  toTheme = () => {
+    this.navigation.navigate('ThemePage');
+  };
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -88,6 +91,8 @@ class HomePage extends BasePage {
         />
         <WhiteSpace size="sm" />
         <Button style={styles.btn} title="RNCamera" onPress={this.toRNCamera} />
+        <WhiteSpace size="sm" />
+        <Button style={styles.btn} title="切换主题" onPress={this.toTheme} />
       </View>
     );
   }

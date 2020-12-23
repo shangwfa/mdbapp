@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Keyboard} from 'react-native';
 import {List, InputItem} from '@ant-design/react-native';
-import BasePage from '#/pages/BasePage';
+import BasePage from '../../../BasePage';
 import HTTP from '../../../../api';
 import apiPaths from '../../../../api/path';
 // import VerifyCode from '../../../../components/business/VerifyCode';
@@ -24,7 +24,7 @@ class IDCardInfo extends BasePage {
     const res = await HTTP.api({
       url: apiPaths.FORGETPASSWORD,
       method: 'POST',
-      data: {
+      params: {
         ActionMethod: 'checkOpenByIdNo',
         PageLanguage: 'zh_CN',
         langCode: 'CN',

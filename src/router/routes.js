@@ -2,6 +2,7 @@ import SplashPage from '../pages/splash';
 import Tabs from '../pages/tabs';
 import RNCameraPage from '../pages/test/rnCamera';
 import UserModule from '../pages/user';
+import ThemePage from '../pages/test/theme';
 const routes = [
   {
     name: 'Splash',
@@ -14,6 +15,10 @@ const routes = [
   {
     name: 'RNCamera',
     component: RNCameraPage,
+  },
+  {
+    name: 'ThemePage',
+    component: ThemePage,
   },
   ...UserModule.routes,
 ];
