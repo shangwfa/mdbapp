@@ -93,9 +93,6 @@ class ShootIDCard extends BasePage {
       console.log('error');
     }
   };
-<<<<<<< HEAD
-
-=======
   // 未拍摄照片
   pickerWithoutImg = () => (
     <ImageBackground
@@ -124,7 +121,6 @@ class ShootIDCard extends BasePage {
       />
     </TouchableOpacity>
   );
->>>>>>> 2c352a914d3685fd6ff86ad2a439d06e82ab0847
   renderContainer() {
     const {selectPathFront} = this.state;
     return (

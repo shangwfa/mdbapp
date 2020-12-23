@@ -1,16 +1,9 @@
 import React from 'react';
 import {Button, Keyboard} from 'react-native';
 import {List, InputItem} from '@ant-design/react-native';
-<<<<<<< HEAD
-import BasePage from '../../../BasePage';
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
-// import VerifyCode from '../../../../components/business/VerifyCode';
-=======
 import BasePage from '#/pages/BasePage';
 import HTTP from '#/api';
 import apiPaths from '#/api/path';
->>>>>>> 2c352a914d3685fd6ff86ad2a439d06e82ab0847
 class IDCardInfo extends BasePage {
   constructor(props) {
     super(props);
