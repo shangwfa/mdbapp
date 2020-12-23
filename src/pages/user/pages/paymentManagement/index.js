@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import HTTP from '#/api';
 import apiPaths from '#/api/path';
 import BasePage from '#/pages/BasePage';
@@ -36,7 +36,11 @@ class LoanAccount extends BasePage {
     return (
       <View>
         {paymentList.map((accData) => (
-          <AccountItem navigation={navigation} {...accData} />
+          <AccountItem
+            navigation={navigation}
+            refreshPaymentList={this.getpaymentList}
+            {...accData}
+          />
         ))}
       </View>
     );

@@ -10,6 +10,7 @@ function AccountItem({
   acctType,
   custBaseInfoVoList,
   navigation,
+  refreshPaymentList,
 }) {
   return (
     <View style={homeStyle.LoginMidListAccountItemPath}>
@@ -18,8 +19,10 @@ function AccountItem({
         <Header bankCardNo={bankCardNo} acctType={acctType} />
         <Body
           isOpen={isOpen}
+          bankCardNo={bankCardNo}
           custBaseInfoVoList={custBaseInfoVoList}
           navigation={navigation}
+          refreshPaymentList={refreshPaymentList}
         />
       </View>
     </View>
