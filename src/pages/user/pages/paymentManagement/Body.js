@@ -36,7 +36,7 @@ function Body({
       url: apiPaths.PAYMENT,
       method: 'POST',
       params: {
-        ActionMethod: 'sendOtp',
+        ActionMethod: 'paymentClose',
         PageLanguage: 'zh_CN',
         bankCardNo: bankCardNo,
       },
