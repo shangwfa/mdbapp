@@ -37,7 +37,7 @@ class AboutUS extends BasePage {
         },
         {
           onPress: () => {
-            navigation.navigate('PaymentManagement');
+            navigation.navigate('PaymentAccList');
           },
           title: '快捷支付管理',
         },
