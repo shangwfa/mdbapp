@@ -29,6 +29,7 @@ import LoginLogs from '../pages/loginLogs';
 import Logout from '../pages/logout';
 import QuestionNaire from '../pages/questionNaire';
 import SessionOnline from '../pages/sessionOnline';
+import TransLimit from '../pages/transLimit';
 
 export default [
   {
@@ -150,5 +151,9 @@ export default [
     name: 'SessionOnline',
     cname: '设置退出时间',
     component: SessionOnline,
-  },
+  },{
+    name: 'TransLimit',
+    cname: '交易限額',
+    component: TransLimit,
+  }
 ];
