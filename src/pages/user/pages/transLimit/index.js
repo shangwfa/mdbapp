@@ -44,7 +44,7 @@ class TransLimit extends BasePage {
       <ScrollView>
        <Text>幣種:澳門幣 </Text>
         {itemArr.map((item) => (
-        <LimitItem item="item"></LimitItem>
+        <LimitItem item={item}></LimitItem>
       ))}
       </ScrollView>
     )
