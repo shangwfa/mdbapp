@@ -4,47 +4,46 @@ import HTTP from '#/api';
 import apiPaths from '#/api/path';
 import BasePage from '#/pages/BasePage';
 import AccountItem from './AccountItem';
-class LoanAccount extends BasePage {
+class Index extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '贷款账户',
+      title: '快捷支付管理賬戶列表',
     });
     this.state = {
-      acctList: [],
+      paymentList: [],
     };
   }
   async componentDidMount() {
-    this.getAcctList();
+    this.getpaymentList();
   }
-  getAcctList = async () => {
-    const {LA_AcctList = []} = await HTTP.api({
-      url: apiPaths.LOANACCENQ,
+  getpaymentList = async () => {
+    const {acctList = []} = await HTTP.api({
+      url: apiPaths.PAYMENT,
       method: 'POST',
       data: {
-        ActionMethod: 'loanAccLoad',
+        ActionMethod: 'paymentList',
         PageLanguage: 'zh_CN',
       },
     });
     this.setState({
-      acctList: LA_AcctList,
+      paymentList: acctList,
     });
   };
   renderContainer() {
-    const {acctList = []} = this.state;
+    const {paymentList} = this.state;
     const {navigation} = this.props;
     return (
       <View>
-        {acctList.map((accData) => (
+        {paymentList.map((accData) => (
           <AccountItem
-            acctNum={accData.acctNum}
-            bal={accData.bal}
-            ccyName={accData.ccyName}
             navigation={navigation}
+            refreshPaymentList={this.getpaymentList}
+            {...accData}
           />
         ))}
       </View>
     );
   }
 }
-export default LoanAccount;
+export default Index;

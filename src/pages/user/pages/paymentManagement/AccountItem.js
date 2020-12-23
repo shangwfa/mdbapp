@@ -4,17 +4,25 @@ import Header from './Header';
 import Body from './Body';
 export const {width} = Dimensions.get('window');
 import * as PbSizeStyle from './PbSizeStyle';
-function AccountItem({acctNum, ccyName, bal, navigation}) {
+function AccountItem({
+  isOpen,
+  bankCardNo,
+  acctType,
+  custBaseInfoVoList,
+  navigation,
+  refreshPaymentList,
+}) {
   return (
     <View style={homeStyle.LoginMidListAccountItemPath}>
       <View style={homeStyle.UnLoginContentSpaceLine} />
       <View style={homeStyle.LoginMidListAccountCardItem}>
-        <Header acctNum={acctNum} />
+        <Header bankCardNo={bankCardNo} acctType={acctType} />
         <Body
-          acctNum={acctNum}
-          ccyName={ccyName}
-          bal={bal}
+          isOpen={isOpen}
+          bankCardNo={bankCardNo}
+          custBaseInfoVoList={custBaseInfoVoList}
           navigation={navigation}
+          refreshPaymentList={refreshPaymentList}
         />
       </View>
     </View>
