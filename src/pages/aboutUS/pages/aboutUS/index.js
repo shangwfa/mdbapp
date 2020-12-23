@@ -15,31 +15,31 @@ class AboutUS extends BasePage {
         {
           extra: 'www.mdb.com.mo',
           onPress: () => {
-            navigation.navigate('Statements');
+            navigation.navigate('Statements', {title: '官方網站'});
           },
           title: '官方網站',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements');
+            navigation.navigate('Statements', {title: '服務條款'});
           },
           title: '服務條款',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements');
+            navigation.navigate('Statements', {title: '資料保護聲明'});
           },
           title: '資料保護聲明',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements');
+            navigation.navigate('Statements', {title: '重要聲明'});
           },
           title: '重要聲明',
         },
         {
           onPress: () => {
-            navigation.navigate('Statements');
+            navigation.navigate('Statements', {title: '知識產權聲明'});
           },
           title: '知識產權聲明',
         },

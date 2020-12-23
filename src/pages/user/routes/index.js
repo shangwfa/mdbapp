@@ -9,9 +9,6 @@ import FingerLoginPage from '../pages/fingerLogin/FingerLoginPage';
 import UserProfile from '../pages/userProfile/UserProfilePage';
 import FingerDemo from '../pages/fingerDemo/Application.container';
 
-import AboutUSPage from '../pages/aboutUS';
-import StatementsPage from '../pages/statements';
-import SecuritySettingsPage from '../pages/securitySettings';
 import ChangePinPage from '../pages/changePin';
 import ChangeTransPinPage from '../pages/changeTransPin';
 
@@ -47,21 +44,6 @@ export default [
     name: 'fingerDemo',
     cname: '指纹识别测试',
     component: FingerDemo,
-  },
-  {
-    name: 'AboutUS',
-    cname: '关于我们',
-    component: AboutUSPage,
-  },
-  {
-    name: 'Statements',
-    cname: '声明与条款',
-    component: StatementsPage,
-  },
-  {
-    name: 'SecuritySettings',
-    cname: '安全设置',
-    component: SecuritySettingsPage,
   },
   {
     name: 'ChangePin',

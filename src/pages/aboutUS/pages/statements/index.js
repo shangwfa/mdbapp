@@ -6,7 +6,7 @@ class Statements extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: props.route.params.title || '',
+      title: this.params.title || '',
     });
   }
   loadFlie = () => {

@@ -12,6 +12,7 @@ import PaymentManagement from '../pages/paymentManagement';
 import LoanAccount from '../pages/loanAccount';
 import ResetIDPassword from '../pages/resetIDPassword';
 import ResetTransPin from '../pages/resetTransPin';
+import AboutUS from '../pages/aboutUS';
 
 const routes = [
   {
@@ -32,6 +33,7 @@ const routes = [
   ...LoanAccount.routes,
   ...ResetIDPassword.routes,
   ...ResetTransPin.routes,
+  ...AboutUS.routes,
 ];
 
 export const routePaths = {};
