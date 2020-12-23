@@ -41,7 +41,7 @@ class VerificationCode extends React.Component {
     await HTTP.api({
       url: apiPaths.JSONURL,
       method: 'POST',
-      data: {
+      params: {
         ActionMethod: 'resendOtp',
         smsFlowNo: smsFlowNo,
       },
@@ -52,17 +52,17 @@ class VerificationCode extends React.Component {
   };
 
   submitVerifyCode = async () => {
-    let {smsFlowNo, otp} = this.state;
+    let {smsFlowNo, otp, firstOnPress} = this.state;
     await HTTP.api({
       url: apiPaths.JSONURL,
       method: 'POST',
-      data: {
+      params: {
         ActionMethod: 'checkOtp',
         smsFlowNo: smsFlowNo,
         otp: otp,
       },
     });
-    this.props.submitVerifyCode({smsFlowNo, otp});
+    this.props.submitVerifyCode({smsFlowNo, otp, firstOnPress});
   };
 
   render() {

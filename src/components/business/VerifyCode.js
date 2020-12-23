@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Button, Keyboard} from 'react-native';
 import {View, List, InputItem} from '@ant-design/react-native';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import CountDown from '#/components/base/CountDown';
 import HTTP from '#/api';
 import apiPaths from '#/api/path';
@@ -16,26 +17,32 @@ class VerificationCode extends React.Component {
     };
   }
   static propTypes = {
+    httpUrl: PropTypes.string,
     httpData: PropTypes.shape({
       ActionMethod: PropTypes.string,
       PageLanguage: PropTypes.string,
       funcName: PropTypes.string,
     }),
+    needCheckOtp: PropTypes.bool, //是否需要校驗短信驗證碼
   };
   static defaultProps = {
     httpData: {
-      ActionMethod: 'sendOtp',
-      PageLanguage: 'zh_CN',
       funcName: 'app.mb.core.resetTxnPwd',
     },
+    httpUrl: apiPaths.JSONURL,
+    needCheckOtp: false,
   };
   onPressOTPSend = async () => {
     //點擊發送或者重發
     if (this.state.firstOnPress) {
       const res = await HTTP.api({
-        url: apiPaths.JSONURL,
+        url: this.props.httpUrl,
         method: 'POST',
-        data: this.props.httpData,
+        params: {
+          ActionMethod: 'sendOtp',
+          PageLanguage: 'zh_CN',
+          ...this.props.httpData,
+        },
       });
       this.setState({
         smsFlowNo: res.smsFlowNo,
@@ -62,25 +69,33 @@ class VerificationCode extends React.Component {
   };
 
   submitVerifyCode = async () => {
-    let {smsFlowNo, otp} = this.state;
-    await HTTP.api({
-      url: apiPaths.JSONURL,
-      method: 'POST',
-      data: {
-        ActionMethod: 'checkOtp',
-        smsFlowNo: smsFlowNo,
-        otp: otp,
-      },
+    let {smsFlowNo, otp, firstOnPress} = this.state;
+    const {needCheckOtp} = this.props;
+    if (needCheckOtp) {
+      await HTTP.api({
+        url: apiPaths.JSONURL,
+        method: 'POST',
+        data: {
+          ActionMethod: 'checkOtp',
+          smsFlowNo: smsFlowNo,
+          otp: otp,
+        },
+      });
+    }
+    this.props.submitVerifyCode({
+      smsFlowNo,
+      otp,
+      firstOnPress,
     });
-    this.props.submitVerifyCode({smsFlowNo, otp});
   };
 
   render() {
     const {btnOtpDisabled} = this.state;
+    const {mobileNo} = this.props;
     return (
       <>
         <List>
-          <InputItem value={'853****4197'}>電話號碼</InputItem>
+          <InputItem value={mobileNo}>電話號碼</InputItem>
           <InputItem
             value={this.state.otp}
             onChange={(value) => {
@@ -102,25 +117,6 @@ class VerificationCode extends React.Component {
           </InputItem>
         </List>
         <View style={styles.wrapper}>
-          {/* <View style={styles.item}>
-            <Text style={styles.left}>電話號碼</Text>
-            <Text style={styles.right}>853****4197</Text>
-          </View>
-          <View style={styles.item}>
-            <Text style={styles.left}>短訊驗證碼</Text>
-            <TextInput
-              onChangeText={(text) => this.setState({otp: text})}
-              style={styles.input}
-              placeholder="請輸入"
-            />
-            <CountDown
-              enable={true}
-              timerCount={60}
-              onClick={() => {
-                this.onPressOTPSend();
-              }}
-            />
-          </View> */}
           <Button
             onPress={() => {
               Keyboard.dismiss();
@@ -139,23 +135,10 @@ const styles = StyleSheet.create({
     height: 150,
     backgroundColor: '#fff',
   },
-  item: {
-    flex: 1,
-    alignItems: 'center',
-    flexDirection: 'row',
-    borderBottomColor: '#000',
-    borderBottomWidth: 1,
-  },
-  left: {
-    width: 100,
-  },
-  btn: {
-    flex: 1,
-    textAlign: 'right',
-    color: '#edc31e',
-  },
-  input: {
-    flex: 1,
-  },
 });
-export default VerificationCode;
+
+const mapStateToProps = (state) => ({
+  mobileNo: state.user.userLoginInfo.mobileNo,
+});
+
+export default connect(mapStateToProps)(VerificationCode);

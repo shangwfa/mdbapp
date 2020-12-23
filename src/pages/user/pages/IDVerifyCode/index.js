@@ -24,7 +24,7 @@ class IDVerifyCode extends BasePage {
       },
     };
   }
-  submitVerifyCode = (smsFlowNo) => {
+  submitVerifyCode = ({smsFlowNo, otp, firstOnPress}) => {
     this.props.navigation.navigate('ResetIDPassword', {...this.params});
   };
 
