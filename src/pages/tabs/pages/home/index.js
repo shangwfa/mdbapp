@@ -68,9 +68,21 @@ class HomePage extends BasePage {
   toRNCamera = () => {
     this.navigation.navigate('RNCamera');
   };
+<<<<<<< HEAD
   toTheme = () => {
     this.navigation.navigate('ThemePage');
   };
+=======
+
+  toSmartDeposit = () => {
+    this.navigation.navigate('orders');
+  };
+
+  toProducts = () => {
+    this.navigation.navigate('products');
+  };
+
+>>>>>>> 440d273ce99194ba0fcd3a0ae281b2bf5f71bd3e
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -92,7 +104,22 @@ class HomePage extends BasePage {
         <WhiteSpace size="sm" />
         <Button style={styles.btn} title="RNCamera" onPress={this.toRNCamera} />
         <WhiteSpace size="sm" />
+<<<<<<< HEAD
         <Button style={styles.btn} title="切换主题" onPress={this.toTheme} />
+=======
+        <Button
+          style={styles.btn}
+          title="已完成智能存款"
+          onPress={this.toSmartDeposit}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          style={styles.btn}
+          title="智能存款产品"
+          onPress={this.toProducts}
+        />
+        <WhiteSpace size="sm" />
+>>>>>>> 440d273ce99194ba0fcd3a0ae281b2bf5f71bd3e
       </View>
     );
   }
