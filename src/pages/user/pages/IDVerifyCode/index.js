@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import BasePage from '#/pages/BasePage';
-import VerifyCode from '../../../../components/business/VerifyCode';
+import VerifyCode from '#/components/business/VerifyCode';
 class IDVerifyCode extends BasePage {
   constructor(props) {
     super(props);

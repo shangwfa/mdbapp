@@ -5,4 +5,6 @@ export default {
   JSONURL: '/json.do',
   TRANSFERINVESTMENT: '/transferInvestment.do',
   FORGETPASSWORD: '/forgetPassWord.do',
+  LOANACCENQ: '/loanAccEnq.do',
+  PAYMENT: '/payment.do',
 };

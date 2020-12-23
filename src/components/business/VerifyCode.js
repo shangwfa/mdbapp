@@ -2,9 +2,9 @@ import React from 'react';
 import {StyleSheet, Button, Keyboard} from 'react-native';
 import {View, List, InputItem} from '@ant-design/react-native';
 import PropTypes from 'prop-types';
-import CountDown from '../base/CountDown';
-import HTTP from '../../api';
-import apiPaths from '../../api/path';
+import CountDown from '#/components/base/CountDown';
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
 class VerificationCode extends React.Component {
   constructor(props) {
     super(props);

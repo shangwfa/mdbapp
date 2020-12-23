@@ -11,8 +11,8 @@ import {
   Dimensions,
 } from 'react-native';
 import {Toast} from '@ant-design/react-native';
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
 export const {width} = Dimensions.get('window');
 import BasePage from '#/pages/BasePage';
 class ShootIDCard extends BasePage {
@@ -96,7 +96,7 @@ class ShootIDCard extends BasePage {
   pickerWithoutImg = () => (
     <ImageBackground
       style={styles.ETOLIDCardImageBackground}
-      source={require('../../../../assets/img_IdCardFornt_Bg1.png')}
+      source={require('#/assets/img_IdCardFornt_Bg1.png')}
       resizeMode="stretch">
       <TouchableOpacity
         style={styles.ETOLIDCardCircleBox}
@@ -104,7 +104,7 @@ class ShootIDCard extends BasePage {
         activeOpacity={1}>
         <Image
           style={styles.ETOLIDCardFrontImage}
-          source={require('../../../../assets/img_IdCard_camera.png')}
+          source={require('#/assets/img_IdCard_camera.png')}
           resizeMode="stretch"
         />
       </TouchableOpacity>
