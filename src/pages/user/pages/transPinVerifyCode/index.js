@@ -1,6 +1,6 @@
 import React from 'react';
 import BasePage from '#/pages/BasePage';
-import VerifyCode from '../../../../components/business/VerifyCode';
+import VerifyCode from '#/components/business/VerifyCode';
 class TransPinVerifyCode extends BasePage {
   constructor(props) {
     super(props);
@@ -11,7 +11,7 @@ class TransPinVerifyCode extends BasePage {
       code: 1,
     };
   }
-  submitVerifyCode = (smsFlowNo) => {
+  submitVerifyCode = ({smsFlowNo, otp, firstOnPress}) => {
     this.props.navigation.navigate('ResetTransPin', smsFlowNo);
   };
 

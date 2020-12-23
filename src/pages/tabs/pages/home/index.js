@@ -68,6 +68,15 @@ class HomePage extends BasePage {
   toRNCamera = () => {
     this.navigation.navigate('RNCamera');
   };
+
+  toSmartDeposit = () => {
+    this.navigation.navigate('orders');
+  };
+
+  toProducts = () => {
+    this.navigation.navigate('products');
+  };
+
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -88,6 +97,19 @@ class HomePage extends BasePage {
         />
         <WhiteSpace size="sm" />
         <Button style={styles.btn} title="RNCamera" onPress={this.toRNCamera} />
+        <WhiteSpace size="sm" />
+        <Button
+          style={styles.btn}
+          title="已完成智能存款"
+          onPress={this.toSmartDeposit}
+        />
+        <WhiteSpace size="sm" />
+        <Button
+          style={styles.btn}
+          title="智能存款产品"
+          onPress={this.toProducts}
+        />
+        <WhiteSpace size="sm" />
       </View>
     );
   }

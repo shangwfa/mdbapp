@@ -1,3 +1,8 @@
+/*
+ * @Author: deng.wulin@mdb-fintech.com
+ * @Date: 2020-12-22 14:08:44
+ * @Description: file content
+ */
 import types from './actionType';
 
 function writeLoginLog() {
@@ -11,23 +16,12 @@ export const loginSuccess = (result) => {
     }
     dispatch(setIsLoggedIn(true, result));
     dispatch(writeLoginLog());
-    // dispatch(rememberStatus(username));
   };
 };
 
 function setIsLoggedIn(isLogin, data) {
   return {type: types.USER_LOGIN, isLogin: isLogin, data: data};
 }
-
-/*
- * 记住密码
- */
-export const rememberStatus = (userId) => {
-  return {
-    type: types.LOGIN_REMEMBER_STATUS,
-    userId: userId,
-  };
-};
 
 /*
  * 首次登陆
