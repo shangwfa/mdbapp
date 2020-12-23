@@ -20,18 +20,19 @@ function Body({
   navigation,
 }) {
   const showModal = () => {
-    Modal.alert(
-      '提示',
-      `請確認是否關閉賬戶${bankCardNo}的快捷支付功能？關閉後，將同時解約該賬戶與所有本行合作商戶的快捷支付服務，您將無法通過此賬戶進行快捷支付。\n`,
-      [
-        {
-          text: '取消',
-        },
-        {text: '確定', onPress: confirm},
-      ],
-    );
+    const tips =
+      isOpen === 'Y'
+        ? `請確認是否關閉賬戶${bankCardNo}的快捷支付功能？關閉後，將同時解約該賬戶與所有本行合作商戶的快捷支付服務，您將無法通過此賬戶進行快捷支付。\n`
+        : `請確認是否開通賬戶${bankCardNo}的快捷支付功能？開通後，您可使用該賬戶與本行合作商戶簽約快捷支付服務。\n`;
+    const onPress = isOpen === 'Y' ? paymentClose : paymentOpen;
+    Modal.alert('提示', tips, [
+      {
+        text: '取消',
+      },
+      {text: '確定', onPress: onPress},
+    ]);
   };
-  const confirm = async () => {
+  const paymentClose = async () => {
     const res = await HTTP.api({
       url: apiPaths.PAYMENT,
       method: 'POST',
@@ -46,6 +47,9 @@ function Body({
     } else {
       Toast.info(res.ERR_DESC);
     }
+  };
+  const paymentOpen = () => {
+    navigation.navigate('PaymentWebView');
   };
   return (
     <View style={homeStyle.AccountCardItemList}>

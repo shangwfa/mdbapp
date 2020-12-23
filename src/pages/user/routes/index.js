@@ -32,6 +32,7 @@ import SessionOnline from '../pages/sessionOnline';
 import LoanAccount from '../pages/loanAccount';
 import LoanAccountDetail from '../pages/loanAccountDetail';
 import PaymentManagement from '../pages/paymentManagement';
+import PaymentWebView from '../pages/paymentWebView';
 
 export default [
   {
@@ -168,5 +169,10 @@ export default [
     name: 'PaymentManagement',
     cname: '快捷支付管理賬戶列表',
     component: PaymentManagement,
+  },
+  {
+    name: 'PaymentWebView',
+    cname: '服務條款說明',
+    component: PaymentWebView,
   },
 ];

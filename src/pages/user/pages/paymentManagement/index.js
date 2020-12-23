@@ -4,7 +4,7 @@ import HTTP from '#/api';
 import apiPaths from '#/api/path';
 import BasePage from '#/pages/BasePage';
 import AccountItem from './AccountItem';
-class LoanAccount extends BasePage {
+class Index extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
@@ -46,4 +46,4 @@ class LoanAccount extends BasePage {
     );
   }
 }
-export default LoanAccount;
+export default Index;
