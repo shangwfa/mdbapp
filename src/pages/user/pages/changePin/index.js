@@ -5,6 +5,7 @@ import {List, InputItem} from '@ant-design/react-native';
 import CountDown from '../../../../components/base/CountDown';
 import apiPaths from '../../paths';
 import HTTP from '../../../../api';
+// import VerifyCode from './VerifyCode';
 class ChangePin extends BasePage {
   constructor(props) {
     super(props);
@@ -17,6 +18,23 @@ class ChangePin extends BasePage {
       confirmPassword: '',
       smsFlowNo: '',
       otp: '',
+      itemArr: [
+        {
+          name: '原密碼',
+          placeholder: '請輸入密碼',
+          field: 'oldPassword',
+        },
+        {
+          name: '新密碼',
+          placeholder: '請輸入新密碼',
+          field: 'newPassword',
+        },
+        {
+          name: '重複密碼',
+          placeholder: '請重複新密碼',
+          field: 'confirmPassword',
+        },
+      ],
     };
   }
   submitVerifyCode = (smsFlowNo) => {
@@ -83,46 +101,33 @@ class ChangePin extends BasePage {
     // });
     // this.props.submitVerifyCode({smsFlowNo, otp});
   };
-  // renderContainer() {
-  //   return (<List> <InputItem value={'XUWENMING'}>登入ID</InputItem></List>)
-  // }
+  _onChange(val, item) {
+    console.log(val);
+    console.log(item.field);
+    this.setState({
+      [item.field]: val,
+    });
+  }
+
   renderContainer() {
+    const {itemArr} = this.state;
     return (
       <>
         <List>
-          <InputItem
-            value={this.state.oldPassword}
-            onChange={(value) => {
-              this.setState({
-                oldPassword: value,
-              });
-            }}
-            placeholder={'請輸入密碼'}>
-            原密碼
-          </InputItem>
-          <InputItem
-            value={this.state.newPassword}
-            onChange={(value) => {
-              this.setState({
-                newPassword: value,
-              });
-            }}
-            placeholder={'請輸入新密碼'}>
-            新密碼
-          </InputItem>
-          <InputItem
-            value={this.state.confirmPassword}
-            onChange={(value) => {
-              this.setState({
-                confirmPassword: value,
-              });
-            }}
-            placeholder={'請重複新密碼'}>
-            重複密碼
-          </InputItem>
+          {itemArr.map((item) => (
+            <InputItem
+              value={this.state[item.field]}
+              onChange={(val) => this._onChange(val, item)}
+              placeholder={item.placeholder}
+              key={item.field}>
+              {item.name}
+            </InputItem>
+          ))}
         </List>
         <View>
           <Text>8-20位數字及英文組合，區分大小寫，不能輸入空格及符號</Text>
+          {/* <VerifyCode submitVerifyCode={this.submitVerifyCode}
+               verifyCodeParams={{}}/> */}
           <InputItem
             value={this.state.smsFlowNo}
             onChange={(value) => {

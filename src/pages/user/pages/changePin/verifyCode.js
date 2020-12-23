@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Button, Keyboard} from 'react-native';
 import {View, List, InputItem} from '@ant-design/react-native';
-import PropTypes from 'prop-types';
-import CountDown from '#/components/base/CountDown';
-import HTTP from '#/api';
-import apiPaths from '#/api/path';
+import CountDown from '../base/CountDown';
+import HTTP from '../../api';
+import apiPaths from '../../api/path';
+
 class VerificationCode extends React.Component {
   constructor(props) {
     super(props);
@@ -15,27 +15,17 @@ class VerificationCode extends React.Component {
       firstOnPress: true,
     };
   }
-  static propTypes = {
-    httpData: PropTypes.shape({
-      ActionMethod: PropTypes.string,
-      PageLanguage: PropTypes.string,
-      funcName: PropTypes.string,
-    }),
-  };
-  static defaultProps = {
-    httpData: {
-      ActionMethod: 'sendOtp',
-      PageLanguage: 'zh_CN',
-      funcName: 'app.mb.core.resetTxnPwd',
-    },
-  };
   onPressOTPSend = async () => {
     //點擊發送或者重發
     if (this.state.firstOnPress) {
       const res = await HTTP.api({
         url: apiPaths.JSONURL,
         method: 'POST',
-        data: this.props.httpData,
+        params: {
+          ActionMethod: 'sendOtp',
+          PageLanguage: 'zh_CN',
+          funcName: 'app.mb.core.resetTxnPwd',
+        },
       });
       this.setState({
         smsFlowNo: res.smsFlowNo,

@@ -58,6 +58,12 @@ class AboutUS extends BasePage {
           },
           title: '找回登錄ID及密碼',
         },
+        {
+          onPress: () => {
+            navigation.navigate('LoanAccount');
+          },
+          title: '贷款账户',
+        },
       ],
     };
   }

@@ -29,6 +29,10 @@ import LoginLogs from '../pages/loginLogs';
 import Logout from '../pages/logout';
 import QuestionNaire from '../pages/questionNaire';
 import SessionOnline from '../pages/sessionOnline';
+import LoanAccount from '../pages/loanAccount';
+import LoanAccountDetail from '../pages/loanAccountDetail';
+import PaymentManagement from '../pages/paymentManagement';
+import PaymentWebView from '../pages/paymentWebView';
 
 export default [
   {
@@ -150,5 +154,25 @@ export default [
     name: 'SessionOnline',
     cname: '设置退出时间',
     component: SessionOnline,
+  },
+  {
+    name: 'LoanAccount',
+    cname: '贷款账户',
+    component: LoanAccount,
+  },
+  {
+    name: 'LoanAccountDetail',
+    cname: '贷款账户详情',
+    component: LoanAccountDetail,
+  },
+  {
+    name: 'PaymentManagement',
+    cname: '快捷支付管理賬戶列表',
+    component: PaymentManagement,
+  },
+  {
+    name: 'PaymentWebView',
+    cname: '服務條款說明',
+    component: PaymentWebView,
   },
 ];

@@ -11,8 +11,8 @@ import {
   Dimensions,
 } from 'react-native';
 import {Toast} from '@ant-design/react-native';
-import HTTP from '../../../../api';
-import apiPaths from '../../../../api/path';
+import HTTP from '#/api';
+import apiPaths from '#/api/path';
 export const {width} = Dimensions.get('window');
 import BasePage from '../../../BasePage';
 class ShootIDCard extends BasePage {
@@ -93,7 +93,38 @@ class ShootIDCard extends BasePage {
       console.log('error');
     }
   };
+<<<<<<< HEAD
 
+=======
+  // 未拍摄照片
+  pickerWithoutImg = () => (
+    <ImageBackground
+      style={styles.ETOLIDCardImageBackground}
+      source={require('#/assets/img_IdCardFornt_Bg1.png')}
+      resizeMode="stretch">
+      <TouchableOpacity
+        style={styles.ETOLIDCardCircleBox}
+        onPress={this.takePhotoPage}
+        activeOpacity={1}>
+        <Image
+          style={styles.ETOLIDCardFrontImage}
+          source={require('#/assets/img_IdCard_camera.png')}
+          resizeMode="stretch"
+        />
+      </TouchableOpacity>
+    </ImageBackground>
+  );
+  //已拍摄照片
+  pickerWithImg = () => (
+    <TouchableOpacity onPress={this.takePhotoPage} activeOpacity={1}>
+      <Image
+        style={styles.ETOLIDCardImageBackground}
+        source={this.state.selectPathFront}
+        resizeMode={'contain'}
+      />
+    </TouchableOpacity>
+  );
+>>>>>>> 2c352a914d3685fd6ff86ad2a439d06e82ab0847
   renderContainer() {
     const {selectPathFront} = this.state;
     return (
