@@ -10,6 +10,12 @@ import UserModule from '../pages/user';
 import ThemePage from '../pages/test/theme';
 import RenderPage from '../pages/test/render';
 import SmartDepositModule from '../pages/smartDeposit';
+import PaymentManagement from '../pages/paymentManagement';
+import LoanAccount from '../pages/loanAccount';
+import ResetIDPassword from '../pages/resetIDPassword';
+import ResetTransPin from '../pages/resetTransPin';
+import AboutUS from '../pages/aboutUS';
+
 const routes = [
   {
     name: 'Splash',
@@ -34,6 +40,11 @@ const routes = [
 
   ...UserModule.routes,
   ...SmartDepositModule.routes,
+  ...PaymentManagement.routes,
+  ...LoanAccount.routes,
+  ...ResetIDPassword.routes,
+  ...ResetTransPin.routes,
+  ...AboutUS.routes,
 ];
 
 export const routePaths = {};

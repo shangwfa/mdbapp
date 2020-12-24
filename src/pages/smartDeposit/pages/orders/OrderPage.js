@@ -1,5 +1,5 @@
 import lang from '#/i18n';
-import ShootIDCard from '#/pages/user/pages/shootIDCard';
+import ShootIDCard from '#/pages/resetIDPassword/pages/shootIDCard';
 import React, {Component} from 'react';
 import {
   Text,

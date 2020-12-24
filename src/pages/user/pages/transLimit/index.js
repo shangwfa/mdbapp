@@ -1,9 +1,11 @@
 // 退出时间设置
-import { ScrollView } from 'react-native'
+import { ScrollView,Text } from 'react-native'
 import HTTP from '#/api';
 import apiPaths from '#/api/path';
+import {Toast, List, InputItem} from '@ant-design/react-native';
 import React from 'react'
 import BasePage from '#/pages/BasePage'
+import LimitItem from './LimitItem'
 
 class TransLimit extends BasePage {
   constructor(props) {
@@ -37,9 +39,13 @@ class TransLimit extends BasePage {
     }
   }
   renderContainer() {
+    const {itemArr} = this.state;
     return (
       <ScrollView>
-        
+       <Text>幣種:澳門幣 </Text>
+        {itemArr.map((item) => (
+        <LimitItem item={item}></LimitItem>
+      ))}
       </ScrollView>
     )
   }
