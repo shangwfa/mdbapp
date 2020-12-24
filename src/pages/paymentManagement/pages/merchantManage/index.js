@@ -28,48 +28,55 @@ class Index extends BasePage {
             props: {
               content: 'renderList',
               key: 'renderList',
+              merchantDes: [
+                {
+                  label:
+                    this.params.acctType === 'CA' ? '往來賬戶：' : '儲蓄賬戶：',
+                  extra: '',
+                  key: 'bankAccNo',
+                },
+                {
+                  label: '合作商户：',
+                  extra: this.params.merchantName,
+                },
+                {
+                  label: '限额管理：',
+                  arrow: 'horizontal',
+                  onPress: () => {},
+                },
+                {
+                  label: '单笔支付限额：',
+                  key: 'singleLimit',
+                  extra: '',
+                  suffixKey: 'ccy',
+                },
+                {
+                  label: '日累计支付限额：',
+                  key: 'dayLimit',
+                  extra: '',
+                  suffixKey: 'ccy',
+                },
+              ],
             },
           },
           {
             itemType: this.renderBtn,
+            props: {
+              title: '解约',
+              key: '解约',
+              onPress: () => {},
+            },
           },
         ],
       },
-      merchantDes: [
-        {
-          label: this.params.acctType === 'CA' ? '往來賬戶：' : '儲蓄賬戶：',
-          extra: '',
-          key: 'bankAccNo',
-        },
-        {
-          label: '合作商户：',
-          extra: this.params.merchantName,
-        },
-        {
-          label: '限额管理：',
-          arrow: 'horizontal',
-          onPress: () => {},
-        },
-        {
-          label: '单笔支付限额：',
-          key: 'singleLimit',
-          extra: '',
-          suffixKey: 'ccy',
-        },
-        {
-          label: '日累计支付限额：',
-          key: 'dayLimit',
-          extra: '',
-          suffixKey: 'ccy',
-        },
-      ],
+      merchantData: {},
     };
   }
   didMount() {
     this.getMerchantData();
   }
   getMerchantData = async () => {
-    const res = await HTTP.api({
+    const merchantData = await HTTP.api({
       url: apiPaths.PAYMENT,
       method: 'POST',
       params: {
@@ -79,28 +86,29 @@ class Index extends BasePage {
         bankCardNo: this.params.bankCardNo,
       },
     });
-    const merchantDes = this.state.merchantDes.map((item) => ({
+    this.setState({merchantData});
+  };
+  renderList = (props) => {
+    const {merchantData} = this.state;
+    const merchantDes = props.merchantDes.map((item) => ({
       ...item,
       extra: item.key
-        ? `${res[item.key]} ${res[item.suffixKey] || ''}`
+        ? `${merchantData[item.key]} ${merchantData[item.suffixKey] || ''}`
         : item.extra,
     }));
-    this.setState({merchantDes});
-  };
-  renderList = () => {
     return (
       <List>
-        {this.state.merchantDes.map((item) => (
+        {merchantDes.map((item) => (
           <Item {...item}>{item.label}</Item>
         ))}
       </List>
     );
   };
-  renderBtn = () => {
+  renderBtn = (props) => {
     return (
       <>
         <WhiteSpace size="sm" />
-        <Button type="primary">解约</Button>
+        <Button type="primary">{props.title}</Button>
       </>
     );
   };
