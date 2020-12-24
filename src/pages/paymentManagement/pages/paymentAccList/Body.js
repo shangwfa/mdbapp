@@ -6,7 +6,7 @@ import {
   Dimensions,
   Text,
 } from 'react-native';
-import {Switch, Modal, Toast} from '@ant-design/react-native';
+import {Switch, Modal, Toast, Icon} from '@ant-design/react-native';
 import HTTP from '#/api';
 import apiPaths from '../../paths/index';
 
@@ -16,8 +16,9 @@ function Body({
   isOpen,
   refreshPaymentList,
   bankCardNo,
-  custBaseInfoVoList,
+  custBaseInfoVoList = [],
   navigation,
+  acctType,
 }) {
   const showModal = () => {
     const tips =
@@ -51,6 +52,14 @@ function Body({
   const paymentOpen = () => {
     navigation.navigate('PaymentWebView', {bankCardNo: bankCardNo});
   };
+  const toMerchantManage = (item) => {
+    navigation.navigate('MerchantManage', {
+      bankCardNo: bankCardNo,
+      merchantCode: item.merchantCode,
+      merchantName: item.merchantName,
+      acctType: acctType,
+    });
+  };
   return (
     <View style={homeStyle.AccountCardItemList}>
       <TouchableOpacity
@@ -69,6 +78,28 @@ function Body({
           </View>
         </View>
       </TouchableOpacity>
+      {custBaseInfoVoList.map((item, key) => (
+        <TouchableOpacity
+          onPress={() => {
+            toMerchantManage(item);
+          }}
+          style={[homeStyle.LoginMidListAccountItemPath]}
+          activeOpacity={0.8}
+          key={key}>
+          <View style={[homeStyle.AccountCardItem, homeStyle.BorderTop]}>
+            <View style={homeStyle.LoanListItem}>
+              <Text
+                allowFontScaling={false}
+                style={homeStyle.AccountCardLoansRight_Text1}>
+                {item.merchantName}
+              </Text>
+              <View style={homeStyle.AccountCardItemTopRight}>
+                <Icon name="right" />
+              </View>
+            </View>
+          </View>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
@@ -115,6 +146,10 @@ const homeStyle = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     display: 'flex',
+  },
+  BorderTop: {
+    borderTopColor: '#eee',
+    borderTopWidth: 1,
   },
 });
 export default Body;
