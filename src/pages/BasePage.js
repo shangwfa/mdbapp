@@ -70,11 +70,12 @@ class BasePage extends React.PureComponent {
   }
 
   render() {
+    const h = React.createElement;
     return (
       <SafeAreaView style={styles.container}>
         {this.renderStatusBar()}
         {this.renderHeader()}
-        {this.renderContainer()}
+        {this.renderContainer(h)}
         {this.modal()}
       </SafeAreaView>
     );

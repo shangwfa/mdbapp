@@ -8,6 +8,7 @@ import Tabs from '../pages/tabs';
 import RNCameraPage from '../pages/test/rnCamera';
 import UserModule from '../pages/user';
 import ThemePage from '../pages/test/theme';
+import RenderPage from '../pages/test/render';
 import SmartDepositModule from '../pages/smartDeposit';
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
     name: 'ThemePage',
     component: ThemePage,
   },
+  {
+    name: 'RenderPage',
+    component: RenderPage,
+  },
+
   ...UserModule.routes,
   ...SmartDepositModule.routes,
 ];
