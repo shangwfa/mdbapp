@@ -23,6 +23,7 @@ function AccountItem({
           custBaseInfoVoList={custBaseInfoVoList}
           navigation={navigation}
           refreshPaymentList={refreshPaymentList}
+          acctType={acctType}
         />
       </View>
     </View>

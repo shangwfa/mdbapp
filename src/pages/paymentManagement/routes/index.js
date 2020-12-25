@@ -1,6 +1,8 @@
 import PaymentAccList from '../pages/paymentAccList';
 import PaymentWebView from '../pages/paymentWebView';
 import PaymentVerifyCode from '../pages/paymentVerifyCode';
+import MerchantManage from '../pages/merchantManage';
+import MerchantLimitSet from '../pages/merchantLimitSet';
 export default [
   {
     name: 'PaymentAccList',
@@ -16,5 +18,15 @@ export default [
     name: 'PaymentVerifyCode',
     cname: '快捷支付管理',
     component: PaymentVerifyCode,
+  },
+  {
+    name: 'MerchantManage',
+    cname: '商户管理',
+    component: MerchantManage,
+  },
+  {
+    name: 'MerchantLimitSet',
+    cname: '限額管理',
+    component: MerchantLimitSet,
   },
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {ScrollView} from 'react-native';
 import HTTP from '#/api';
 import apiPaths from '../../paths/index';
 import BasePage from '#/pages/BasePage';
@@ -34,7 +34,7 @@ class Index extends BasePage {
     const {paymentList} = this.state;
     const {navigation} = this.props;
     return (
-      <View>
+      <ScrollView>
         {paymentList.map((accData, index) => (
           <AccountItem
             key={index}
@@ -43,7 +43,7 @@ class Index extends BasePage {
             {...accData}
           />
         ))}
-      </View>
+      </ScrollView>
     );
   }
 }

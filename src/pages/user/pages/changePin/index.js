@@ -46,7 +46,7 @@ class ChangePin extends BasePage {
       const res = await HTTP.api({
         url: 'json.do',
         method: 'POST',
-        params: {
+        data: {
           ActionMethod: 'sendOtp',
           funcName: 'app.mb.action.srv.ChangePinAction',
         },

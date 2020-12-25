@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, Button, Keyboard} from 'react-native';
-import {View, List, InputItem} from '@ant-design/react-native';
+import {StyleSheet, Keyboard} from 'react-native';
+import {View, List, InputItem, Button, Toast} from '@ant-design/react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import CountDown from '#/components/base/CountDown';
@@ -12,7 +12,6 @@ class VerificationCode extends React.Component {
     this.state = {
       smsFlowNo: '',
       otp: '',
-      btnOtpDisabled: true,
       firstOnPress: true,
     };
   }
@@ -24,6 +23,7 @@ class VerificationCode extends React.Component {
       funcName: PropTypes.string,
     }),
     needCheckOtp: PropTypes.bool, //是否需要校驗短信驗證碼
+    showPhoneNum: PropTypes.bool,
   };
   static defaultProps = {
     httpData: {
@@ -31,6 +31,7 @@ class VerificationCode extends React.Component {
     },
     httpUrl: apiPaths.JSONURL,
     needCheckOtp: false,
+    showPhoneNum: true,
   };
   onPressOTPSend = async () => {
     //點擊發送或者重發
@@ -44,9 +45,11 @@ class VerificationCode extends React.Component {
           ...this.props.httpData,
         },
       });
+      if (res.ERR_DESC) {
+        return Toast.info(res.ERR_DESC);
+      }
       this.setState({
         smsFlowNo: res.smsFlowNo,
-        btnOtpDisabled: false,
         firstOnPress: false,
       });
     } else {
@@ -55,7 +58,7 @@ class VerificationCode extends React.Component {
   };
   resendOtp = async () => {
     const {smsFlowNo} = this.state;
-    await HTTP.api({
+    const res = await HTTP.api({
       url: apiPaths.JSONURL,
       method: 'POST',
       data: {
@@ -63,9 +66,9 @@ class VerificationCode extends React.Component {
         smsFlowNo: smsFlowNo,
       },
     });
-    this.setState({
-      btnOtpDisabled: false,
-    });
+    if (res.ERR_DESC) {
+      return Toast.info(res.ERR_DESC);
+    }
   };
 
   submitVerifyCode = async () => {
@@ -90,14 +93,16 @@ class VerificationCode extends React.Component {
   };
 
   render() {
-    const {btnOtpDisabled} = this.state;
-    const {mobileNo} = this.props;
+    const {firstOnPress, otp} = this.state;
+    const {mobileNo, showPhoneNum} = this.props;
     return (
       <>
         <List>
-          <InputItem value={mobileNo}>電話號碼</InputItem>
+          {showPhoneNum ? (
+            <InputItem value={mobileNo}>電話號碼</InputItem>
+          ) : null}
           <InputItem
-            value={this.state.otp}
+            value={otp}
             onChange={(value) => {
               this.setState({
                 otp: value,
@@ -122,9 +127,10 @@ class VerificationCode extends React.Component {
               Keyboard.dismiss();
               this.submitVerifyCode();
             }}
-            disabled={btnOtpDisabled}
-            title="完成"
-          />
+            disabled={firstOnPress || !otp}
+            type="primary">
+            完成
+          </Button>
         </View>
       </>
     );
