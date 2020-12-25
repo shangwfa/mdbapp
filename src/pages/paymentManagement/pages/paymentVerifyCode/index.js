@@ -41,7 +41,6 @@ class Index extends BasePage {
         httpData={{
           funcName: 'app.mb.action.payment.PaymentManageAction.open',
         }}
-        httpUrl={apiPaths.PAYMENT}
         submitVerifyCode={this.submitVerifyCode}
       />
     );
