@@ -21,7 +21,7 @@ class VerificationCode extends React.Component {
       const res = await HTTP.api({
         url: apiPaths.JSONURL,
         method: 'POST',
-        params: {
+        data: {
           ActionMethod: 'sendOtp',
           PageLanguage: 'zh_CN',
           funcName: 'app.mb.core.resetTxnPwd',
@@ -41,7 +41,7 @@ class VerificationCode extends React.Component {
     await HTTP.api({
       url: apiPaths.JSONURL,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'resendOtp',
         smsFlowNo: smsFlowNo,
       },
@@ -56,7 +56,7 @@ class VerificationCode extends React.Component {
     await HTTP.api({
       url: apiPaths.JSONURL,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'checkOtp',
         smsFlowNo: smsFlowNo,
         otp: otp,

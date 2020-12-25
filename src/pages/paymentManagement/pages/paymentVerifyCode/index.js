@@ -17,7 +17,7 @@ class Index extends BasePage {
     const res = await HTTP.api({
       url: apiPaths.PAYMENT,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'paymentOpen',
         PageLanguage: 'zh_CN',
         bankCardNo: this.params.bankCardNo,

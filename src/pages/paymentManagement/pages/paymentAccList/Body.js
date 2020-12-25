@@ -37,7 +37,7 @@ function Body({
     const res = await HTTP.api({
       url: apiPaths.PAYMENT,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'paymentClose',
         PageLanguage: 'zh_CN',
         bankCardNo: bankCardNo,

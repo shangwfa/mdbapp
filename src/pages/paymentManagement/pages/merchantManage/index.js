@@ -82,7 +82,7 @@ class Index extends BasePage {
     const merchantData = await HTTP.api({
       url: apiPaths.PAYMENT,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'merchantLimit',
         PageLanguage: 'zh_CN',
         merchantCode: this.params.merchantCode,
@@ -95,7 +95,7 @@ class Index extends BasePage {
     const res = await HTTP.api({
       url: apiPaths.PAYMENT,
       method: 'POST',
-      params: {
+      data: {
         ActionMethod: 'merchantCancel',
         bankCardNo: this.params.bankCardNo,
         merchantCode: this.params.merchantCode,
