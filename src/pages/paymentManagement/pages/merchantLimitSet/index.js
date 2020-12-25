@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
-import {List, Button} from '@ant-design/react-native';
+import {List, InputItem, Button} from '@ant-design/react-native';
 import BasePage from '#/pages/BasePage';
 import RenderStaticPage from '#/components/render/RenderStaticPage';
 import {WhiteSpace} from '@ant-design/react-native';
@@ -13,7 +13,7 @@ class Index extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '商户管理',
+      title: '限額管理',
     });
     this.state = {
       pageDes: {
@@ -39,15 +39,15 @@ class Index extends BasePage {
                   label: '合作商户：',
                   extra: this.params.merchantName,
                 },
-                {
-                  label: '限额管理：',
-                  arrow: 'horizontal',
-                  onPress: () => {
-                    this.props.navigation.navigate('MerchantLimitSet', {
-                      ...this.params,
-                    });
-                  },
-                },
+              ],
+            },
+          },
+          {
+            itemType: this.renderLimitInput,
+            props: {
+              content: 'renderLimitInput',
+              key: 'renderLimitInput',
+              merchantDes: [
                 {
                   label: '单笔支付限额：',
                   key: 'singleLimit',
@@ -66,8 +66,8 @@ class Index extends BasePage {
           {
             itemType: this.renderBtn,
             props: {
-              title: '解约',
-              key: '解约',
+              title: '完成',
+              key: '完成',
               onPress: () => {},
             },
           },
@@ -96,16 +96,35 @@ class Index extends BasePage {
     const {merchantData} = this.state;
     const merchantDes = props.merchantDes.map((item) => ({
       ...item,
-      extra: item.key
-        ? `${merchantData[item.key]} ${merchantData[item.suffixKey] || ''}`
-        : item.extra,
+      extra: merchantData[item.key] || item.extra,
     }));
     return (
       <List>
         {merchantDes.map((item) => (
-          <Item key={item.merchantCode} {...item}>
+          <Item {...item}>{item.label}</Item>
+        ))}
+      </List>
+    );
+  };
+  renderLimitInput = (props) => {
+    const {merchantData} = this.state;
+    const merchantDes = props.merchantDes.map((item) => ({
+      ...item,
+      value: merchantData[item.key],
+      extra: merchantData[item.suffixKey],
+    }));
+    return (
+      <List>
+        {merchantDes.map((item) => (
+          <InputItem
+            {...item}
+            onChange={(value) => {
+              this.setState({
+                [item.key]: value,
+              });
+            }}>
             {item.label}
-          </Item>
+          </InputItem>
         ))}
       </List>
     );
