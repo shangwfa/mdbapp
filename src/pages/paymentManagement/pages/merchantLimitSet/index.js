@@ -39,15 +39,6 @@ class Index extends BasePage {
                   label: '合作商户：',
                   extra: this.params.merchantName,
                 },
-              ],
-            },
-          },
-          {
-            itemType: this.renderLimitInput,
-            props: {
-              content: 'renderLimitInput',
-              key: 'renderLimitInput',
-              merchantDes: [
                 {
                   label: '单笔支付限额：',
                   key: 'singleLimit',
@@ -96,36 +87,27 @@ class Index extends BasePage {
     const {merchantData} = this.state;
     const merchantDes = props.merchantDes.map((item) => ({
       ...item,
-      extra: merchantData[item.key] || item.extra,
-    }));
-    return (
-      <List>
-        {merchantDes.map((item) => (
-          <Item {...item}>{item.label}</Item>
-        ))}
-      </List>
-    );
-  };
-  renderLimitInput = (props) => {
-    const {merchantData} = this.state;
-    const merchantDes = props.merchantDes.map((item) => ({
-      ...item,
       value: merchantData[item.key],
-      extra: merchantData[item.suffixKey],
+      extra:
+        merchantData[item.suffixKey] || merchantData[item.key] || item.extra,
     }));
     return (
       <List>
-        {merchantDes.map((item) => (
-          <InputItem
-            {...item}
-            onChange={(value) => {
-              this.setState({
-                [item.key]: value,
-              });
-            }}>
-            {item.label}
-          </InputItem>
-        ))}
+        {merchantDes.map((item) =>
+          item.suffixKey === 'ccy' ? (
+            <InputItem
+              {...item}
+              onChange={(value) => {
+                this.setState({
+                  [item.key]: value,
+                });
+              }}>
+              {item.label}
+            </InputItem>
+          ) : (
+            <Item {...item}>{item.label}</Item>
+          ),
+        )}
       </List>
     );
   };
