@@ -118,7 +118,7 @@ class Index extends BasePage {
       method: 'POST',
       params: httpParams,
     });
-    Toast.success('修改成功');
+    Toast.info('修改成功');
   };
   renderMerchantList = (props) => {
     const {merchantData} = this.state;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
-import {List, Button} from '@ant-design/react-native';
+import {List, Button, Toast} from '@ant-design/react-native';
 import BasePage from '#/pages/BasePage';
 import RenderStaticPage from '#/components/render/RenderStaticPage';
 import {WhiteSpace} from '@ant-design/react-native';
@@ -68,7 +68,8 @@ class Index extends BasePage {
             props: {
               title: '解约',
               key: '解约',
-              onPress: () => {},
+              type: 'primary',
+              onPress: this.merchantCancel,
             },
           },
         ],
@@ -92,6 +93,18 @@ class Index extends BasePage {
     });
     this.setState({merchantData});
   };
+  merchantCancel = async () => {
+    const res = await HTTP.api({
+      url: apiPaths.PAYMENT,
+      method: 'POST',
+      params: {
+        ActionMethod: 'merchantCancel',
+        bankCardNo: '886000010439',
+        merchantCode: this.params.merchantCode,
+      },
+    });
+    Toast.info(res.ERR_DESC);
+  };
   renderMerchantList = (props) => {
     const {merchantData} = this.state;
     const merchantDes = props.merchantDes.map((item) => ({
@@ -102,8 +115,8 @@ class Index extends BasePage {
     }));
     return (
       <List>
-        {merchantDes.map((item) => (
-          <Item key={item.merchantCode} {...item}>
+        {merchantDes.map((item, index) => (
+          <Item key={index} {...item}>
             {item.label}
           </Item>
         ))}
@@ -114,7 +127,7 @@ class Index extends BasePage {
     return (
       <>
         <WhiteSpace size="sm" />
-        <Button type="primary">{props.title}</Button>
+        <Button {...props}>{props.title}</Button>
       </>
     );
   };
