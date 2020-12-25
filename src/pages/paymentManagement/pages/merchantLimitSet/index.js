@@ -1,14 +1,12 @@
 import * as React from 'react';
-import {StyleSheet, ScrollView, Text} from 'react-native';
-import {List, InputItem, Button, Toast} from '@ant-design/react-native';
+import {StyleSheet, ScrollView} from 'react-native';
+import {List, InputItem, Toast} from '@ant-design/react-native';
 import BasePage from '#/pages/BasePage';
 import RenderStaticPage from '#/components/render/RenderStaticPage';
 import VerifyCode from '#/components/business/VerifyCode';
 import HTTP from '#/api';
 import apiPaths from '../../paths/index';
-
 const Item = List.Item;
-
 class Index extends BasePage {
   constructor(props) {
     super(props);

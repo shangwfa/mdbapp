@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Keyboard} from 'react-native';
-import {View, List, InputItem, Button} from '@ant-design/react-native';
+import {View, List, InputItem, Button, Toast} from '@ant-design/react-native';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import CountDown from '#/components/base/CountDown';
@@ -45,6 +45,9 @@ class VerificationCode extends React.Component {
           ...this.props.httpData,
         },
       });
+      if (res.ERR_DESC) {
+        return Toast.info(res.ERR_DESC);
+      }
       this.setState({
         smsFlowNo: res.smsFlowNo,
         firstOnPress: false,
@@ -55,7 +58,7 @@ class VerificationCode extends React.Component {
   };
   resendOtp = async () => {
     const {smsFlowNo} = this.state;
-    await HTTP.api({
+    const res = await HTTP.api({
       url: apiPaths.JSONURL,
       method: 'POST',
       data: {
@@ -63,6 +66,9 @@ class VerificationCode extends React.Component {
         smsFlowNo: smsFlowNo,
       },
     });
+    if (res.ERR_DESC) {
+      return Toast.info(res.ERR_DESC);
+    }
   };
 
   submitVerifyCode = async () => {

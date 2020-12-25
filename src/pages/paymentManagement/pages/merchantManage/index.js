@@ -6,9 +6,7 @@ import RenderStaticPage from '#/components/render/RenderStaticPage';
 import {WhiteSpace} from '@ant-design/react-native';
 import HTTP from '#/api';
 import apiPaths from '../../paths/index';
-
 const Item = List.Item;
-
 class Index extends BasePage {
   constructor(props) {
     super(props);
@@ -99,7 +97,7 @@ class Index extends BasePage {
       method: 'POST',
       params: {
         ActionMethod: 'merchantCancel',
-        bankCardNo: '886000010439',
+        bankCardNo: this.params.bankCardNo,
         merchantCode: this.params.merchantCode,
       },
     });
