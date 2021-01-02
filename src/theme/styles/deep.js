@@ -6,6 +6,7 @@ const color = {
 const fontSize = {};
 //全局样式
 const styles = {};
+//页面
 // G(全局样式)->pages（页面样式）->components（页面组件样式）
 // G（全局样式）->components（基础组件和业务组件样式）
 export default {

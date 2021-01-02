@@ -1,10 +1,9 @@
 import Types from './actionType';
-import theme from '../../theme';
 
 const initState = {
   ENV: 'UAT',
   isLoading: false,
-  theme: theme['light'],
+  theme: 'deep',
 };
 
 const onAction = (state = initState, action) => {
@@ -28,7 +27,7 @@ const onAction = (state = initState, action) => {
 
       return {
         ...state,
-        theme: theme[xx],
+        theme: xx,
       };
     default:
       return state;

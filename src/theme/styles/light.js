@@ -8,6 +8,7 @@ const fontSize = {};
 const styles = {};
 // G(全局样式)->pages（页面样式）->components（页面组件样式）
 // G（全局样式）->components（基础组件和业务组件样式）
+
 export default {
   color,
   fontSize,

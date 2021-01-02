@@ -8,7 +8,6 @@ const ThemePage = (props) => {
   return (
     <View
       style={{
-        backgroundColor: props.theme.color.brandColor,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
@@ -20,7 +19,7 @@ const ThemePage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return {theme: state.G.theme};
+  return {};
 };
 const mapDispatchToProps = (dispatch) => {
   return {

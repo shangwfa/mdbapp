@@ -20,6 +20,8 @@
 		7901A9CA257F6F8C0011BCAB /* SecurityUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C4257F6F8C0011BCAB /* SecurityUtil.m */; };
 		7901A9CB257F6F8C0011BCAB /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C5257F6F8C0011BCAB /* NSData+AES.m */; };
 		7901A9CC257F6F8C0011BCAB /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 7901A9C7257F6F8C0011BCAB /* GTMBase64.m */; };
+		797A22312599C9A300A047C2 /* client_mdb.cer in Resources */ = {isa = PBXBuildFile; fileRef = 797A21E92599BF3A00A047C2 /* client_mdb.cer */; };
+		797A22372599CB9800A047C2 /* RCTHTTPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 797A22362599CB9800A047C2 /* RCTHTTPS.m */; };
 		7999DC79258B00070031BF08 /* RCTAesCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7999DC77258B00070031BF08 /* RCTAesCrypto.m */; };
 		7999DCDA258B04560031BF08 /* IDCardOverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7999DCBB258B04560031BF08 /* IDCardOverView.m */; };
 		7999DCDB258B04560031BF08 /* StartIDCardCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7999DCBD258B04560031BF08 /* StartIDCardCameraViewController.m */; };
@@ -96,6 +98,8 @@
 		7901A9C6257F6F8C0011BCAB /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		7901A9C7257F6F8C0011BCAB /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		7901A9C8257F6F8C0011BCAB /* SecurityUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityUtil.h; sourceTree = "<group>"; };
+		797A21E92599BF3A00A047C2 /* client_mdb.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = client_mdb.cer; sourceTree = "<group>"; };
+		797A22362599CB9800A047C2 /* RCTHTTPS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTHTTPS.m; sourceTree = "<group>"; };
 		7999DC77258B00070031BF08 /* RCTAesCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTAesCrypto.m; sourceTree = "<group>"; };
 		7999DC78258B00070031BF08 /* RCTAesCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTAesCrypto.h; sourceTree = "<group>"; };
 		7999DCBB258B04560031BF08 /* IDCardOverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardOverView.m; sourceTree = "<group>"; };
@@ -207,6 +211,8 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				797A22362599CB9800A047C2 /* RCTHTTPS.m */,
+				797A21E92599BF3A00A047C2 /* client_mdb.cer */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -549,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				797A22312599C9A300A047C2 /* client_mdb.cer in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				7999DCEA258B04560031BF08 /* TakePhotoViewController.xib in Resources */,
@@ -798,6 +805,7 @@
 				7999DCDA258B04560031BF08 /* IDCardOverView.m in Sources */,
 				7999DCDF258B04560031BF08 /* OCRContans.m in Sources */,
 				7901A9CA257F6F8C0011BCAB /* SecurityUtil.m in Sources */,
+				797A22372599CB9800A047C2 /* RCTHTTPS.m in Sources */,
 				7901A9CC257F6F8C0011BCAB /* GTMBase64.m in Sources */,
 				7901A9CB257F6F8C0011BCAB /* NSData+AES.m in Sources */,
 				7999DC79258B00070031BF08 /* RCTAesCrypto.m in Sources */,

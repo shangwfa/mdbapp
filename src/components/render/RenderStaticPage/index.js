@@ -3,7 +3,7 @@ const h = React.createElement;
 const RenderStaticPage = ({pageDes}) => {
   return h(
     pageDes.container,
-    {...pageDes.props},
+    {...pageDes.props, key: 'xxx'},
     pageDes.children.map((item) => h(item.itemType, {...item.props})),
   );
 };

@@ -15,6 +15,7 @@ import LoanAccount from '../pages/loanAccount';
 import ResetIDPassword from '../pages/resetIDPassword';
 import ResetTransPin from '../pages/resetTransPin';
 import AboutUS from '../pages/aboutUS';
+import RemoteAccountModule from '../pages/remoteAccount';
 
 const routes = [
   {
@@ -45,6 +46,7 @@ const routes = [
   ...ResetIDPassword.routes,
   ...ResetTransPin.routes,
   ...AboutUS.routes,
+  ...RemoteAccountModule.routes,
 ];
 
 export const routePaths = {};

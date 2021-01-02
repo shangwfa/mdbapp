@@ -15,6 +15,7 @@ class HomePage extends BasePage {
     super(props);
     this.initHeader({
       title: 'Home',
+      isHideLeft: true,
     });
   }
 
@@ -82,6 +83,9 @@ class HomePage extends BasePage {
   toRender = () => {
     this.navigation.navigate('RenderPage');
   };
+  toRemoteAcc = () => {
+    this.navigation.navigate('RemoteAccHomePage');
+  };
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -118,6 +122,11 @@ class HomePage extends BasePage {
           onPress={this.toProducts}
         />
         <WhiteSpace size="sm" />
+        <Button
+          style={styles.btn}
+          title="远程开户"
+          onPress={this.toRemoteAcc}
+        />
       </View>
     );
   }

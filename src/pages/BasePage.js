@@ -17,6 +17,7 @@ class BasePage extends React.PureComponent {
   initStatusBar(statusBar) {
     this.statusBar = statusBar || {
       barStyle: 'dark-content',
+      backgroundColor: '#0F1829',
     };
   }
   initHeader(header) {
@@ -72,7 +73,7 @@ class BasePage extends React.PureComponent {
   render() {
     const h = React.createElement;
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={[styles.container, {backgroundColor: '#0F1829'}]}>
         {this.renderStatusBar()}
         {this.renderHeader()}
         {this.renderContainer(h)}
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     flex: 1,
+    backgroundColor: 'white',
   },
 });
 export default BasePage;
