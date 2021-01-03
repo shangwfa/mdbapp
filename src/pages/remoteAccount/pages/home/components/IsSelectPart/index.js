@@ -4,12 +4,12 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import theme from './styles';
 
 function IsSelectPart(props) {
-  const {styles, onPress, isGt18} = props;
+  const {styles, onPress, isGt18, val} = props;
   return (
     <TouchableOpacity onPress={() => onPress(isGt18)}>
       <View style={styles.container}>
         <View style={styles.no_select} />
-        <Text style={styles.text}>本人已年滿18周歲且非美國人士</Text>
+        <Text style={styles.text}>{val}</Text>
       </View>
     </TouchableOpacity>
   );

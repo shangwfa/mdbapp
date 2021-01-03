@@ -8,12 +8,13 @@ import TypeCard from './components/TypeCard';
 import OrPart from './components/OrPart';
 import IsSelectPart from './components/IsSelectPart';
 import SubmitBtn from './components/SubmitBtn';
+import lang from '#/i18n';
 
 class RemoteAccHomePage extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '远程开户',
+      title: lang.t('remoteAccount.title'),
     });
     this.state = {
       cardType: '',
@@ -33,7 +34,7 @@ class RemoteAccHomePage extends BasePage {
             itemType: TypeCard,
             key: 'isAoCard',
             props: {
-              title: '澳門居民身份證',
+              title: lang.t('remoteAccount.aoCard'),
               isAoIcon: true,
               isSelect: false,
               itemStyle: {
@@ -46,13 +47,16 @@ class RemoteAccHomePage extends BasePage {
           {
             itemType: OrPart,
             key: 'line',
+            props: {
+              val: lang.t('remoteAccount.or'),
+            },
           },
           {
             itemType: TypeCard,
             key: 'isNoAoCard',
             props: {
-              title: '中國居民身份證且持有澳門逗留證件',
-              subTitle: '(外地雇員身份認識證)',
+              title: lang.t('remoteAccount.chinaCard'),
+              subTitle: lang.t('remoteAccount.subChinaCard'),
               isAoIcon: false,
               isSelect: false,
               itemStyle: {
@@ -66,6 +70,7 @@ class RemoteAccHomePage extends BasePage {
             key: 'isGt18',
             props: {
               isGt18: false,
+              val: lang.t('remoteAccount.gt18Text'),
               onPress: this.toSetGt18,
             },
           },
@@ -109,10 +114,10 @@ class RemoteAccHomePage extends BasePage {
 
   toSubmit = () => {
     if (this.state.cardType === '') {
-      Toast.info('请选择证件类型');
+      Toast.info(lang.t('remoteAccount.noSelectCardTip'));
     }
     if (!this.state.isGt18) {
-      Toast.info('请确认已满18周岁且非美国人士');
+      Toast.info(lang.t('remoteAccount.noGt18Tip'));
     }
     this.navigation.navigate('RemoteAccInputPhonePage', {
       cardType: this.state.cardType,
@@ -129,9 +134,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     flex: 1,
-  },
-  xx: {
-    marginTop: 30,
   },
 });
 

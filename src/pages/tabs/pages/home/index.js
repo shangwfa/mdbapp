@@ -86,6 +86,9 @@ class HomePage extends BasePage {
   toRemoteAcc = () => {
     this.navigation.navigate('RemoteAccHomePage');
   };
+  toTest = () => {
+    this.navigation.navigate('TestPage');
+  };
   renderContainer() {
     return (
       <View style={styles.container}>
@@ -127,6 +130,8 @@ class HomePage extends BasePage {
           title="远程开户"
           onPress={this.toRemoteAcc}
         />
+        <WhiteSpace size="sm" />
+        <Button style={styles.btn} title="Test" onPress={this.toTest} />
       </View>
     );
   }

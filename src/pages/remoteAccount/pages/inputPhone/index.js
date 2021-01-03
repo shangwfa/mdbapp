@@ -8,12 +8,13 @@ import Phone from './components/Phone';
 import SubmitBtn from './components/SubmitBtn';
 import HTTP from '#/api';
 import API from '../../api';
+import lang from '#/i18n';
 
 class RemoteAccInputPhonePage extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '远程开户',
+      title: lang.t('remoteAccount.title'),
     });
     this.state = {
       phone: '',
@@ -29,12 +30,12 @@ class RemoteAccInputPhonePage extends BasePage {
             itemType: TopTips,
             key: 'toptips',
             props: {
-              title: '您的手機號碼',
-              protoTip: '同意並繼續進行',
-              personalProto: '《個人服務協議》',
+              title: lang.t('remoteAccount.yourPhoneNo'),
+              protoTip: lang.t('remoteAccount.agreeAnd'),
+              personalProto: lang.t('remoteAccount.personalProto'),
               toPersonalProto: this.toPersonalProto,
-              and: '及',
-              declProto: '《收集個人資料聲明》',
+              and: lang.t('remoteAccount.and'),
+              declProto: lang.t('remoteAccount.declProto'),
               todeclProto: this.todeclProto,
             },
           },
@@ -50,7 +51,7 @@ class RemoteAccInputPhonePage extends BasePage {
             itemType: SubmitBtn,
             key: 'submit',
             props: {
-              btnTx: '同意並繼續',
+              btnTx: lang.t('remoteAccount.agreeGoOn'),
               onPress: this.toSubmit,
             },
           },
@@ -63,10 +64,10 @@ class RemoteAccInputPhonePage extends BasePage {
   };
   toSubmit = async () => {
     if (this.state.phone === '') {
-      Toast.info('请输入手机号');
+      Toast.info(lang.t('remoteAccount.inputPhoneTip'));
     }
     if (this.state.phone.length !== 11) {
-      Toast.info('请输入正确的手机号');
+      Toast.info(lang.t('remoteAccount.inputCorrectPhoneTip'));
     }
     // await HTTP.api({
     //   url: API.REMOTE_ACC_GET_PHONE_CODE,

@@ -16,6 +16,7 @@ import ResetIDPassword from '../pages/resetIDPassword';
 import ResetTransPin from '../pages/resetTransPin';
 import AboutUS from '../pages/aboutUS';
 import RemoteAccountModule from '../pages/remoteAccount';
+import TestPage from '../pages/test/test';
 
 const routes = [
   {
@@ -37,6 +38,10 @@ const routes = [
   {
     name: 'RenderPage',
     component: RenderPage,
+  },
+  {
+    name: 'TestPage',
+    component: TestPage,
   },
 
   ...UserModule.routes,

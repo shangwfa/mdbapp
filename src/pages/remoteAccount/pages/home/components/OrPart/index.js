@@ -4,10 +4,10 @@ import {View, Text} from 'react-native';
 import theme from './styles';
 
 function OrPart(props) {
-  const {styles} = props;
+  const {styles, val} = props;
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>或</Text>
+      <Text style={styles.text}>{val}</Text>
     </View>
   );
 }

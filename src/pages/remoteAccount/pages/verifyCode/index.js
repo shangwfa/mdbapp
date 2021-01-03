@@ -1,18 +1,17 @@
 import * as React from 'react';
 import {StyleSheet, ScrollView} from 'react-native';
-import {Toast} from '@ant-design/react-native';
 import BasePage from '../../../BasePage';
 import RenderStaticPage from '#/components/render/RenderStaticPage';
 import TopTips from './components/TopTips';
 import VerifyCodeInput from './components/VerifyCodeInput';
 import HTTP from '#/api';
 import API from '../../api';
-
+import lang from '#/i18n';
 class RemoteAccVerifyCodePage extends BasePage {
   constructor(props) {
     super(props);
     this.initHeader({
-      title: '远程开户',
+      title: lang.t('remoteAccount.title'),
     });
     this.state = {
       pageDes: {
@@ -26,8 +25,10 @@ class RemoteAccVerifyCodePage extends BasePage {
             itemType: TopTips,
             key: 'toptips',
             props: {
-              title: '短信驗證碼',
-              subTitle: `驗證碼已發送${this.params.phonePrefix} ${this.params.phone}`,
+              title: lang.t('remoteAccount.smsCode'),
+              subTitle: `${lang.t('remoteAccount.codeSended')}${
+                this.params.phonePrefix
+              } ${this.params.phone}`,
             },
           },
           {
